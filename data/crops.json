@@ -1,0 +1,65 @@
+{
+    "garlic":{
+        "info": {
+            "description": "Adds a wonderful zestiness to dishes. High quality garlic can be pretty spicy.",
+            "seed": "garlic seeds",
+            "growth_time": 4,
+            "season": "spring",
+            "continual": false
+        }
+    },
+    "potato":{
+        "info": {
+            "description": "A widely cultivated tuber.",
+            "seed": "potato seeds",
+            "growth_time": 6,
+            "season": "spring",
+            "continual": false
+        }
+    },
+    "blueberry":{
+        "info": {
+            "description": "A popular berry reported to have many health benefits. The blue skin has the highest nutrient concentration.",
+            "seed": "blueberry seeds",
+            "growth_time": 13,
+            "season": "summer",
+            "continual": true
+        }
+    },
+    "radish": {
+        "info": {
+            "description": "A crisp and refreshing root vegetable with hints of pepper when eaten raw.",
+            "seed": "radish seeds",
+            "growth_time": 6,
+            "season": "summer",
+            "continual": false
+        }
+    },
+    "starfruit": {
+        "info": {
+            "description": "An extremely juicy fruit that grows in hot, humid weather. Slightly sweet with a sour undertone.",
+            "seed": "starfruit seeds",
+            "growth_time": 13,
+            "season": "summer",
+            "continual": false
+        }
+    },
+    "cranberries": {
+        "info": {
+            "description": "These tart red berries are a traditional winter food.",
+            "seed": "cranberry seeds",
+            "growth_time": 7,
+            "season": "fall",
+            "continual": true
+        }
+    },
+    "yams": {
+        "info": {
+            "description": "A starchy tuber with a lot of culinary versatility.",
+            "seed": "yam seeds",
+            "growth_time": 10,
+            "season": "fall",
+            "continual": false
+        }
+    }
+}
