@@ -14,7 +14,7 @@ var stardewCrops = &cobra.Command{
 }
 
 func all(cmd *cobra.Command, args []string) {
-	processors.All(args...)
+	processors.AllCrops(args...)
 }
 
 func init() {

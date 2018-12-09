@@ -8,10 +8,10 @@ import (
 	"github.com/jaysonesmith/stardew-crops/output"
 )
 
-var cropData map[string]interface{}
+var cropData data.CropData
 
-// All returns all crop data raw
-func All(args ...string) {
+// AllCrops returns all crop data raw
+func AllCrops(args ...string) {
 	fmt.Println("cropData:", cropData)
 	for i, arg := range args {
 		fmt.Printf("%d: %s\n", i, arg)

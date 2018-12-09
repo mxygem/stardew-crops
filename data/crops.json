@@ -1,75 +1,82 @@
-{
-    "garlic": {
-        "info": {
-            "description": "Adds a wonderful zestiness to dishes. High quality garlic can be pretty spicy.",
-            "seed": "garlic seeds",
-            "growth_time": 4,
-            "season": "spring",
-            "continual": false
-        },
-        "seed_price": {
-            "general_store": 40,
-            "jojamart": "N/A",
-            "traveling_cart": {
-                "min": 100,
-                "max": 1000
-            },
-            "night_market": 40
-        },
-        "notes": []
+[
+  {
+    "name": "garlic",
+    "info": {
+      "description": "Adds a wonderful zestiness to dishes. High quality garlic can be pretty spicy.",
+      "seed": "garlic seeds",
+      "growth_time": 4,
+      "season": "spring",
+      "continual": false
     },
-    "potato": {
-        "info": {
-            "description": "A widely cultivated tuber.",
-            "seed": "potato seeds",
-            "growth_time": 6,
-            "season": "spring",
-            "continual": false
-        }
+    "seed_price": {
+      "general_store": 40,
+      "jojamart": "N/A",
+      "traveling_cart": {
+        "min": 100,
+        "max": 1000
+      },
+      "night_market": 40
     },
-    "blueberry": {
-        "info": {
-            "description": "A popular berry reported to have many health benefits. The blue skin has the highest nutrient concentration.",
-            "seed": "blueberry seeds",
-            "growth_time": 13,
-            "season": "summer",
-            "continual": true
-        }
-    },
-    "radish": {
-        "info": {
-            "description": "A crisp and refreshing root vegetable with hints of pepper when eaten raw.",
-            "seed": "radish seeds",
-            "growth_time": 6,
-            "season": "summer",
-            "continual": false
-        }
-    },
-    "starfruit": {
-        "info": {
-            "description": "An extremely juicy fruit that grows in hot, humid weather. Slightly sweet with a sour undertone.",
-            "seed": "starfruit seeds",
-            "growth_time": 13,
-            "season": "summer",
-            "continual": false
-        }
-    },
-    "cranberries": {
-        "info": {
-            "description": "These tart red berries are a traditional winter food.",
-            "seed": "cranberry seeds",
-            "growth_time": 7,
-            "season": "fall",
-            "continual": true
-        }
-    },
-    "yams": {
-        "info": {
-            "description": "A starchy tuber with a lot of culinary versatility.",
-            "seed": "yam seeds",
-            "growth_time": 10,
-            "season": "fall",
-            "continual": false
-        }
+    "notes": []
+  },
+  {
+    "name": "potato",
+    "info": {
+      "description": "A widely cultivated tuber.",
+      "seed": "potato seeds",
+      "growth_time": 6,
+      "season": "spring",
+      "continual": false
     }
-}
+  },
+  {
+    "name": "blueberry",
+    "info": {
+      "description": "A popular berry reported to have many health benefits. The blue skin has the highest nutrient concentration.",
+      "seed": "blueberry seeds",
+      "growth_time": 13,
+      "season": "summer",
+      "continual": true
+    }
+  },
+  {
+    "name": "radish",
+    "info": {
+      "description": "A crisp and refreshing root vegetable with hints of pepper when eaten raw.",
+      "seed": "radish seeds",
+      "growth_time": 6,
+      "season": "summer",
+      "continual": false
+    }
+  },
+  {
+    "name": "starfruit",
+    "info": {
+      "description": "An extremely juicy fruit that grows in hot, humid weather. Slightly sweet with a sour undertone.",
+      "seed": "starfruit seeds",
+      "growth_time": 13,
+      "season": "summer",
+      "continual": false
+    }
+  },
+  {
+    "name": "cranberries",
+    "info": {
+      "description": "These tart red berries are a traditional winter food.",
+      "seed": "cranberry seeds",
+      "growth_time": 7,
+      "season": "fall",
+      "continual": true
+    }
+  },
+  {
+    "name": "yams",
+    "info": {
+      "description": "A starchy tuber with a lot of culinary versatility.",
+      "seed": "yam seeds",
+      "growth_time": 10,
+      "season": "fall",
+      "continual": false
+    }
+  }
+]

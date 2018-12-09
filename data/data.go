@@ -8,14 +8,14 @@ import (
 )
 
 // InitData opens the appropriate data file and returns it
-func InitData() map[string]interface{} {
+func InitData() CropData {
 	fileBytes, err := ioutil.ReadFile(cropsDataFile())
 	if err != nil {
 		fmt.Println("unable to open crops file:", err)
 		os.Exit(1)
 	}
 
-	var cropData map[string]interface{}
+	var cropData CropData
 	if err := json.Unmarshal(fileBytes, &cropData); err != nil {
 		fmt.Println("unable to process crops file:", err)
 		os.Exit(1)
