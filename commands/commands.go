@@ -1,9 +1,7 @@
 package commands
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"os"
 )
 
@@ -17,19 +15,6 @@ var format string
 func Execute() {
 	if err := stardewCrops.Execute(); err != nil {
 		fmt.Println(err)
-		os.Exit(1)
-	}
-}
-
-func initDB() {
-	fileBytes, err := ioutil.ReadFile("./data/crops.json")
-	if err != nil {
-		fmt.Println("unable to open crops file:", err)
-		os.Exit(1)
-	}
-
-	if err := json.Unmarshal(fileBytes, &cropData); err != nil {
-		fmt.Println("unable to process crops file:", err)
 		os.Exit(1)
 	}
 }

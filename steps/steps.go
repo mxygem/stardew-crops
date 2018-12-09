@@ -3,6 +3,7 @@ package steps
 import (
 	"github.com/DATA-DOG/godog"
 	"github.com/DATA-DOG/godog/gherkin"
+	"github.com/jaysonesmith/stardew-crops/commands"
 )
 
 func ThePrettyFormatterIsDesired() error {
@@ -10,6 +11,8 @@ func ThePrettyFormatterIsDesired() error {
 }
 
 func InfoForGarlicIsRequested() error {
+	commands.Execute()
+
 	return godog.ErrPending
 }
 
