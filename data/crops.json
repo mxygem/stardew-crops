@@ -1,5 +1,5 @@
 {
-    "garlic":{
+    "garlic": {
         "info": {
             "description": "Adds a wonderful zestiness to dishes. High quality garlic can be pretty spicy.",
             "seed": "garlic seeds",
@@ -15,9 +15,10 @@
                 "max": 1000
             },
             "night_market": 40
-        }
+        },
+        "notes": []
     },
-    "potato":{
+    "potato": {
         "info": {
             "description": "A widely cultivated tuber.",
             "seed": "potato seeds",
@@ -26,7 +27,7 @@
             "continual": false
         }
     },
-    "blueberry":{
+    "blueberry": {
         "info": {
             "description": "A popular berry reported to have many health benefits. The blue skin has the highest nutrient concentration.",
             "seed": "blueberry seeds",
