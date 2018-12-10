@@ -8,6 +8,16 @@ import (
 	"github.com/jaysonesmith/stardew-crops/utils"
 )
 
+func (sc *ScenarioContext) MatchString(e string) error {
+	actual := strings.TrimSpace(sc.STDOut)
+	expected := strings.TrimSpace(e)
+	if expected == actual {
+		return nil
+	}
+
+	return fmt.Errorf("expected content and found content do not match!\n expected: %s\n found: %s", expected, actual)
+}
+
 func (sc *ScenarioContext) MatchDocString(e *gherkin.DocString) error {
 	actual := strings.TrimSpace(sc.STDOut)
 	expected := strings.TrimSpace(e.Content)

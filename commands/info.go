@@ -1,8 +1,7 @@
 package commands
 
 import (
-	"fmt"
-
+	"github.com/jaysonesmith/stardew-crops/processors"
 	"github.com/spf13/cobra"
 )
 
@@ -11,9 +10,11 @@ var infoCmd = &cobra.Command{
 	Use:   "info",
 	Short: "Get information on a specific crop",
 	Long:  `Specify a crop name to get more information on it i.e. 'stardew-crops info garlic'`,
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("cropData:", &cropData)
-	},
+	Run:   info,
+}
+
+func info(cmd *cobra.Command, args []string) {
+	processors.Info(args...)
 }
 
 func init() {

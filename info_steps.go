@@ -5,3 +5,9 @@ func (sc *ScenarioContext) InfoCrop(crop string) error {
 
 	return nil
 }
+
+func (sc *ScenarioContext) InfoNoArgs() error {
+	sc.STDOut = InfoCommand("")
+
+	return nil
+}
