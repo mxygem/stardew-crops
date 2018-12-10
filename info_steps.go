@@ -7,7 +7,9 @@ import (
 
 func (sc *ScenarioContext) InfoCommand(crop string) error {
 	so, r, w := utils.STDOutUp()
+
 	processors.Info()
+
 	sc.STDOut = string(utils.STDOutDown(so, r, w))
 
 	return nil

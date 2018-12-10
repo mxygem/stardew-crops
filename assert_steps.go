@@ -8,7 +8,7 @@ import (
 	"github.com/jaysonesmith/stardew-crops/utils"
 )
 
-func (sc *ScenarioContext) MatchSTDOut(e *gherkin.DocString) error {
+func (sc *ScenarioContext) MatchDocString(e *gherkin.DocString) error {
 	actual := strings.TrimSpace(sc.STDOut)
 	expected := strings.TrimSpace(e.Content)
 	if expected == actual {
