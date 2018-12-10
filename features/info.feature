@@ -4,4 +4,4 @@ Feature: The Info command
 
     Scenario: A matched crop has its data returned
     When info for garlic is requested
-    Then the output must match "./test_data/crops.json"
+    Then the output must match the file "./test_data/crops_raw.json"
