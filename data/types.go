@@ -9,10 +9,10 @@ type Crop struct {
 	Name       string   `json:"name"`
 	Info       info     `json:"info"`
 	SeedPrices prices   `json:"seed_prices"`
-	Gifting    gifting  `json:"gifting"`
-	Quests     []string `json:"quests"`
 	Bundles    []string `json:"bundles"`
-	Notes      []string `json:"notes"`
+	Recipes    []string `json:"recipes"`
+	Quests     []string `json:"quests"`
+	Notes      []string `json:"notes,omitempty"`
 }
 
 type info struct {
@@ -33,10 +33,4 @@ type prices struct {
 type travelingCartPrices struct {
 	Min int64 `json:"min"`
 	Max int64 `json:"max"`
-}
-
-type gifting struct {
-	Likes    []string `json:"likes"`
-	Dislikes []string `json:"dislikes"`
-	Hates    []string `json:"hates"`
 }
