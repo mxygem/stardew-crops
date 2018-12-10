@@ -19,9 +19,9 @@
         "night_market": 40
       },
       "bundles": [],
-      "recipes": [],
+      "recipes": ["Escargot", "Fiddlehead Risotto", "Oil of Garlic"],
       "quests": [],
-      "notes": []
+      "notes": ["Only available starting in year 2"]
     },
     {
       "name": "potato",
@@ -53,7 +53,20 @@
         "growth_time": 13,
         "season": "summer",
         "continual": true
-      }
+      },
+      "seed_prices": {
+        "general_store": 40,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 100,
+          "max": 1000
+        },
+        "night_market": 40
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
     },
     {
       "name": "radish",
@@ -63,7 +76,20 @@
         "growth_time": 6,
         "season": "summer",
         "continual": false
-      }
+      },
+      "seed_prices": {
+        "general_store": 40,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 100,
+          "max": 1000
+        },
+        "night_market": 40
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
     },
     {
       "name": "starfruit",
@@ -73,7 +99,20 @@
         "growth_time": 13,
         "season": "summer",
         "continual": false
-      }
+      },
+      "seed_prices": {
+        "general_store": 40,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 100,
+          "max": 1000
+        },
+        "night_market": 40
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
     },
     {
       "name": "cranberries",
@@ -83,7 +122,20 @@
         "growth_time": 7,
         "season": "fall",
         "continual": true
-      }
+      },
+      "seed_prices": {
+        "general_store": 40,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 100,
+          "max": 1000
+        },
+        "night_market": 40
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
     },
     {
       "name": "yams",
@@ -93,7 +145,20 @@
         "growth_time": 10,
         "season": "fall",
         "continual": false
-      }
+      },
+      "seed_prices": {
+        "general_store": 40,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 100,
+          "max": 1000
+        },
+        "night_market": 40
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
     }
   ]
 }

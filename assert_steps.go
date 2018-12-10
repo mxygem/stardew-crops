@@ -26,5 +26,7 @@ func (sc *ScenarioContext) MatchFile(path string) error {
 		return nil
 	}
 
+	fmt.Println("expect", expected)
+	fmt.Println("actual", actual)
 	return fmt.Errorf("expected content and found content do not match\n%v", utils.Diff(expected, actual))
 }

@@ -25,8 +25,8 @@ func InitData() CropData {
 }
 
 func cropsDataFile() string {
-	if os.Getenv("TEST") == "true" {
-		return "./test_data/crops.json"
-	}
+	// if os.Getenv("TEST") == "true" {
+	// 	return "./test_data/crops.json"
+	// }
 	return "./data/crops.json"
 }
