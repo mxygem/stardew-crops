@@ -9,10 +9,10 @@ import (
 )
 
 func TestCropsByAllSeasons(t *testing.T) {
-	expected := map[string][]string{
-		"spring": []string{"garlic", "potato"},
-		"summer": []string{"blueberry", "radish", "starfruit"},
-		"fall":   []string{"cranberries", "yams"},
+	expected := processors.CropsBySeasons{
+		Spring: []string{"garlic", "potato"},
+		Summer: []string{"blueberry", "radish", "starfruit"},
+		Fall:   []string{"cranberries", "yams"},
 	}
 
 	actual := processors.CropsByAllSeasons()
