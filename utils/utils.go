@@ -58,6 +58,8 @@ func Diff(t1, t2 string) string {
 	return dmp.DiffPrettyText(diffs)
 }
 
+// AssertMatch checks whether two strings are the same
+// and returns an error if not
 func AssertMatch(expected, actual string) error {
 	if expected == actual {
 		return nil
