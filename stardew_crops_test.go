@@ -15,6 +15,7 @@ func FeatureContext(s *godog.Suite) {
 	s.Step(`^info for (\w+) is requested$`, sc.InfoCrop)
 	s.Step(`^info is requested$`, sc.InfoNoArgs)
 	s.Step(`^the output must match ("[^"]*")$`, sc.MatchString)
+	s.Step(`^the output must match \x60(.*)\x60`, sc.MatchString)
 	s.Step(`^the output must match$`, sc.MatchDocString)
 	s.Step(`^the output must match the file "([^"]*)"$`, sc.MatchFile)
 	s.Step(`^the (\w+) season is requested$`, sc.Season)

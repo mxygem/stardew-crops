@@ -4,26 +4,23 @@ import (
 	"fmt"
 
 	"github.com/jaysonesmith/stardew-crops/data"
-	"github.com/jaysonesmith/stardew-crops/output"
 )
 
 // Season ...
-func Season(args ...string) CropsBySeasons {
+func Season(args ...string) (CropsBySeasons, error) {
 	cbs := cropsByAllSeasons()
-	// fmt.Println(cbs)
 
 	if len(args) == 0 || args[0] == "" {
-		return cbs
+		return cbs, nil
 	} else if args[0] == "spring" {
-		return CropsBySeasons{Spring: cbs.Spring}
+		return CropsBySeasons{Spring: cbs.Spring}, nil
 	} else if args[0] == "summer" {
-		return CropsBySeasons{Summer: cbs.Summer}
+		return CropsBySeasons{Summer: cbs.Summer}, nil
 	} else if args[0] == "fall" {
-		return CropsBySeasons{Fall: cbs.Fall}
+		return CropsBySeasons{Fall: cbs.Fall}, nil
 	}
 
-	output.Print(fmt.Sprintf("Unknown season for %s", args[0]))
-	return CropsBySeasons{}
+	return CropsBySeasons{}, fmt.Errorf("Unknown season for %s", args[0])
 }
 
 type CropsBySeasons struct {

@@ -11,11 +11,18 @@ var seasonCmd = &cobra.Command{
 	Use:   "season",
 	Short: "List crops by season or filter to a specific one",
 	Long:  `Specify a season to limit to only that season i.e. 'stardew-crops season summer'`,
-	Run:   season,
+	Run:   Season,
 }
 
-func season(cmd *cobra.Command, args []string) {
-	out := processors.Season(args...)
+// Season is the handler for the season command and manages
+// the processing and output
+func Season(cmd *cobra.Command, args []string) {
+	out, err := processors.Season(args...)
+	if err != nil {
+		output.Print(err.Error())
+		return
+	}
+
 	output.Print(out)
 }
 
