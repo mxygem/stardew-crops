@@ -4,12 +4,13 @@ import (
 	"fmt"
 
 	"github.com/jaysonesmith/stardew-crops/data"
+	"github.com/jaysonesmith/stardew-crops/output"
 )
 
 // Season ...
 func Season(args ...string) CropsBySeasons {
 	cbs := cropsByAllSeasons()
-	fmt.Println(cbs)
+	// fmt.Println(cbs)
 
 	if len(args) == 0 || args[0] == "" {
 		return cbs
@@ -21,7 +22,7 @@ func Season(args ...string) CropsBySeasons {
 		return CropsBySeasons{Fall: cbs.Fall}
 	}
 
-	fmt.Printf("unknown season for %s", args[0])
+	output.Print(fmt.Sprintf("Unknown season for %s", args[0]))
 	return CropsBySeasons{}
 }
 

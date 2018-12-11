@@ -19,3 +19,7 @@ Feature: Crops by season
             "summer":["blueberry", "radish", "starfruit"]
         }
         """
+
+    Scenario: An unmatched season returns a message informing the user of such
+        When the breakfast season is requested
+        Then the output must match "Unknown season for breakfast"
