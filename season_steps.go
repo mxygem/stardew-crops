@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"strings"
+
+	"github.com/jaysonesmith/stardew-crops/utils"
 )
 
 func (sc *ScenarioContext) Season(crop string) error {
@@ -18,34 +20,22 @@ func (sc *ScenarioContext) SeasonNoArgs() error {
 }
 
 func (sc *ScenarioContext) MatchAllCropsBySeason() error {
+	expected := utils.Open("./test_data/seasons/all.json")
 	actual := strings.TrimSpace(sc.STDOut)
-	expected := `{"spring":["garlic","potato"],"summer":["blueberry","radish","starfruit"],"fall":["cranberries","yams"]}`
 
-	if expected == actual {
-		return nil
-	}
-
-	return fmt.Errorf("expected content and found content do not match!\n expected: %s\n found: %s", expected, actual)
+	return utils.AssertMatch(expected, actual)
 }
 
 func (sc *ScenarioContext) MatchSeasonCrops(season string) error {
+	expected := utils.Open(fmt.Sprintf(`./test_data/seasons/%s.json`, season))
 	actual := strings.TrimSpace(sc.STDOut)
-	expected := `{"summer":["blueberry","radish","starfruit"]}`
 
-	if expected == actual {
-		return nil
-	}
-
-	return fmt.Errorf("expected content and found content do not match!\n expected: %s\n found: %s", expected, actual)
+	return utils.AssertMatch(expected, actual)
 }
 
 func (sc *ScenarioContext) MatchUnknownCropMessage() error {
-	actual := strings.TrimSpace(sc.STDOut)
 	expected := `"Unknown season for breakfast"`
+	actual := strings.TrimSpace(sc.STDOut)
 
-	if expected == actual {
-		return nil
-	}
-
-	return fmt.Errorf("expected content and found content do not match!\n expected: %s\n found: %s", expected, actual)
+	return utils.AssertMatch(expected, actual)
 }

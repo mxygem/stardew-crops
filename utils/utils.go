@@ -74,3 +74,11 @@ func Diff(t1, t2 string) string {
 
 	return dmp.DiffPrettyText(diffs)
 }
+
+func AssertMatch(expected, actual string) error {
+	if expected == actual {
+		return nil
+	}
+
+	return fmt.Errorf("expected content and found content do not match!\n expected: %s\n found: %s", expected, actual)
+}
