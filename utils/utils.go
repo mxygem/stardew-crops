@@ -13,7 +13,7 @@ import (
 )
 
 // Open opens a file based on the provided path
-// and returns it as a string
+// and returns it as a trimmed string
 func Open(path string) string {
 	fp, err := filepath.Abs(path)
 	if err != nil {
@@ -31,6 +31,7 @@ func Open(path string) string {
 	return strings.TrimSpace(string(f))
 }
 
+// OpenBytes opens a file and returns its bytes
 func OpenBytes(openPath string) []byte {
 	_, filename, _, ok := runtime.Caller(1)
 	if !ok {
@@ -48,6 +49,7 @@ func OpenBytes(openPath string) []byte {
 	return f
 }
 
+// STDOutUp sets up for capturing stdout
 func STDOutUp() (so, r, w *os.File) {
 	so = os.Stdout
 	r, w, _ = os.Pipe()
@@ -56,6 +58,7 @@ func STDOutUp() (so, r, w *os.File) {
 	return so, r, w
 }
 
+// STDOutDown reads the captured stdout and returns it
 func STDOutDown(so, r, w *os.File) []byte {
 	w.Close()
 	out, _ := ioutil.ReadAll(r)
@@ -64,6 +67,7 @@ func STDOutDown(so, r, w *os.File) []byte {
 	return out
 }
 
+// Diff returns the diff of two provided strings
 func Diff(t1, t2 string) string {
 	dmp := diffmatchpatch.New()
 	diffs := dmp.DiffMain(t1, t2, false)
