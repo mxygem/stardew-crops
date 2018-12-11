@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"os"
 	"path"
-	"path/filepath"
 	"runtime"
 	"strings"
 
@@ -14,19 +13,9 @@ import (
 
 // Open opens a file based on the provided path
 // and returns it as a trimmed string
-func Open(path string) string {
-	fp, err := filepath.Abs(path)
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
-	fmt.Println(fp)
-
-	f, err := ioutil.ReadFile(fp)
-	if err != nil {
-		fmt.Printf("unable to load file path = %s, Err = %s", path, err.Error())
-		os.Exit(1)
-	}
+func Open(openPath string) string {
+	fp := getPath(openPath)
+	f := open(fp)
 
 	return strings.TrimSpace(string(f))
 }
@@ -40,13 +29,7 @@ func OpenBytes(openPath string) []byte {
 	}
 	fp := path.Join(path.Dir(filename), openPath)
 
-	f, err := ioutil.ReadFile(fp)
-	if err != nil {
-		fmt.Printf("unable to load file path = %s, Err = %s", fp, err.Error())
-		os.Exit(1)
-	}
-
-	return f
+	return open(fp)
 }
 
 // STDOutUp sets up for capturing stdout
@@ -81,4 +64,30 @@ func AssertMatch(expected, actual string) error {
 	}
 
 	return fmt.Errorf("expected content and found content do not match!\n expected: %s\n found: %s", expected, actual)
+}
+
+func getPath(op string) string {
+	callerPath := path.Dir(caller(3))
+
+	return path.Join(callerPath, op)
+}
+
+func caller(level int) string {
+	_, filename, _, ok := runtime.Caller(level)
+	if !ok {
+		fmt.Printf("unable to determine caller")
+		os.Exit(1)
+	}
+
+	return filename
+}
+
+func open(path string) []byte {
+	f, err := ioutil.ReadFile(path)
+	if err != nil {
+		fmt.Printf("unable to load file %s", err.Error())
+		os.Exit(1)
+	}
+
+	return f
 }
