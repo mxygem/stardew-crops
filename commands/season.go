@@ -1,6 +1,7 @@
 package commands
 
 import (
+	"github.com/jaysonesmith/stardew-crops/output"
 	"github.com/jaysonesmith/stardew-crops/processors"
 	"github.com/spf13/cobra"
 )
@@ -14,7 +15,8 @@ var seasonCmd = &cobra.Command{
 }
 
 func season(cmd *cobra.Command, args []string) {
-	processors.Season(args...)
+	out := processors.Season(args...)
+	output.Print(out)
 }
 
 func init() {

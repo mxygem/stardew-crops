@@ -4,28 +4,25 @@ import (
 	"fmt"
 
 	"github.com/jaysonesmith/stardew-crops/data"
-
-	"github.com/jaysonesmith/stardew-crops/output"
 )
 
 // Season ...
-func Season(args ...string) {
-	cbs := CropsByAllSeasons()
+func Season(args ...string) CropsBySeasons {
+	cbs := cropsByAllSeasons()
 	fmt.Println(cbs)
 
 	if len(args) == 0 || args[0] == "" {
-		output.Print(fmt.Sprintf("No crop name specified, please try again"))
-		return
+		return cbs
+	} else if args[0] == "spring" {
+		return CropsBySeasons{Spring: cbs.Spring}
+	} else if args[0] == "summer" {
+		return CropsBySeasons{Summer: cbs.Summer}
+	} else if args[0] == "fall" {
+		return CropsBySeasons{Fall: cbs.Fall}
 	}
 
-	for _, crop := range cropData.Crops {
-		if args[0] == crop.Name {
-			output.Print(crop)
-			return
-		}
-	}
-
-	output.Print(fmt.Sprintf("Unable to find matching crop for %s", args[0]))
+	fmt.Printf("unknown season for %s", args[0])
+	return CropsBySeasons{}
 }
 
 type CropsBySeasons struct {
@@ -34,8 +31,7 @@ type CropsBySeasons struct {
 	Fall   []string `json:"fall,omitempty"`
 }
 
-// CropsByAllSeasons returns all crops grouped by season
-func CropsByAllSeasons() CropsBySeasons {
+func cropsByAllSeasons() CropsBySeasons {
 	out := CropsBySeasons{}
 	for _, crop := range cropData.Crops {
 		switch crop.Info.Season {
