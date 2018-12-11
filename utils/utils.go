@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"path"
+	"path/filepath"
+	"runtime"
 	"strings"
 
 	"github.com/sergi/go-diff/diffmatchpatch"
@@ -12,13 +15,37 @@ import (
 // Open opens a file based on the provided path
 // and returns it as a string
 func Open(path string) string {
-	f, err := ioutil.ReadFile(path)
+	fp, err := filepath.Abs(path)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	fmt.Println(fp)
+
+	f, err := ioutil.ReadFile(fp)
 	if err != nil {
 		fmt.Printf("unable to load file path = %s, Err = %s", path, err.Error())
 		os.Exit(1)
 	}
 
 	return strings.TrimSpace(string(f))
+}
+
+func OpenBytes(openPath string) []byte {
+	_, filename, _, ok := runtime.Caller(1)
+	if !ok {
+		fmt.Printf("unable to determine caller")
+		os.Exit(1)
+	}
+	fp := path.Join(path.Dir(filename), openPath)
+
+	f, err := ioutil.ReadFile(fp)
+	if err != nil {
+		fmt.Printf("unable to load file path = %s, Err = %s", fp, err.Error())
+		os.Exit(1)
+	}
+
+	return f
 }
 
 func STDOutUp() (so, r, w *os.File) {

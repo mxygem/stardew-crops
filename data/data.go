@@ -3,17 +3,14 @@ package data
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"os"
+
+	"github.com/jaysonesmith/stardew-crops/utils"
 )
 
 // InitData opens the appropriate data file and returns it
 func InitData() CropData {
-	fileBytes, err := ioutil.ReadFile(cropsDataFile())
-	if err != nil {
-		fmt.Println("unable to open crops file:", err)
-		os.Exit(1)
-	}
+	fileBytes := utils.OpenBytes(cropsDataFile())
 
 	var cropData CropData
 	if err := json.Unmarshal(fileBytes, &cropData); err != nil {
@@ -28,5 +25,5 @@ func cropsDataFile() string {
 	// if os.Getenv("TEST") == "true" {
 	// 	return "./test_data/crops.json"
 	// }
-	return "./data/crops.json"
+	return "./crops.json"
 }
