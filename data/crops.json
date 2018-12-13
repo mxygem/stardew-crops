@@ -1,12 +1,84 @@
 {
   "crops": [
     {
+      "name": "blue jazz",
+      "info": {
+        "description": "The flower grows in a sphere to invite as many butterflies as possible.",
+        "seed": "Jazz Seeds",
+        "growth_time": 7,
+        "season": ["spring"],
+        "continual": false
+      },
+      "seed_prices": {
+        "general_store": 30,
+        "jojamart": 37,
+        "traveling_cart": {
+          "min": 100,
+          "max": 1000
+        },
+        "night_market": 30
+      },
+      "bundles": [],
+      "recipes": ["Lucky Lunch"],
+      "quests": [],
+      "notes": [
+        "If placed within proper range of a Bee House (5 squares horizontally, 4 squares vertically), a Blue Jazz will cause the Honey produced to become more profitable.",
+        "Fully grown Blue Jazz flowers have an equal chance of being one of six different colors.",
+        "Blue Jazz flowers of different colors will occupy different slots in inventory or chests. Six colors × three quality levels = 18 possible spaces used."
+    ]
+    },
+    {
+      "name": "cauliflower",
+      "info": {
+        "description": "Valuable, but slow-growing. Despite its pale color, the florets are packed with nutrients.",
+        "seed": "cauliflower seeds",
+        "growth_time": 12,
+        "season": ["spring"],
+        "continual": false
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": ["Spring Crops"],
+      "recipes": ["Cheese Cauliflower"],
+      "quests": ["Jodi's Request",
+      "Spring Help Wanted"],
+      "notes": ["Has a chance to grow into a giant crop"]
+    },
+    {
+      "name": "coffee bean",
+      "info": {
+        "description": "Plant in spring or summer to grow a coffee plant. Place five beans in a keg to make coffee.",
+        "seed": "coffee bean",
+        "growth_time": 10,
+        "season": ["spring", "summer"],
+        "continual": true,
+        "reharvest_time": 2
+      },
+      "seed_prices": {
+        "traveling_cart": {
+          "min": 100,
+          "max": 2500
+        }
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
       "name": "garlic",
       "info": {
         "description": "Adds a wonderful zestiness to dishes. High quality garlic can be pretty spicy.",
         "seed": "garlic seeds",
         "growth_time": 4,
-        "season": "spring",
+        "season": ["spring"],
         "continual": false
       },
       "seed_prices": {
@@ -24,12 +96,36 @@
       "notes": ["Only available starting in year 2"]
     },
     {
+      "name": "",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
       "name": "potato",
       "info": {
         "description": "A widely cultivated tuber.",
         "seed": "potato seeds",
         "growth_time": 6,
-        "season": "spring",
+        "season": ["spring"],
         "continual": false
       },
       "seed_prices": {
@@ -51,7 +147,7 @@
         "description": "A popular berry reported to have many health benefits. The blue skin has the highest nutrient concentration.",
         "seed": "blueberry seeds",
         "growth_time": 13,
-        "season": "summer",
+        "season": ["summer"],
         "continual": true
       },
       "seed_prices": {
@@ -74,7 +170,7 @@
         "description": "A crisp and refreshing root vegetable with hints of pepper when eaten raw.",
         "seed": "radish seeds",
         "growth_time": 6,
-        "season": "summer",
+        "season": ["summer"],
         "continual": false
       },
       "seed_prices": {
@@ -97,7 +193,7 @@
         "description": "An extremely juicy fruit that grows in hot, humid weather. Slightly sweet with a sour undertone.",
         "seed": "starfruit seeds",
         "growth_time": 13,
-        "season": "summer",
+        "season": ["summer"],
         "continual": false
       },
       "seed_prices": {
@@ -120,7 +216,7 @@
         "description": "These tart red berries are a traditional winter food.",
         "seed": "cranberry seeds",
         "growth_time": 7,
-        "season": "fall",
+        "season": ["fall"],
         "continual": true
       },
       "seed_prices": {
@@ -143,7 +239,7 @@
         "description": "A starchy tuber with a lot of culinary versatility.",
         "seed": "yam seeds",
         "growth_time": 10,
-        "season": "fall",
+        "season": ["fall"],
         "continual": false
       },
       "seed_prices": {
@@ -154,6 +250,29 @@
           "max": 1000
         },
         "night_market": 40
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
       },
       "bundles": [],
       "recipes": [],
