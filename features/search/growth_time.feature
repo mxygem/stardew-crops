@@ -5,15 +5,10 @@ Feature: Search by Growth Time
 
     Scenario: A less than time of 5 is specified
         # stardew-crops search --growthlt 5
-        When a search by season for fall is performed
-        Then a list of crops that grow in fall must be returned
+        When a search by less than growth time of 5 days is performed
+        Then a list of crops that grow in 5 days or less must be returned
 
-    Scenario: An unmatched season returns an applicable error message
-        # stardew-crops search --season banana
-        When a search by season for banana is performed
-        Then an error indicating no matches found must be returned
-
-    Scenario: Searching by season without specifying one returns an error message
-        # stardew-crops search --season
-        When a search by season is performed with no value
-        Then an error indicating a value must be specified must be returned
+    Scenario: A greater than time of 5 is specified
+        # stardew-crops search --growthgt 5
+        When a search by greater than growth time of 5 days is performed
+        Then a list of crops that grow in 5 days  or more must be returned
