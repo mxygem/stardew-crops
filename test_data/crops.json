@@ -1,6 +1,26 @@
 {
   "crops": [
     {
+      "name": "coffee bean",
+      "info": {
+        "description": "Plant in spring or summer to grow a coffee plant. Place five beans in a keg to make coffee.",
+        "seed": "coffee bean",
+        "growth_time": 10,
+        "season": ["spring", "summer"],
+        "continual": true,
+        "regrowth": 2,
+        "trellis": false
+      },
+      "seed_prices": {
+        "traveling_cart": {
+          "min": 100,
+          "max": 2500
+        }
+      },
+      "recipes": ["Coffee"],
+      "notes": ["Has a 1% chance to drop from dust sprite"]
+    },
+    {
       "name": "garlic",
       "info": {
         "description": "Adds a wonderful zestiness to dishes. High quality garlic can be pretty spicy.",
@@ -34,6 +54,20 @@
       "recipes": ["Hashbrowns"],
       "quests": ["Spring Help Wanted"],
       "notes": ["Chance to spawn extra potatoes at harvest"]
+    },
+    {
+      "name": "rhubarb",
+      "info": {
+        "description": "The stalks are extremely tart, but make a great dessert when sweetened.",
+        "seed": "rhubarb seeds",
+        "growth_time": 13,
+        "season": ["spring"],
+        "continual": false
+      },
+      "seed_prices": {
+        "oasis": 100
+      },
+      "recipes": ["Rhubarb Pie"]
     },
     {
       "name": "blueberry",
