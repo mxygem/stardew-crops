@@ -32,8 +32,8 @@
         "trellis": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0
+        "general_store": 80,
+        "jojamart": 100
       },
       "bundles": ["Spring Crops"],
       "recipes": ["Cheese Cauliflower"],
