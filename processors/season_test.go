@@ -1,6 +1,7 @@
 package processors_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/jaysonesmith/stardew-crops/processors"
@@ -12,15 +13,17 @@ func TestSeason(t *testing.T) {
 		name     string
 		args     string
 		expected processors.CropsBySeasons
+		err      error
 	}{
 		{
 			name: "No args returns all crops",
 			args: "",
 			expected: processors.CropsBySeasons{
 				Spring: []string{"garlic", "potato"},
-				Summer: []string{"blueberry", "radish", "starfruit"},
-				Fall:   []string{"cranberries", "yams"},
+				Summer: []string{"blueberry", "corn", "radish", "starfruit"},
+				Fall:   []string{"corn", "cranberries", "yam"},
 			},
+			err: nil,
 		},
 		{
 			name: "Only spring crops",
@@ -28,33 +31,38 @@ func TestSeason(t *testing.T) {
 			expected: processors.CropsBySeasons{
 				Spring: []string{"garlic", "potato"},
 			},
+			err: nil,
 		},
 		{
 			name: "Only summer crops",
 			args: "summer",
 			expected: processors.CropsBySeasons{
-				Summer: []string{"blueberry", "radish", "starfruit"},
+				Summer: []string{"blueberry", "corn", "radish", "starfruit"},
 			},
+			err: nil,
 		},
 		{
 			name: "Only fall crops",
 			args: "fall",
 			expected: processors.CropsBySeasons{
-				Fall: []string{"cranberries", "yams"},
+				Fall: []string{"corn", "cranberries", "yam"},
 			},
+			err: nil,
 		},
 		{
 			name:     "Unmatched season",
 			args:     "breakfast",
 			expected: processors.CropsBySeasons{},
+			err:      fmt.Errorf("Unknown season for breakfast"),
 		},
 	}
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			actual := processors.Season(tc.args)
+			actual, err := processors.Season(tc.args)
 
 			assert.Equal(t, tc.expected, actual)
+			assert.Equal(t, tc.err, err)
 		})
 	}
 }

@@ -54,6 +54,24 @@
       "notes": ["Has a small chance for multiple fruit from each harvest"]
     },
     {
+      "name": "corn",
+      "info": {
+        "description": "One of the most popular grains. The sweet, fresh cobs are a summer favorite.",
+        "seed": "corn seeds",
+        "growth_time": 14,
+        "season": ["summer", "fall"],
+        "continual": true,
+        "regrowth": 4
+      },
+      "seed_prices": {
+        "general_store": 150,
+        "jojamart": 187
+      },
+      "bundles": ["Fall Crops", "Quality Crops"],
+      "recipes": ["Tortillas"],
+      "quests": ["Fall Help Wanted"]
+    },
+    {
       "name": "radish",
       "info": {
         "description": "A crisp and refreshing root vegetable with hints of pepper when eaten raw.",
