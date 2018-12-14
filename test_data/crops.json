@@ -122,6 +122,25 @@
       "quests": ["Summer Help Wanted"]
     },
     {
+      "name": "hot pepper",
+      "info": {
+        "description": "Fiery hot with a hint of sweetness.",
+        "seed": "pepper seeds",
+        "growth_time": 5,
+        "season": ["summer"],
+        "continual": true,
+        "regrowth": 3
+      },
+      "seed_prices": {
+        "general_store": 40,
+        "jojamart": 50
+      },
+      "bundles": ["Summer Crops"],
+      "recipes": ["Pepper Poppers", "Spicy Eel"],
+      "quests": ["Knee Therapy", "Summer Help Wanted"],
+      "notes": ["Has a small chance for multiple fruit from each harvest"]
+    },
+    {
       "name": "starfruit",
       "info": {
         "description": "An extremely juicy fruit that grows in hot, humid weather. Slightly sweet with a sour undertone.",
@@ -162,6 +181,25 @@
       "notes": [
         "Harvest gives two Cranberries and has a small chance to provide more"
       ]
+    },
+    {
+      "name": "grape",
+      "info": {
+        "description": "A sweet cluster of fruit.",
+        "seed": "grape starter",
+        "growth_time": 10,
+        "season": ["fall"],
+        "continual": true,
+        "regrowth": 3,
+        "trellis": true
+      },
+      "seed_prices": {
+        "general_store": 60,
+        "jojamart": 70
+      },
+      "bundles": ["Summer Foraging"],
+      "recipes": ["Wild Seeds"],
+      "quests": ["Summer Help Wanted"]
     },
     {
       "name": "yam",
