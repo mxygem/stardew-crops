@@ -7,25 +7,19 @@
         "seed": "Jazz Seeds",
         "growth_time": 7,
         "season": ["spring"],
-        "continual": false
+        "continual": false,
+        "trellis": false
       },
       "seed_prices": {
         "general_store": 30,
-        "jojamart": 37,
-        "traveling_cart": {
-          "min": 100,
-          "max": 1000
-        },
-        "night_market": 30
+        "jojamart": 37
       },
-      "bundles": [],
       "recipes": ["Lucky Lunch"],
-      "quests": [],
       "notes": [
         "If placed within proper range of a Bee House (5 squares horizontally, 4 squares vertically), a Blue Jazz will cause the Honey produced to become more profitable.",
         "Fully grown Blue Jazz flowers have an equal chance of being one of six different colors.",
         "Blue Jazz flowers of different colors will occupy different slots in inventory or chests. Six colors × three quality levels = 18 possible spaces used."
-    ]
+      ]
     },
     {
       "name": "cauliflower",
@@ -34,21 +28,16 @@
         "seed": "cauliflower seeds",
         "growth_time": 12,
         "season": ["spring"],
-        "continual": false
+        "continual": false,
+        "trellis": false
       },
       "seed_prices": {
         "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "jojamart": 0
       },
       "bundles": ["Spring Crops"],
       "recipes": ["Cheese Cauliflower"],
-      "quests": ["Jodi's Request",
-      "Spring Help Wanted"],
+      "quests": ["Jodi's Request", "Spring Help Wanted"],
       "notes": ["Has a chance to grow into a giant crop"]
     },
     {
@@ -59,7 +48,8 @@
         "growth_time": 10,
         "season": ["spring", "summer"],
         "continual": true,
-        "reharvest_time": 2
+        "regrowth": 2,
+        "trellis": false
       },
       "seed_prices": {
         "traveling_cart": {
@@ -67,9 +57,7 @@
           "max": 2500
         }
       },
-      "bundles": [],
       "recipes": ["Coffee"],
-      "quests": [],
       "notes": ["Has a 1% chance to drop from dust sprite"]
     },
     {
@@ -79,93 +67,68 @@
         "seed": "garlic seeds",
         "growth_time": 4,
         "season": ["spring"],
-        "continual": false
+        "continual": false,
+        "trellis": false
       },
       "seed_prices": {
         "general_store": 40,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 100,
-          "max": 1000
-        },
-        "night_market": 40
+        "jojamart": 0
       },
-      "bundles": [],
       "recipes": ["Escargot", "Fiddlehead Risotto", "Oil of Garlic"],
-      "quests": [],
       "notes": ["Only available starting in year 2"]
     },
     {
       "name": "green bean",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "A juicy little bean with a cool, crisp snap.",
+        "seed": "bean starter",
+        "growth_time": 6,
+        "season": ["spring"],
+        "continual": true,
+        "regrowth": 3,
+        "trellis": true
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 60,
+        "jojamart": 75
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "bundles": ["Spring Crops"],
+      "recipes": ["Bean Hotpot"],
+      "quests": ["Spring Help Wanted"]
     },
     {
       "name": "kale",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
+        "description": "The waxy leaves are great in soups and stir fries.",
+        "seed": "kale seeds",
+        "growth_time": 6,
         "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "continual": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 70,
+        "jojamart": 87
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "recipes": ["Salmon Dinner", "Stir Fry"],
+      "quests": ["Spring Help Wanted"],
+      "notes": ["A scythe is required to harvest Kale."]
     },
     {
       "name": "parsnip",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "A spring tuber closely related to the carrot. It has an earthy taste and is full of nutrients.",
+        "seed": "parsnip seeds",
+        "growth_time": 4,
+        "season": ["spring"],
+        "continual": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 20,
+        "jojamart": 25
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "bundles": ["Spring Crops", "Quality Crops"],
+      "recipes": ["Farmer's Lunch", "Parsnip Soup"],
+      "quests": ["Spring Help Wanted"]
     },
     {
       "name": "potato",
@@ -178,88 +141,56 @@
       },
       "seed_prices": {
         "general_store": 50,
-        "jojamart": 62,
-        "traveling_cart": {
-          "min": 100,
-          "max": 1000
-        },
-        "night_market": 50
+        "jojamart": 62
       },
-      "quests": ["Spring Help Wanted"],
       "bundles": ["Spring Crops"],
-      "notes": ["Chance so spawn extra potatoes at harvest"]
+      "recipes": ["Hashbrowns"],
+      "quests": ["Spring Help Wanted"],
+      "notes": ["Chance to spawn extra potatoes at harvest"]
     },
     {
       "name": "rhubarb",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "The stalks are extremely tart, but make a great dessert when sweetened.",
+        "seed": "rhubarb seeds",
+        "growth_time": 13,
+        "season": ["spring"],
+        "continual": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "oasis": 100
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "recipes": ["Rhubarb Pie"]
     },
     {
       "name": "strawberry",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "A sweet, juicy favorite with an appealing red color.",
+        "seed": "strawberry seeds",
+        "growth_time": 8,
+        "season": ["spring"],
+        "continual": true,
+        "regrowth": 4
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "egg_festival": 100
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "quests": ["Summer Help Wanted"],
+      "notes": ["Has a small chance for multiple fruit from each harvest"]
     },
     {
       "name": "tulip",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "A sweet, juicy favorite with an appealing red color.",
+        "seed": "tulip bulb",
+        "growth_time": 6,
+        "season": ["spring"],
+        "continual": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
-      },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+        "general_store": 20,
+        "jojamart": 25
+      }
     },
     {
       "name": "blueberry",
@@ -268,141 +199,106 @@
         "seed": "blueberry seeds",
         "growth_time": 13,
         "season": ["summer"],
-        "continual": true
+        "continual": true,
+        "regrowth": 4
       },
       "seed_prices": {
-        "general_store": 40,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 100,
-          "max": 1000
-        },
-        "night_market": 40
+        "general_store": 80
       },
-      "bundles": [],
-      "recipes": [],
+      "bundles": ["Summer Crops"],
+      "recipes": ["Blueberry Tart", "Fruit Salad"],
       "quests": [],
-      "notes": []
+      "notes": ["Has a small chance for multiple fruit from each harvest"]
     },
     {
       "name": "corn",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "One of the most popular grains. The sweet, fresh cobs are a summer favorite.",
+        "seed": "corn seeds",
+        "growth_time": 14,
+        "season": ["summer", "fall"],
+        "continual": true,
+        "regrowth": 4
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 150,
+        "jojamart": 187
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "bundles": ["Fall Crops", "Quality Crops"],
+      "recipes": ["Tortillas"],
+      "quests": ["Fall Help Wanted"]
     },
     {
       "name": "hops",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "A bitter, tangy flower used to flavor beer.",
+        "seed": "hops starter",
+        "growth_time": 11,
+        "season": ["summer"],
+        "continual": true,
+        "regrowth": 1,
+        "trellis": true
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 60,
+        "jojamart": 75
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "notes": [
+        "Hops can be put into a Keg to make Pale Ale. Pale Ale has one of the highest returns on investment in the game, surpassed only by Starfruit wine."
+      ]
     },
     {
       "name": "hot pepper",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "Fiery hot with a hint of sweetness.",
+        "seed": "pepper seeds",
+        "growth_time": 5,
+        "season": ["summer"],
+        "continual": true,
+        "regrowth": 3
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 40,
+        "jojamart": 50
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "bundles": ["Summer Crops"],
+      "recipes": ["Pepper Poppers", "Spicy Eel"],
+      "quests": ["Knee Therapy", "Summer Help Wanted"],
+      "notes": ["Has a small chance for multiple fruit from each harvest"]
     },
     {
       "name": "melon",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "A cool, sweet summer treat.",
+        "seed": "melon seeds",
+        "growth_time": 12,
+        "season": ["summer"],
+        "continual": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 80,
+        "jojamart": 100
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "bundles": ["Summer Crops", "Quality Crops"],
+      "recipes": ["Fruit Salad", "Pink Cake"],
+      "quests": ["Crop Research", "Summer Help Wanted"],
+      "notes": ["Has a chance to grow into a giant crop"]
     },
     {
       "name": "poppy",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "In addition to its colorful flower, the Poppy has culinary and medicinal uses.",
+        "seed": "poppy seeds",
+        "growth_time": 7,
+        "season": ["summer"],
+        "continual": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 100,
+        "jojamart": 125
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "bundles": ["Chef's"],
+      "recipes": ["Poppyseed Muffin"]
     },
     {
       "name": "radish",
@@ -415,41 +311,27 @@
       },
       "seed_prices": {
         "general_store": 40,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 100,
-          "max": 1000
-        },
-        "night_market": 40
+        "jojamart": 50
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "recipes": ["Radish Salad", "Red Plate"],
+      "quests": ["Summer Help Wanted"]
     },
     {
       "name": "red cabbage",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "Often used in salads and coleslaws. The color can range from purple to blue to green-yellow depending on soil conditions.",
+        "seed": "red cabbage seeds",
+        "growth_time": 9,
+        "season": ["summer"],
+        "continual": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 100
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "bundles": ["Dye"],
+      "recipes": ["Coleslaw", "Fish Taco", "Red Plate"],
+      "quests": ["Summer Help Wanted"],
+      "notes": ["Only available starting in year 2"]
     },
     {
       "name": "starfruit",
@@ -461,210 +343,152 @@
         "continual": false
       },
       "seed_prices": {
-        "general_store": 40,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 100,
-          "max": 1000
-        },
-        "night_market": 40
+        "oasis": 400
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "quests": ["A Soldier's Star"],
+      "notes": [
+        "Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
+        "Starfruit is required to build a Junimo Hut, purchased from the Wizard's Tower."
+      ]
     },
     {
       "name": "summer spangle",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "A tropical bloom that thrives in the humid summer air. Has a sweet, tangy aroma.",
+        "seed": "spangle seeds",
+        "growth_time": 8,
+        "season": ["summer"],
+        "continual": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
-      },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+        "general_store": 50,
+        "jojamart": 62
+      }
     },
     {
       "name": "sunflower",
       "info": {
-        "description": "",
-        "seed": "",
+        "description": "A common misconception is that the flower turns so it's always facing the sun.",
+        "seed": "sunflower seeds",
         "growth_time": 0,
-        "season": [""],
+        "season": ["summer", "fall"],
         "continual": false,
-        "reharvest_time": 0
+        "regrowth": 0
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 200,
+        "jojamart": 125
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "bundles": ["Dye"],
+      "notes": ["Harvesting a sunflower will also produce 0-3 Sunflower Seeds"]
     },
     {
       "name": "tomato",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "Rich and slightly tangy, the Tomato has a wide variety of culinary uses.",
+        "seed": "tomato seeds",
+        "growth_time": 11,
+        "season": ["summer"],
+        "continual": true,
+        "regrowth": 4
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 50,
+        "jojamart": 62
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "bundles": ["Spring Crops"],
+      "recipes": [
+        "Bruschetta",
+        "Eggplant Parmesan",
+        "Fish Stew",
+        "Pizza",
+        "Spaghetti",
+        "Vegetable Medley"
+      ],
+      "quests": ["Summer Help Wanted"],
+      "notes": ["Has a small chance for multiple fruit from each harvest"]
     },
     {
       "name": "wheat",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "One of the most widely cultivated grains. Makes a great flour for breads and cakes.",
+        "seed": "wheat seeds",
+        "growth_time": 4,
+        "season": ["summer", "fall"],
+        "continual": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 10,
+        "jojamart": 12
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "bundles": ["Fodder"],
+      "recipes": ["Wheat Flour"],
+      "quests": ["Summer Help Wanted"],
+      "notes": ["Wheat may be placed in a Keg to produce Beer."]
     },
     {
       "name": "amaranth",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "A purple grain cultivated by an ancient civilization.",
+        "seed": "amaranth seeds",
+        "growth_time": 7,
+        "season": ["fall"],
+        "continual": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 70,
+        "jojamart": 87
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "recipes": ["Salmon Dinner"],
+      "quests": ["Cow's Delight"],
+      "notes": ["A scythe is required to harvest Amaranth."]
     },
     {
       "name": "artichoke",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "The bud of a thistle plant. The spiny outer leaves conceal a fleshy, filling interior.",
+        "seed": "artichoke seeds",
+        "growth_time": 8,
+        "season": ["fall"],
+        "continual": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 30
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "recipes": ["Artichoke Dip", "Super Meal"],
+      "quests": ["Fall Help Wanted"],
+      "notes": ["Only available starting in year 2"]
     },
     {
-      "name": "beets",
+      "name": "beet",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "A sweet and earthy root vegetable. As a bonus, the leaves make a great salad.",
+        "seed": "beet seeds",
+        "growth_time": 6,
+        "season": ["fall"],
+        "continual": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "oasis": 20
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "recipes": ["Vegetable Medley", "Sugar"],
+      "quests": ["The Mysterious Qi"]
     },
     {
       "name": "bok choy",
       "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
+        "description": "The leafy greens and fibrous stalks are healthy and delicious.",
+        "seed": "bok choy seeds",
+        "growth_time": 4,
+        "season": ["fall"],
+        "continual": false
       },
       "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
+        "general_store": 50,
+        "jojamart": 62
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "recipes": ["Super Meal"],
+      "quests": ["Fall Help Wanted"]
     },
     {
       "name": "cranberries",
@@ -673,24 +497,101 @@
         "seed": "cranberry seeds",
         "growth_time": 7,
         "season": ["fall"],
-        "continual": true
+        "continual": true,
+        "regrowth": 5
       },
       "seed_prices": {
-        "general_store": 40,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 100,
-          "max": 1000
-        },
-        "night_market": 40
+        "general_store": 240,
+        "jojamart": 300
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "recipes": [
+        "Cranberry Candy",
+        "Cranberry Sauce",
+        "Stuffing",
+        "Super Meal"
+      ],
+      "notes": [
+        "Harvest gives two Cranberries and has a small chance to provide more"
+      ]
     },
     {
-      "name": "yams",
+      "name": "eggplant",
+      "info": {
+        "description": "A rich and wholesome relative of the tomato. Delicious fried or stewed.",
+        "seed": "eggplant seeds",
+        "growth_time": 5,
+        "season": ["fall"],
+        "continual": true,
+        "regrowth": 5
+      },
+      "seed_prices": {
+        "general_store": 20,
+        "jojamart": 25
+      },
+      "bundles": ["Fall Crops"],
+      "recipes": ["Eggplant Parmesan", "Survival Burger"],
+      "quests": ["Fall Help Wanted"],
+      "notes": ["Has a small chance for multiple vegetables from each harvest"]
+    },
+    {
+      "name": "fairy rose",
+      "info": {
+        "description": "An old folk legend suggests that the sweet smell of this flower attracts fairies.",
+        "seed": "fairy seeds",
+        "growth_time": 12,
+        "season": ["fall"],
+        "continual": false
+      },
+      "seed_prices": {
+        "general_store": 200,
+        "jojamart": 250
+      },
+      "notes": [
+        "The honey made from the flowers represents the most profitable honey possible."
+      ]
+    },
+    {
+      "name": "grape",
+      "info": {
+        "description": "A sweet cluster of fruit.",
+        "seed": "grape starter",
+        "growth_time": 10,
+        "season": ["fall"],
+        "continual": true,
+        "regrowth": 3,
+        "trellis": true
+      },
+      "seed_prices": {
+        "general_store": 60,
+        "jojamart": 70
+      },
+      "bundles": ["Summer Foraging"],
+      "recipes": ["Wild Seeds"],
+      "quests": ["Summer Help Wanted"]
+    },
+    {
+      "name": "pumpkin",
+      "info": {
+        "description": "A fall favorite, grown for its crunchy seeds and delicately flavored flesh. As a bonus, the hollow shell can be carved into a festive decoration.",
+        "seed": "pumpkin seeds",
+        "growth_time": 13,
+        "season": ["fall"],
+        "continual": false
+      },
+      "seed_prices": {
+        "general_store": 100,
+        "jojamart": 125
+      },
+      "bundles": ["Fall Crops"],
+      "recipes": ["Autumn's Bounty", "Pumpkin Pie", "Pumpkin Soup", "Jack-O-Lantern"],
+      "quests": ["Carving Pumpkins", "Fall Help Wanted"],
+      "notes": [
+        "After Starfruit it has the second-highest per unit base price of all the normal crops.",
+        "Has a chance to grow into a giant crop"
+      ]
+    },
+    {
+      "name": "yam",
       "info": {
         "description": "A starchy tuber with a lot of culinary versatility.",
         "seed": "yam seeds",
@@ -699,161 +600,13 @@
         "continual": false
       },
       "seed_prices": {
-        "general_store": 40,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 100,
-          "max": 1000
-        },
-        "night_market": 40
+        "general_store": 60,
+        "jojamart": 75
       },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
-    },
-    {
-      "name": "eggplant",
-      "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
-      },
-      "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
-      },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
-    },
-    {
-      "name": "fairy rose",
-      "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
-      },
-      "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
-      },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
-    },
-    {
-      "name": "grape",
-      "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
-      },
-      "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
-      },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
-    },
-    {
-      "name": "pumpkin",
-      "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
-      },
-      "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
-      },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
-    },
-    {
-      "name": "yam",
-      "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false,
-        "reharvest_time": 0
-      },
-      "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
-      },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
-    },
-    {
-      "name": "",
-      "info": {
-        "description": "",
-        "seed": "",
-        "growth_time": 0,
-        "season": [""],
-        "continual": false
-      },
-      "seed_prices": {
-        "general_store": 0,
-        "jojamart": 0,
-        "traveling_cart": {
-          "min": 0,
-          "max": 0
-        },
-        "night_market": 0
-      },
-      "bundles": [],
-      "recipes": [],
-      "quests": [],
-      "notes": []
+      "bundles": ["Fall Crops"],
+      "recipes": ["Autumn's Bounty", "Glazed Yams"],
+      "quests": ["Fall Help Wanted"],
+      "notes": ["Has a 3% chance of dropping from Duggies."]
     }
   ]
 }
