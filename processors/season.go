@@ -6,6 +6,12 @@ import (
 	"github.com/jaysonesmith/stardew-crops/data"
 )
 
+type CropsBySeasons struct {
+	Spring []string `json:"spring,omitempty"`
+	Summer []string `json:"summer,omitempty"`
+	Fall   []string `json:"fall,omitempty"`
+}
+
 // Season ...
 func Season(args ...string) (CropsBySeasons, error) {
 	cbs := cropsByAllSeasons()
@@ -21,12 +27,6 @@ func Season(args ...string) (CropsBySeasons, error) {
 	}
 
 	return CropsBySeasons{}, fmt.Errorf("Unknown season for %s", args[0])
-}
-
-type CropsBySeasons struct {
-	Spring []string `json:"spring,omitempty"`
-	Summer []string `json:"summer,omitempty"`
-	Fall   []string `json:"fall,omitempty"`
 }
 
 func cropsByAllSeasons() CropsBySeasons {
