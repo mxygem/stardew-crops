@@ -1,6 +1,7 @@
 package commands
 
 import (
+	"github.com/jaysonesmith/stardew-crops/output"
 	"github.com/jaysonesmith/stardew-crops/processors"
 	"github.com/spf13/cobra"
 )
@@ -10,11 +11,17 @@ var infoCmd = &cobra.Command{
 	Use:   "info",
 	Short: "Get information on a specific crop",
 	Long:  `Specify a crop name to get more information on it i.e. 'stardew-crops info garlic'`,
-	Run:   info,
+	Run:   Info,
 }
 
-func info(cmd *cobra.Command, args []string) {
-	processors.Info(args...)
+func Info(cmd *cobra.Command, args []string) {
+	out, err := processors.Info(args...)
+	if err != nil {
+		output.Print(err.Error())
+		return
+	}
+
+	output.Print(out)
 }
 
 func init() {
