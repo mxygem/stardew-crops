@@ -68,9 +68,9 @@
         }
       },
       "bundles": [],
-      "recipes": [],
+      "recipes": ["Coffee"],
       "quests": [],
-      "notes": []
+      "notes": ["Has a 1% chance to drop from dust sprite"]
     },
     {
       "name": "garlic",
@@ -96,7 +96,55 @@
       "notes": ["Only available starting in year 2"]
     },
     {
-      "name": "",
+      "name": "green bean",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "kale",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "parsnip",
       "info": {
         "description": "",
         "seed": "",
@@ -142,6 +190,78 @@
       "notes": ["Chance so spawn extra potatoes at harvest"]
     },
     {
+      "name": "rhubarb",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "strawberry",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "tulip",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
       "name": "blueberry",
       "info": {
         "description": "A popular berry reported to have many health benefits. The blue skin has the highest nutrient concentration.",
@@ -158,6 +278,126 @@
           "max": 1000
         },
         "night_market": 40
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "corn",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "hops",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "hot pepper",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "melon",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "poppy",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
       },
       "bundles": [],
       "recipes": [],
@@ -188,6 +428,30 @@
       "notes": []
     },
     {
+      "name": "red cabbage",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
       "name": "starfruit",
       "info": {
         "description": "An extremely juicy fruit that grows in hot, humid weather. Slightly sweet with a sour undertone.",
@@ -204,6 +468,198 @@
           "max": 1000
         },
         "night_market": 40
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "summer spangle",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "sunflower",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "tomato",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "wheat",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "amaranth",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "artichoke",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "beets",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "bok choy",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
       },
       "bundles": [],
       "recipes": [],
@@ -250,6 +706,126 @@
           "max": 1000
         },
         "night_market": 40
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "eggplant",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "fairy rose",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "grape",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "pumpkin",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
+      },
+      "bundles": [],
+      "recipes": [],
+      "quests": [],
+      "notes": []
+    },
+    {
+      "name": "yam",
+      "info": {
+        "description": "",
+        "seed": "",
+        "growth_time": 0,
+        "season": [""],
+        "continual": false,
+        "reharvest_time": 0
+      },
+      "seed_prices": {
+        "general_store": 0,
+        "jojamart": 0,
+        "traveling_cart": {
+          "min": 0,
+          "max": 0
+        },
+        "night_market": 0
       },
       "bundles": [],
       "recipes": [],
