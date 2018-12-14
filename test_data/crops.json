@@ -31,8 +31,7 @@
         "trellis": false
       },
       "seed_prices": {
-        "general_store": 40,
-        "jojamart": 0
+        "general_store": 40
       },
       "recipes": ["Escargot", "Fiddlehead Risotto", "Oil of Garlic"],
       "notes": ["Only available starting in year 2"]

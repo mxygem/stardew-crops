@@ -7,15 +7,15 @@ type CropData struct {
 // Crop represents the crop data model
 type Crop struct {
 	Name       string   `json:"name"`
-	Info       info     `json:"info"`
-	SeedPrices prices   `json:"seed_prices"`
+	Info       Info     `json:"info"`
+	SeedPrices Prices   `json:"seed_prices"`
 	Bundles    []string `json:"bundles,omitempty"`
 	Recipes    []string `json:"recipes,omitempty"`
 	Quests     []string `json:"quests,omitempty"`
 	Notes      []string `json:"notes,omitempty"`
 }
 
-type info struct {
+type Info struct {
 	Description string   `json:"description"`
 	Seed        string   `json:"seed"`
 	GrowthTime  int64    `json:"growth_time"`
@@ -25,14 +25,14 @@ type info struct {
 	Trellis     bool     `json:"trellis,omitempty"`
 }
 
-type prices struct {
+type Prices struct {
 	GeneralStore  int64               `json:"general_store,omitempty"`
 	JojaMart      int64               `json:"jojamart,omitempty"`
-	TravelingCart travelingCartPrices `json:"traveling_cart,omitempty"`
+	TravelingCart TravelingCartPrices `json:"traveling_cart,omitempty"`
 	Oasis         int64               `json:"Oasis,omitempty"`
 }
 
-type travelingCartPrices struct {
+type TravelingCartPrices struct {
 	Min int64 `json:"min"`
 	Max int64 `json:"max"`
 }
