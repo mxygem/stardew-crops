@@ -19,8 +19,8 @@ func TestSeason(t *testing.T) {
 			name: "No args returns all crops",
 			args: "",
 			expected: processors.CropsBySeasons{
-				Spring: []string{"garlic", "potato"},
-				Summer: []string{"blueberry", "corn", "radish", "starfruit"},
+				Spring: []string{"coffee bean", "garlic", "potato", "rhubarb"},
+				Summer: []string{"coffee bean", "blueberry", "corn", "radish", "starfruit"},
 				Fall:   []string{"corn", "cranberries", "yam"},
 			},
 			err: nil,
@@ -29,7 +29,7 @@ func TestSeason(t *testing.T) {
 			name: "Only spring crops",
 			args: "spring",
 			expected: processors.CropsBySeasons{
-				Spring: []string{"garlic", "potato"},
+				Spring: []string{"coffee bean", "garlic", "potato", "rhubarb"},
 			},
 			err: nil,
 		},
@@ -37,7 +37,7 @@ func TestSeason(t *testing.T) {
 			name: "Only summer crops",
 			args: "summer",
 			expected: processors.CropsBySeasons{
-				Summer: []string{"blueberry", "corn", "radish", "starfruit"},
+				Summer: []string{"coffee bean", "blueberry", "corn", "radish", "starfruit"},
 			},
 			err: nil,
 		},
