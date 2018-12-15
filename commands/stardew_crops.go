@@ -1,7 +1,6 @@
 package commands
 
 import (
-	"github.com/jaysonesmith/stardew-crops/processors"
 	"github.com/spf13/cobra"
 )
 
@@ -10,11 +9,6 @@ var stardewCrops = &cobra.Command{
 	Use:   "stardew-crops",
 	Short: "Information around Stardew's Crops",
 	Long:  `A cli tool for information around Stardew Valley's Crops`,
-	Run:   all,
-}
-
-func all(cmd *cobra.Command, args []string) {
-	processors.AllCrops(args...)
 }
 
 func init() {
