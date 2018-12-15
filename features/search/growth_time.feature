@@ -11,4 +11,4 @@ Feature: Search by Growth Time
     Scenario: A greater than time of 5 is specified
         # stardew-crops search --growthgt 5
         When a search by greater than growth time of 5 days is performed
-        Then a list of crops that grow in 5 days  or more must be returned
+        Then a list of crops that grow in 5 days or more must be returned
