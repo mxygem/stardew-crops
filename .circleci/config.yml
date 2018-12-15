@@ -1,5 +1,6 @@
 executors:
   runner:
+    working_directory: /go/src/github.com/jaysonesmith/stardew-crops
     docker:
       - image: circleci/golang:1.10
     environment:
@@ -9,6 +10,7 @@ commands:
   install_deps:
     description: "Get godog, dep, and dependencies installed"
     steps:
+      - checkout
       - run: go get -u github.com/DATA-DOG/godog
       - run: go get -u github.com/golang/dep/cmd/dep
       - run: make dep
