@@ -4,8 +4,8 @@ unit:
 	if [ ! -d coverage ]; then mkdir coverage; fi	
 	goverage -v -race -coverprofile=coverage/stardew-crops.profile -timeout 30s ./...
 
-.PHONY: cucumber
-cucumber:
+.PHONY: godog
+godog:
 	TEST=true
 	godog
 
@@ -14,7 +14,7 @@ coverage_results:
 	go tool cover -html=coverage/stardew-crops.profile
 
 .PHONY: all
-all: unit cucumber
+all: unit godog
 
 .PHONY: dep
 dep:
