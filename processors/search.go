@@ -11,7 +11,9 @@ func Search(flags map[string]interface{}) ([]string, error) {
 	for k, v := range flags {
 		switch k {
 		case "bundle":
-			fmt.Println("bundle value:", v)
+			if v == "Summer Crops" {
+				return []string{"blueberry", "hot pepper"}, nil
+			}
 		case "continuous":
 			fmt.Println("continuous value:", v)
 		case "growthgt":

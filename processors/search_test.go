@@ -14,7 +14,12 @@ func TestSearch(t *testing.T) {
 		expected []string
 		err      error
 	}{
-		{},
+		{
+			name:     "bundle search for Summer Crops returns two crops",
+			flags:    map[string]interface{}{"bundle": "Summer Crops"},
+			expected: []string{"blueberry", "hot pepper"},
+			err:      nil,
+		},
 	}
 
 	for _, tc := range testCases {
