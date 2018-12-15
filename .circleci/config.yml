@@ -1,0 +1,51 @@
+executors:
+  runner:
+    docker:
+      - image: circleci/go:1.10
+    environment:
+      - TEST: true
+
+commands:
+  install_deps:
+    description: "Get godog, dep, and dependencies installed"
+    steps:
+      - run: go get -u github.com/DATA-DOG/godog
+      - run: go get -u github.com/golang/dep/cmd/dep
+      - run: make dep
+  run_units:
+    description: "Run the unit make task that runs goverage"
+    steps:
+      - run: make unit
+  run_godog:
+    description: "Run godog"
+    steps:
+      - run: make godog
+
+version: 2.1
+jobs:
+  deps:
+    executor: runner
+    steps:
+      - checkout
+      - install_deps
+  units:
+    executor: runner
+    steps:
+      - checkout
+      - run_units
+  godog:
+    executor: runner
+    steps:
+      - checkout
+      - run_godog
+
+workflows:
+  master:
+    jobs:
+      - deps
+      - units:
+          requires:
+            - deps
+      - godog:
+          requires:
+            - deps
