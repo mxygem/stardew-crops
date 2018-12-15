@@ -13,6 +13,8 @@ func Search(flags map[string]interface{}) ([]string, error) {
 		case "bundle":
 			if v == "Summer Crops" {
 				return []string{"blueberry", "hot pepper"}, nil
+			} else if v == "Quality Crops" {
+				return []string{"corn"}, nil
 			}
 		case "continuous":
 			fmt.Println("continuous value:", v)

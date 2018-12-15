@@ -15,7 +15,13 @@ func TestSearch(t *testing.T) {
 		err      error
 	}{
 		{
-			name:     "bundle search for Summer Crops returns two crops",
+			name:     "bundle search for Quality Crops",
+			flags:    map[string]interface{}{"bundle": "Quality Crops"},
+			expected: []string{"corn"},
+			err:      nil,
+		},
+		{
+			name:     "bundle search for Summer Crops",
 			flags:    map[string]interface{}{"bundle": "Summer Crops"},
 			expected: []string{"blueberry", "hot pepper"},
 			err:      nil,
