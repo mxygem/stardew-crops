@@ -26,13 +26,13 @@ type Info struct {
 }
 
 type Prices struct {
-	GeneralStore  int64               `json:"general_store,omitempty"`
-	JojaMart      int64               `json:"jojamart,omitempty"`
-	TravelingCart TravelingCartPrices `json:"traveling_cart,omitempty"`
-	Oasis         int64               `json:"Oasis,omitempty"`
+	GeneralStore  int64                `json:"general_store,omitempty"`
+	JojaMart      int64                `json:"jojamart,omitempty"`
+	TravelingCart *TravelingCartPrices `json:"traveling_cart,omitempty"`
+	Oasis         int64                `json:"Oasis,omitempty"`
 }
 
 type TravelingCartPrices struct {
-	Min int64 `json:"min"`
-	Max int64 `json:"max"`
+	Min int64 `json:"min,omitempty"`
+	Max int64 `json:"max,omitempty"`
 }

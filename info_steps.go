@@ -31,3 +31,10 @@ func (sc *ScenarioContext) MatchNoCropSpecifiedMessage() error {
 
 	return utils.AssertMatch(expected, actual)
 }
+
+func (sc *ScenarioContext) MatchInfoCropNotFound() error {
+	expected := `"Unable to find matching crop for banana"`
+	actual := strings.TrimSpace(sc.STDOut)
+
+	return utils.AssertMatch(expected, actual)
+}
