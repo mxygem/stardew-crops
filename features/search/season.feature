@@ -12,5 +12,5 @@ Feature: Search by Season
 
     Scenario: Searching by season without specifying one returns an error message
         # stardew-crops search --season
-        When a search by season is performed with no value
+        When a search by season with no value is performed
         Then an error indicating a value must be specified must be returned
