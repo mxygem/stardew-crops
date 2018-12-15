@@ -1,7 +1,7 @@
 executors:
   runner:
     docker:
-      - image: circleci/go:1.10
+      - image: circleci/golang:1.10
     environment:
       - TEST: true
 
