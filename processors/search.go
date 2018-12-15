@@ -1,14 +1,29 @@
 package processors
 
 import (
+	"fmt"
+
 	"github.com/jaysonesmith/stardew-crops/data"
 )
 
 // Search ...
-func Search(args ...string) ([]string, error) {
-	// if len(args) == 0 || args[0] == "" {
-	// 	return data.Crop{}, fmt.Errorf("No crop name specified, please try again")
-	// }
+func Search(flags map[string]interface{}) ([]string, error) {
+	for k, v := range flags {
+		switch k {
+		case "bundle":
+			fmt.Println("bundle value:", v)
+		case "continuous":
+			fmt.Println("continuous value:", v)
+		case "growthgt":
+			fmt.Println("growthgt value:", v)
+		case "growthlt":
+			fmt.Println("growthlt value:", v)
+		case "season":
+			fmt.Println("season value:", v)
+		case "trellis":
+			fmt.Println("trellis value:", v)
+		}
+	}
 
 	// for _, crop := range cropData.Crops {
 	// 	if args[0] == crop.Name {
