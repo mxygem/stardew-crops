@@ -12,15 +12,25 @@ commands:
     steps:
       - checkout
       - run: go get -u github.com/DATA-DOG/godog
+      - run: go get -u github.com/haya14busa/goverage
       - run: go get -u github.com/golang/dep/cmd/dep
       - run: make dep
+      - persist_to_workspace:
+          root: /go
+          paths:
+            - bin/*
+            - src/*
   run_units:
     description: "Run the unit make task that runs goverage"
     steps:
+      - attach_workspace:
+          at: /go
       - run: make unit
   run_godog:
     description: "Run godog"
     steps:
+      - attach_workspace:
+          at: /go
       - run: make godog
 
 version: 2.1
