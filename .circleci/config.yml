@@ -11,7 +11,7 @@ commands:
     description: "Get godog, dep, and dependencies installed"
     steps:
       - checkout
-      - run: go get -u github.com/DATA-DOG/godog
+      - run: go get -u github.com/DATA-DOG/godog/cmd/godog
       - run: go get -u github.com/haya14busa/goverage
       - run: go get -u github.com/golang/dep/cmd/dep
       - run: make dep
@@ -31,7 +31,7 @@ commands:
     steps:
       - attach_workspace:
           at: /go
-      - run: make godog
+      - run: godog
 
 version: 2.1
 jobs:
