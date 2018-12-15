@@ -8,14 +8,11 @@ import (
 
 // Search ...
 func Search(flags map[string]interface{}) ([]string, error) {
+	var out []string
 	for k, v := range flags {
 		switch k {
 		case "bundle":
-			if v == "Summer Crops" {
-				return []string{"blueberry", "hot pepper"}, nil
-			} else if v == "Quality Crops" {
-				return []string{"corn"}, nil
-			}
+			out = append(out, byBundle(v.(string))...)
 		case "continuous":
 			fmt.Println("continuous value:", v)
 		case "growthgt":
@@ -29,13 +26,24 @@ func Search(flags map[string]interface{}) ([]string, error) {
 		}
 	}
 
-	// for _, crop := range cropData.Crops {
-	// 	if args[0] == crop.Name {
-	// 		return crop, nil
-	// 	}
-	// }
+	if len(out) == 0 {
+		return []string{}, fmt.Errorf("no matching crops found")
+	}
 
-	return []string{}, nil
+	return out, nil
+}
+
+func byBundle(v string) []string {
+	var matched []string
+	for _, c := range cropData.Crops {
+		for _, b := range c.Bundles {
+			if b == v {
+				matched = append(matched, c.Name)
+			}
+		}
+	}
+
+	return matched
 }
 
 func init() {
