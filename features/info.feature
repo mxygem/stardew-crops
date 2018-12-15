@@ -2,6 +2,8 @@ Feature: The Info command
 
     Info provides data from a store about a requested crop
 
+    TODO: Implement specifying a list of crops
+
     Scenario: A crop name must be specified
         # stardew-crops info
         When info is requested
