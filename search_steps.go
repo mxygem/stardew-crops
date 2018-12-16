@@ -31,7 +31,7 @@ func (sc *ScenarioContext) MatchBundleCrops(bundle string) error {
 }
 
 func (sc *ScenarioContext) MatchNotFound() error {
-	expected := `"Unable to find matching crop for Pasta"`
+	expected := `"no matching crops found"`
 	actual := strings.TrimSpace(sc.STDOut)
 
 	return utils.AssertMatch(expected, actual)
