@@ -49,6 +49,13 @@ func (sc *ScenarioContext) MatchGrowthResults(timeType string) error {
 	return utils.AssertMatch(expected, actual)
 }
 
+func (sc *ScenarioContext) MatchSeasonResults(season string) error {
+	expected := utils.Open(fmt.Sprintf(`./test_data/search/season/%s.json`, season))
+	actual := strings.TrimSpace(sc.STDOut)
+
+	return utils.AssertMatch(expected, actual)
+}
+
 // remove below?
 
 // func (sc *ScenarioContext) MatchAllCropsBySeason() error {

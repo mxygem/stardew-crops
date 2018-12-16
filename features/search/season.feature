@@ -10,8 +10,3 @@ Feature: Search by Season
         # stardew-crops search --season banana
         When a search by season for banana is performed
         Then an error indicating no matches found must be returned
-
-    Scenario: Searching by season without specifying one returns an error message
-        # stardew-crops search --season
-        When a search by season with no value is performed
-        Then an error indicating a value must be specified must be returned

@@ -75,6 +75,18 @@ func TestSearch(t *testing.T) {
 			expected: []string{},
 			err:      fmt.Errorf("A value must be provided for the growthlt flag"),
 		},
+		{
+			name:     "season search for Summer",
+			flags:    map[string]string{"season": "summer"},
+			expected: []string{"coffee bean", "blueberry", "corn", "radish", "hot pepper", "starfruit"},
+			err:      nil,
+		},
+		{
+			name:     "bundle search for an unmatched bundle",
+			flags:    map[string]string{"season": "breakfast"},
+			expected: []string{},
+			err:      fmt.Errorf("No matching crops found"),
+		},
 	}
 
 	for _, tc := range testCases {
@@ -84,8 +96,6 @@ func TestSearch(t *testing.T) {
 			assert.Equal(t, tc.err, err)
 			assert.Equal(t, len(tc.expected), len(actual))
 			for i, c := range actual {
-				fmt.Println("c.Name", c.Name)
-				fmt.Println("tc.expected[i]", tc.expected[i])
 				assert.Equal(t, tc.expected[i], c.Name)
 			}
 		})

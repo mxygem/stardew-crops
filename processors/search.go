@@ -12,6 +12,8 @@ func Search(flags map[string]string) ([]data.Crop, error) {
 	var out []data.Crop
 
 	for k, v := range flags {
+		// TODO: manage upper/lowercases
+		// v = strings.ToLower(v)
 		switch k {
 		case "bundle":
 			if v == "" {
@@ -31,7 +33,10 @@ func Search(flags map[string]string) ([]data.Crop, error) {
 			}
 			out = append(out, byGrowth("l", v)...)
 		case "season":
-			fmt.Println("season value:", v)
+			if v == "" {
+				return []data.Crop{}, fmt.Errorf(valueRequired(k))
+			}
+			out = append(out, bySeason(v)...)
 		case "trellis":
 			fmt.Println("trellis value:", v)
 		}
@@ -59,13 +64,25 @@ func byBundle(v string) []data.Crop {
 
 func byGrowth(o, v string) []data.Crop {
 	var matched []data.Crop
-	// TODO address ignored error
 	vi, _ := strconv.Atoi(v)
 	for _, c := range cropData.Crops {
 		if o == "g" && c.Info.GrowthTime >= int64(vi) {
 			matched = append(matched, c)
 		} else if o == "l" && c.Info.GrowthTime <= int64(vi) {
 			matched = append(matched, c)
+		}
+	}
+
+	return matched
+}
+
+func bySeason(s string) []data.Crop {
+	var matched []data.Crop
+	for _, c := range cropData.Crops {
+		for _, b := range c.Info.Season {
+			if b == s {
+				matched = append(matched, c)
+			}
 		}
 	}
 
