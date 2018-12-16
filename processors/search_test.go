@@ -1,6 +1,7 @@
 package processors_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/jaysonesmith/stardew-crops/processors"
@@ -23,8 +24,20 @@ func TestSearch(t *testing.T) {
 		{
 			name:     "bundle search for Summer Crops",
 			flags:    map[string]string{"bundle": "Summer Crops"},
-			expected: []string{"blueberry", "hot peppers"},
+			expected: []string{"blueberry", "hot pepper"},
 			err:      nil,
+		},
+		{
+			name:     "bundle search for an unmatched bundle",
+			flags:    map[string]string{"bundle": "Construction"},
+			expected: []string{},
+			err:      fmt.Errorf("No matching crops found"),
+		},
+		{
+			name:     "bundle search with no value",
+			flags:    map[string]string{"bundle": ""},
+			expected: []string{},
+			err:      fmt.Errorf("A value must be provided for the bundle flag"),
 		},
 	}
 

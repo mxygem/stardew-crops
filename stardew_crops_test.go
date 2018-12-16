@@ -31,5 +31,4 @@ func FeatureContext(s *godog.Suite) {
 	s.Step(`^a search by (\w+) for ([^"]*) is performed$`, sc.Search)
 	s.Step(`^a list of the crops available in the ([^"]*) bundle must be returned$`, sc.MatchBundleCrops)
 	s.Step(`^an error indicating that no match was found must be returned$`, sc.MatchNotFound)
-	s.Step(`^an error indicating a value must be specified must be returned$`, sc.MatchNoValueSpecifiedMessage)
 }

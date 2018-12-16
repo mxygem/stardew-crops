@@ -8,16 +8,13 @@ import (
 )
 
 func (sc *ScenarioContext) SearchNoArgs() error {
-	StardewCropsCommand([]string{})
+	StardewCropsCommand([]string{"search", "--bundle"})
 
 	return nil
 }
 
 func (sc *ScenarioContext) Search(flag, value string) error {
-	args := []string{
-		"search",
-		fmt.Sprintf(`--%s=%s`, flag, value),
-	}
+	args := []string{"search", fmt.Sprintf(`--%s=%s`, flag, value)}
 	sc.STDOut = StardewCropsCommand(args)
 
 	return nil
@@ -31,14 +28,7 @@ func (sc *ScenarioContext) MatchBundleCrops(bundle string) error {
 }
 
 func (sc *ScenarioContext) MatchNotFound() error {
-	expected := `"no matching crops found"`
-	actual := strings.TrimSpace(sc.STDOut)
-
-	return utils.AssertMatch(expected, actual)
-}
-
-func (sc *ScenarioContext) MatchNoValueSpecifiedMessage() error {
-	expected := `"A value must be provided for each parameter specified"`
+	expected := `"No matching crops found"`
 	actual := strings.TrimSpace(sc.STDOut)
 
 	return utils.AssertMatch(expected, actual)

@@ -13,6 +13,9 @@ func Search(flags map[string]string) ([]data.Crop, error) {
 	for k, v := range flags {
 		switch k {
 		case "bundle":
+			if v == "" {
+				return []data.Crop{}, fmt.Errorf(valueRequired("bundle"))
+			}
 			out = append(out, byBundle(v)...)
 		case "continuous":
 			fmt.Println("continuous value:", v)
@@ -28,7 +31,7 @@ func Search(flags map[string]string) ([]data.Crop, error) {
 	}
 
 	if len(out) == 0 {
-		return []data.Crop{}, fmt.Errorf("no matching crops found")
+		return []data.Crop{}, fmt.Errorf("No matching crops found")
 	}
 
 	return out, nil
@@ -45,6 +48,10 @@ func byBundle(v string) []data.Crop {
 	}
 
 	return matched
+}
+
+func valueRequired(flag string) string {
+	return fmt.Sprintf("A value must be provided for the %s flag", flag)
 }
 
 func init() {
