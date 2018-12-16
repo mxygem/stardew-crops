@@ -1,5 +1,7 @@
 # stardew-crops
 
+[![CircleCI](https://circleci.com/gh/jaysonesmith/stardew-crops.svg?style=svg)](https://circleci.com/gh/jaysonesmith/stardew-crops)
+
 A learning project for learning to write cli tools. This one is for returning basic crop data for the game Stardew Valley.
 
 It's built with [cobra](https://github.com/spf13/cobra) and tested with [godog](https://github.com/DATA-DOG/godog) & unit tests
