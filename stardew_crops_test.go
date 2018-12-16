@@ -22,9 +22,9 @@ func FeatureContext(s *godog.Suite) {
 	// Season steps
 	// s.Step(`^the (\w+) season\'s crops (?:is|are) requested$`, sc.Season)
 	// s.Step(`^season is requested without a specified season$`, sc.SeasonNoArgs)
-	s.Step(`^all crops grouped by season must be returned$`, sc.MatchAllCropsBySeason)
-	s.Step(`^only the (\w+) crops must be returned$`, sc.MatchSeasonCrops)
-	s.Step(`^a message informing no matched season was found must be returned$`, sc.MatchUnknownCropMessage)
+	// s.Step(`^all crops grouped by season must be returned$`, sc.MatchAllCropsBySeason)
+	// s.Step(`^only the (\w+) crops must be returned$`, sc.MatchSeasonCrops)
+	// s.Step(`^a message informing no matched season was found must be returned$`, sc.MatchUnknownCropMessage)
 
 	// Search steps
 	s.Step(`^a search by (\w+) with no value is performed$`, sc.SearchNoArgs)
