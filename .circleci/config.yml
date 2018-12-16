@@ -31,7 +31,7 @@ commands:
     steps:
       - attach_workspace:
           at: /go
-      - run: godog
+      - run: make godog
 
 version: 2.1
 jobs:

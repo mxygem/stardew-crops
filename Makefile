@@ -7,7 +7,7 @@ unit:
 .PHONY: godog
 godog:
 	TEST=true
-	godog
+	godog --strict
 
 .PHONY: coverage_results
 coverage_results: 
