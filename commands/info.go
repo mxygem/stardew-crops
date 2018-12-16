@@ -25,5 +25,5 @@ func Info(cmd *cobra.Command, args []string) {
 }
 
 func init() {
-	stardewCrops.AddCommand(infoCmd)
+	StardewCrops.AddCommand(infoCmd)
 }

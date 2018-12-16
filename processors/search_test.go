@@ -10,20 +10,20 @@ import (
 func TestSearch(t *testing.T) {
 	testCases := []struct {
 		name     string
-		flags    map[string]interface{}
+		flags    map[string]string
 		expected []string
 		err      error
 	}{
 		{
 			name:     "bundle search for Quality Crops",
-			flags:    map[string]interface{}{"bundle": "Quality Crops"},
+			flags:    map[string]string{"bundle": "Quality Crops"},
 			expected: []string{"corn"},
 			err:      nil,
 		},
 		{
 			name:     "bundle search for Summer Crops",
-			flags:    map[string]interface{}{"bundle": "Summer Crops"},
-			expected: []string{"blueberry", "hot pepper"},
+			flags:    map[string]string{"bundle": "Summer Crops"},
+			expected: []string{"blueberry", "hot peppers"},
 			err:      nil,
 		},
 	}
@@ -32,7 +32,9 @@ func TestSearch(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			actual, err := processors.Search(tc.flags)
 
-			assert.Equal(t, tc.expected, actual)
+			for i, c := range actual {
+				assert.Equal(t, tc.expected[i], c.Name)
+			}
 			assert.Equal(t, tc.err, err)
 		})
 	}

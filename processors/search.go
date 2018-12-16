@@ -7,12 +7,13 @@ import (
 )
 
 // Search ...
-func Search(flags map[string]interface{}) ([]string, error) {
-	var out []string
+func Search(flags map[string]string) ([]data.Crop, error) {
+	var out []data.Crop
+
 	for k, v := range flags {
 		switch k {
 		case "bundle":
-			out = append(out, byBundle(v.(string))...)
+			out = append(out, byBundle(v)...)
 		case "continuous":
 			fmt.Println("continuous value:", v)
 		case "growthgt":
@@ -27,18 +28,18 @@ func Search(flags map[string]interface{}) ([]string, error) {
 	}
 
 	if len(out) == 0 {
-		return []string{}, fmt.Errorf("no matching crops found")
+		return []data.Crop{}, fmt.Errorf("no matching crops found")
 	}
 
 	return out, nil
 }
 
-func byBundle(v string) []string {
-	var matched []string
+func byBundle(v string) []data.Crop {
+	var matched []data.Crop
 	for _, c := range cropData.Crops {
 		for _, b := range c.Bundles {
 			if b == v {
-				matched = append(matched, c.Name)
+				matched = append(matched, c)
 			}
 		}
 	}

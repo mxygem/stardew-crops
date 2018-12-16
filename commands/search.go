@@ -7,8 +7,8 @@ import (
 	"github.com/spf13/pflag"
 )
 
-// searchCmd returns data based on the input crop
-var searchCmd = &cobra.Command{
+// SearchCmd returns data based on the input crop
+var SearchCmd = &cobra.Command{
 	Use:   "search",
 	Short: "Search for crops via a number of methods",
 	Long:  "Search returns a list of crops based on the provided filters and search criteria",
@@ -38,11 +38,11 @@ func Search(cmd *cobra.Command, args []string) {
 // userSetFlags checks for flags that were
 // explicitly set to determine if any were set by
 // the user
-func userSetFlags(cmd *cobra.Command) map[string]interface{} {
-	userFlags := make(map[string]interface{}, 0)
+func userSetFlags(cmd *cobra.Command) map[string]string {
+	userFlags := make(map[string]string, 0)
 	cmd.Flags().Visit(func(f *pflag.Flag) {
 		if f.Changed {
-			userFlags[f.Name] = f.Value
+			userFlags[f.Name] = f.Value.String()
 		}
 	})
 
@@ -51,12 +51,12 @@ func userSetFlags(cmd *cobra.Command) map[string]interface{} {
 
 func init() {
 	// set flags
-	searchCmd.Flags().StringP("bundle", "b", "", "Specify a bundle name to search for")
-	searchCmd.Flags().BoolP("continuous", "c", false, "Search for crops that grow continuously")
-	searchCmd.Flags().Int64P("growthgt", "g", 0, "Search for crops that take the specified time or longer to grow")
-	searchCmd.Flags().Int64P("growthlt", "l", 0, "Search for crops that take the specified time or less to grow")
-	searchCmd.Flags().StringP("season", "s", "", "Search by a season. Options: Spring, Summer, Fall")
-	searchCmd.Flags().BoolP("trellis", "t", false, "Search for crops. Options: Spring, Summer, Fall")
+	SearchCmd.Flags().StringP("bundle", "b", "", "Specify a bundle name to search for")
+	SearchCmd.Flags().BoolP("continuous", "c", false, "Search for crops that grow continuously")
+	SearchCmd.Flags().Int64P("growthgt", "g", 0, "Search for crops that take the specified time or longer to grow")
+	SearchCmd.Flags().Int64P("growthlt", "l", 0, "Search for crops that take the specified time or less to grow")
+	SearchCmd.Flags().StringP("season", "s", "", "Search by a season. Options: Spring, Summer, Fall")
+	SearchCmd.Flags().BoolP("trellis", "t", false, "Search for crops. Options: Spring, Summer, Fall")
 
-	stardewCrops.AddCommand(searchCmd)
+	StardewCrops.AddCommand(SearchCmd)
 }

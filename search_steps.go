@@ -8,19 +8,23 @@ import (
 )
 
 func (sc *ScenarioContext) SearchNoArgs() error {
-	sc.STDOut = SearchCommand("")
+	StardewCropsCommand([]string{})
 
 	return nil
 }
 
 func (sc *ScenarioContext) Search(flag, value string) error {
-	sc.STDOut = SearchCommand(fmt.Sprintf("--%s %s", flag, value))
+	args := []string{
+		"search",
+		fmt.Sprintf(`--%s=%s`, flag, value),
+	}
+	sc.STDOut = StardewCropsCommand(args)
 
 	return nil
 }
 
 func (sc *ScenarioContext) MatchBundleCrops(bundle string) error {
-	expected := `["blueberry", "hot pepper"]`
+	expected := `[{"name":"blueberry","info":{"description":"A popular berry reported to have many health benefits. The blue skin has the highest nutrient concentration.","seed":"blueberry seeds","growth_time":13,"season":["summer"],"continual":true,"regrowth":4},"seed_prices":{"general_store":80},"bundles":["Summer Crops"],"recipes":["Blueberry Tart","Fruit Salad"],"notes":["Has a small chance for multiple fruit from each harvest"]},{"name":"hot pepper","info":{"description":"Fiery hot with a hint of sweetness.","seed":"pepper seeds","growth_time":5,"season":["summer"],"continual":true,"regrowth":3},"seed_prices":{"general_store":40,"jojamart":50},"bundles":["Summer Crops"],"recipes":["Pepper Poppers","Spicy Eel"],"quests":["Knee Therapy","Summer Help Wanted"],"notes":["Has a small chance for multiple fruit from each harvest"]}]`
 	actual := strings.TrimSpace(sc.STDOut)
 
 	return utils.AssertMatch(expected, actual)
