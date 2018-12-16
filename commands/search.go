@@ -40,6 +40,7 @@ func Search(cmd *cobra.Command, args []string) {
 // the user
 func userSetFlags(cmd *cobra.Command) map[string]string {
 	userFlags := make(map[string]string, 0)
+
 	cmd.Flags().Visit(func(f *pflag.Flag) {
 		if f.Changed {
 			userFlags[f.Name] = f.Value.String()

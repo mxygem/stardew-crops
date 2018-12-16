@@ -5,11 +5,10 @@ import (
 )
 
 func FeatureContext(s *godog.Suite) {
-
-	sc := ScenarioContext{}
+	var sc ScenarioContext
 
 	s.AfterScenario(func(interface{}, error) {
-		sc = ScenarioContext{}
+		sc = ScenarioContext{STDOut: ""}
 	})
 
 	// Info steps
@@ -21,7 +20,6 @@ func FeatureContext(s *godog.Suite) {
 	s.Step(`^a message informing no matching crop was found must be returned$`, sc.MatchInfoCropNotFound)
 
 	// Search steps
-	s.Step(`^a search by (\w+) with no value is performed$`, sc.SearchNoArgs)
 	s.Step(`^a search by (\w+) for ([^"]*) is performed$`, sc.Search)
 	s.Step(`^a search by (\w+) than growth time of (\d+) days is performed$`, sc.GrowthSearch)
 

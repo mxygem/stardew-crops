@@ -8,12 +8,6 @@ import (
 	"github.com/jaysonesmith/stardew-crops/utils"
 )
 
-func (sc *ScenarioContext) SearchNoArgs() error {
-	StardewCropsCommand([]string{"search", "--bundle"})
-
-	return nil
-}
-
 func (sc *ScenarioContext) Search(flag, value string) error {
 	args := []string{"search", fmt.Sprintf(`--%s=%s`, flag, value)}
 	sc.STDOut = StardewCropsCommand(args)
