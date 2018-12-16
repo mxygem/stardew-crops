@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 
 	"github.com/jaysonesmith/stardew-crops/utils"
@@ -18,6 +19,12 @@ func (sc *ScenarioContext) Search(flag, value string) error {
 	sc.STDOut = StardewCropsCommand(args)
 
 	return nil
+}
+
+func (sc *ScenarioContext) GrowthSearch(timeType string, value int64) error {
+	flag := map[string]string{"greater": "growthgt", "less": "growthlt"}
+
+	return sc.Search(flag[timeType], strconv.Itoa(int(value)))
 }
 
 func (sc *ScenarioContext) MatchBundleCrops(bundle string) error {
@@ -55,4 +62,12 @@ func (sc *ScenarioContext) MatchUnknownCropMessage() error {
 	actual := strings.TrimSpace(sc.STDOut)
 
 	return utils.AssertMatch(expected, actual)
+}
+
+func (sc *ScenarioContext) MatchGrowthResults(timeType string) error {
+	expected := map[string]string{"foo": "abc", "bar": "def"}
+	actual := strings.TrimSpace(sc.STDOut)
+	fmt.Println("actual:", actual)
+
+	return utils.AssertMatch(expected[timeType], actual)
 }
