@@ -1,3 +1,4 @@
+@wip
 Feature: Formatting options
 #   Available options:
 #    * Pretty - (default) When outputting data, this will display things in a table or in other nicely formatted ways.
