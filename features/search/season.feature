@@ -1,4 +1,3 @@
-@wip
 Feature: Search by Season
 
     Scenario: A season specified returns the crops that grow in that season

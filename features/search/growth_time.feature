@@ -1,4 +1,3 @@
-@wip
 Feature: Search by Growth Time
 
     * Search flags of growthlt and growthgt are available for specifying times

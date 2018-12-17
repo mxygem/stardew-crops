@@ -49,26 +49,3 @@ func (sc *ScenarioContext) MatchSeasonResults(season string) error {
 
 	return utils.AssertMatch(expected, actual)
 }
-
-// remove below?
-
-// func (sc *ScenarioContext) MatchAllCropsBySeason() error {
-// 	expected := utils.Open("./test_data/search/season/all.json")
-// 	actual := strings.TrimSpace(sc.STDOut)
-
-// 	return utils.AssertMatch(expected, actual)
-// }
-
-// func (sc *ScenarioContext) MatchSeasonCrops(season string) error {
-// 	expected := utils.Open(fmt.Sprintf(`./test_data/search/season/%s.json`, season))
-// 	actual := strings.TrimSpace(sc.STDOut)
-
-// 	return utils.AssertMatch(expected, actual)
-// }
-
-// func (sc *ScenarioContext) MatchUnknownCropMessage() error {
-// 	expected := `"Unknown season for breakfast"`
-// 	actual := strings.TrimSpace(sc.STDOut)
-
-// 	return utils.AssertMatch(expected, actual)
-// }
