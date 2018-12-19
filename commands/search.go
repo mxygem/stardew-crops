@@ -36,8 +36,7 @@ func Search(cmd *cobra.Command, args []string) {
 }
 
 // userSetFlags checks for flags that were
-// explicitly set to determine if any were set by
-// the user
+// explicitly set by the user
 func userSetFlags(cmd *cobra.Command) map[string]string {
 	userFlags := make(map[string]string, 0)
 
@@ -56,8 +55,8 @@ func init() {
 	SearchCmd.Flags().BoolP("continuous", "c", false, "Search for crops that grow continuously")
 	SearchCmd.Flags().Int64P("growthgt", "g", 0, "Search for crops that take the specified time or longer to grow")
 	SearchCmd.Flags().Int64P("growthlt", "l", 0, "Search for crops that take the specified time or less to grow")
-	SearchCmd.Flags().StringP("season", "s", "", "Search by a season. Options: Spring, Summer, Fall")
-	SearchCmd.Flags().BoolP("trellis", "t", false, "Search for crops. Options: Spring, Summer, Fall")
+	SearchCmd.Flags().StringP("season", "s", "", "Search by a season Options: Spring, Summer, Fall")
+	SearchCmd.Flags().BoolP("trellis", "t", false, "Search for crops that grow on a trellis")
 
 	StardewCrops.AddCommand(SearchCmd)
 }
