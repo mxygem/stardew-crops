@@ -82,10 +82,16 @@ func TestSearch(t *testing.T) {
 			err:      nil,
 		},
 		{
-			name:     "bundle search for an unmatched bundle",
+			name:     "season search for an unmatched season",
 			flags:    map[string]string{"season": "breakfast"},
 			expected: []string{},
 			err:      fmt.Errorf("No matching crops found"),
+		},
+		{
+			name:     "trellis search for crops with trellis",
+			flags:    map[string]string{"trellis": "true"},
+			expected: []string{"grape"},
+			err:      nil,
 		},
 	}
 

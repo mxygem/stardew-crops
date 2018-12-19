@@ -8,8 +8,7 @@
         "growth_time": 10,
         "season": ["spring", "summer"],
         "continual": true,
-        "regrowth": 2,
-        "trellis": false
+        "regrowth": 2
       },
       "seed_prices": {
         "traveling_cart": {
@@ -27,8 +26,7 @@
         "seed": "garlic seeds",
         "growth_time": 4,
         "season": ["spring"],
-        "continual": false,
-        "trellis": false
+        "continual": false
       },
       "seed_prices": {
         "general_store": 40

@@ -41,6 +41,13 @@ func Search(flags map[string]string) ([]data.Crop, error) {
 			continue
 		}
 
+		specified, ok, err = byTrellis(c[i].Info.Trellis, flags)
+		if err != nil {
+			return []data.Crop{}, err
+		} else if specified && !ok {
+			continue
+		}
+
 		// TODO: trellis and continuous
 
 		out = append(out, c[i])
@@ -113,6 +120,26 @@ func bySeason(cs []string, f map[string]string) (bool, bool, error) {
 		if v == season {
 			return true, true, nil
 		}
+	}
+
+	return true, false, nil
+}
+
+func byTrellis(t bool, f map[string]string) (bool, bool, error) {
+	v, ok := f["trellis"]
+	if !ok {
+		return false, false, nil
+	} else if ok && v == "" {
+		return false, false, fmt.Errorf(valueRequired("trellis"))
+	}
+
+	parsedV, err := strconv.ParseBool(v)
+	if err != nil {
+		return true, false, err
+	}
+
+	if t == parsedV {
+		return true, true, nil
 	}
 
 	return true, false, nil
