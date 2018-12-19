@@ -93,6 +93,12 @@ func TestSearch(t *testing.T) {
 			expected: []string{"grape"},
 			err:      nil,
 		},
+		{
+			name:     "trellis search for crops without trellis",
+			flags:    map[string]string{"trellis": "false"},
+			expected: []string{"coffee bean", "garlic", "potato", "rhubarb", "blueberry", "corn", "radish", "hot pepper", "starfruit", "cranberries", "yam"},
+			err:      nil,
+		},
 	}
 
 	for _, tc := range testCases {

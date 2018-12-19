@@ -48,7 +48,7 @@ func Search(flags map[string]string) ([]data.Crop, error) {
 			continue
 		}
 
-		// TODO: trellis and continuous
+		// TODO: continuous
 
 		out = append(out, c[i])
 	}

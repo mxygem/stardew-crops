@@ -49,3 +49,11 @@ func (sc *ScenarioContext) MatchSeasonResults(season string) error {
 
 	return utils.AssertMatch(expected, actual)
 }
+
+func (sc *ScenarioContext) MatchTrellisResults(presence string) error {
+	fileName := map[string]string{"do not grow": "off_trellis", "grow": "on_trellis"}
+	expected := utils.Open(fmt.Sprintf(`.././test_data/search/trellis/%s.json`, fileName[presence]))
+	actual := strings.TrimSpace(sc.STDOut)
+
+	return utils.AssertMatch(expected, actual)
+}
