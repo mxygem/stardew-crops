@@ -1,4 +1,4 @@
-package main
+package stepdefinitions
 
 type ScenarioContext struct {
 	STDOut string

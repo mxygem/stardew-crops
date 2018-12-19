@@ -1,4 +1,4 @@
-package main
+package stepdefinitions
 
 import (
 	"github.com/jaysonesmith/stardew-crops/commands"

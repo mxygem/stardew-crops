@@ -1,4 +1,4 @@
-package main
+package stepdefinitions
 
 import (
 	"strings"
@@ -19,7 +19,7 @@ func (sc *ScenarioContext) InfoNoArgs() error {
 }
 
 func (sc *ScenarioContext) MatchCropInfo(crop string) error {
-	expected := utils.Open("./test_data/crop_garlic_raw.json")
+	expected := utils.Open(".././test_data/crop_garlic_raw.json")
 	actual := strings.TrimSpace(sc.STDOut)
 
 	return utils.AssertMatch(expected, actual)

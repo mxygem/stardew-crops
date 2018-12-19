@@ -1,4 +1,4 @@
-package main
+package stepdefinitions
 
 import (
 	"fmt"
@@ -22,7 +22,7 @@ func (sc *ScenarioContext) GrowthSearch(timeType string, value int64) error {
 }
 
 func (sc *ScenarioContext) MatchBundleCrops(bundle string) error {
-	expected := utils.Open("./test_data/search/bundle/summerCrops.json")
+	expected := utils.Open(".././test_data/search/bundle/summerCrops.json")
 	actual := strings.TrimSpace(sc.STDOut)
 
 	return utils.AssertMatch(expected, actual)
@@ -37,14 +37,14 @@ func (sc *ScenarioContext) MatchNotFound() error {
 
 func (sc *ScenarioContext) MatchGrowthResults(timeType string) error {
 	fileName := map[string]string{"less": "lessThanFive", "more": "greaterThanFive"}
-	expected := utils.Open(fmt.Sprintf(`./test_data/search/growth/%s.json`, fileName[timeType]))
+	expected := utils.Open(fmt.Sprintf(`.././test_data/search/growth/%s.json`, fileName[timeType]))
 	actual := strings.TrimSpace(sc.STDOut)
 
 	return utils.AssertMatch(expected, actual)
 }
 
 func (sc *ScenarioContext) MatchSeasonResults(season string) error {
-	expected := utils.Open(fmt.Sprintf(`./test_data/search/season/%s.json`, season))
+	expected := utils.Open(fmt.Sprintf(`.././test_data/search/season/%s.json`, season))
 	actual := strings.TrimSpace(sc.STDOut)
 
 	return utils.AssertMatch(expected, actual)

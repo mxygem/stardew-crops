@@ -2,13 +2,14 @@ package main
 
 import (
 	"github.com/DATA-DOG/godog"
+	"github.com/jaysonesmith/stardew-crops/step_definitions"
 )
 
 func FeatureContext(s *godog.Suite) {
-	var sc ScenarioContext
+	var sc stepdefinitions.ScenarioContext
 
 	s.AfterScenario(func(interface{}, error) {
-		sc = ScenarioContext{STDOut: ""}
+		sc = stepdefinitions.ScenarioContext{STDOut: ""}
 	})
 
 	// Info steps
