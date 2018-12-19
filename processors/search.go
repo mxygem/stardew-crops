@@ -11,35 +11,39 @@ import (
 func Search(flags map[string]string) ([]data.Crop, error) {
 	var out []data.Crop
 
-	for k, v := range flags {
-		// TODO: manage upper/lowercases
-		// v = strings.ToLower(v)
-		switch k {
-		case "bundle":
-			if v == "" {
-				return []data.Crop{}, fmt.Errorf(valueRequired(k))
-			}
-			out = append(out, byBundle(v)...)
-		case "continuous":
-			fmt.Println("continuous value:", v)
-		case "growthgt":
-			if v == "" {
-				return []data.Crop{}, fmt.Errorf(valueRequired(k))
-			}
-			out = append(out, byGrowth("g", v)...)
-		case "growthlt":
-			if v == "" {
-				return []data.Crop{}, fmt.Errorf(valueRequired(k))
-			}
-			out = append(out, byGrowth("l", v)...)
-		case "season":
-			if v == "" {
-				return []data.Crop{}, fmt.Errorf(valueRequired(k))
-			}
-			out = append(out, bySeason(v)...)
-		case "trellis":
-			fmt.Println("trellis value:", v)
+	c := cropData.Crops
+	for i := 0; i < len(cropData.Crops); i++ {
+		specified, ok, err := byBundle(c[i], flags)
+		if err != nil {
+			return []data.Crop{}, err
+		} else if specified && !ok {
+			continue
 		}
+
+		specified, ok, err = byGrowth("g", c[i].Info.GrowthTime, flags)
+		if err != nil {
+			return []data.Crop{}, err
+		} else if specified && !ok {
+			continue
+		}
+
+		specified, ok, err = byGrowth("l", c[i].Info.GrowthTime, flags)
+		if err != nil {
+			return []data.Crop{}, err
+		} else if specified && !ok {
+			continue
+		}
+
+		specified, ok, err = bySeason(c[i].Info.Season, flags)
+		if err != nil {
+			return []data.Crop{}, err
+		} else if specified && !ok {
+			continue
+		}
+
+		// TODO: trellis and continuous
+
+		out = append(out, c[i])
 	}
 
 	if len(out) == 0 {
@@ -49,44 +53,69 @@ func Search(flags map[string]string) ([]data.Crop, error) {
 	return out, nil
 }
 
-func byBundle(v string) []data.Crop {
-	var matched []data.Crop
-	for _, c := range cropData.Crops {
-		for _, b := range c.Bundles {
-			if b == v {
-				matched = append(matched, c)
-			}
-		}
+func byBundle(c data.Crop, f map[string]string) (bool, bool, error) {
+	v, ok := f["bundle"]
+	if !ok {
+		return false, false, nil
+	} else if ok && v == "" {
+		return true, false, fmt.Errorf(valueRequired("bundle"))
 	}
 
-	return matched
+	for _, bundle := range c.Bundles {
+		if v == bundle {
+			return true, true, nil
+		}
+	}
+	return true, false, nil
 }
 
-func byGrowth(o, v string) []data.Crop {
-	var matched []data.Crop
-	vi, _ := strconv.Atoi(v)
-	for _, c := range cropData.Crops {
-		if o == "g" && c.Info.GrowthTime >= int64(vi) {
-			matched = append(matched, c)
-		} else if o == "l" && c.Info.GrowthTime <= int64(vi) {
-			matched = append(matched, c)
+func byGrowth(o string, t int64, f map[string]string) (bool, bool, error) {
+	if o == "g" {
+		v, ok := f["growthgt"]
+		if !ok {
+			return false, false, nil
+		} else if ok && v == "" {
+			return false, false, fmt.Errorf(valueRequired("growthgt"))
+		}
+
+		vi, _ := strconv.Atoi(v)
+		if t >= int64(vi) {
+			return false, true, nil
 		}
 	}
 
-	return matched
+	if o == "l" {
+		v, ok := f["growthlt"]
+		if !ok {
+			return false, false, nil
+		} else if ok && v == "" {
+			return false, false, fmt.Errorf(valueRequired("growthlt"))
+		}
+
+		vi, _ := strconv.Atoi(v)
+		if t <= int64(vi) {
+			return false, true, nil
+		}
+	}
+
+	return true, false, nil
 }
 
-func bySeason(s string) []data.Crop {
-	var matched []data.Crop
-	for _, c := range cropData.Crops {
-		for _, b := range c.Info.Season {
-			if b == s {
-				matched = append(matched, c)
-			}
+func bySeason(cs []string, f map[string]string) (bool, bool, error) {
+	v, ok := f["season"]
+	if !ok {
+		return false, false, nil
+	} else if ok && v == "" {
+		return false, false, fmt.Errorf(valueRequired("season"))
+	}
+
+	for _, season := range cs {
+		if v == season {
+			return true, true, nil
 		}
 	}
 
-	return matched
+	return true, false, nil
 }
 
 func valueRequired(flag string) string {

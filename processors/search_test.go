@@ -94,7 +94,6 @@ func TestSearch(t *testing.T) {
 			actual, err := processors.Search(tc.flags)
 
 			assert.Equal(t, tc.err, err)
-			assert.Equal(t, len(tc.expected), len(actual))
 			for i, c := range actual {
 				assert.Equal(t, tc.expected[i], c.Name)
 			}
