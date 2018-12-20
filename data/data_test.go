@@ -49,7 +49,7 @@ func TestInitData(t *testing.T) {
 	// prices joja
 	assert.Equal(t, int64(70), g.SeedPrices.JojaMart)
 	// prices oasis
-	assert.Equal(t, int64(400), s.SeedPrices.oasis)
+	assert.Equal(t, int64(400), s.SeedPrices.Oasis)
 	// prices general nil
 	assert.Equal(t, int64(0), s.SeedPrices.GeneralStore)
 	// prices traveling cart
