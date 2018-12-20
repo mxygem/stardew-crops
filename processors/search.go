@@ -48,7 +48,12 @@ func Search(flags map[string]string) ([]data.Crop, error) {
 			continue
 		}
 
-		// TODO: continuous
+		specified, ok, err = byContinuous(c[i].Info.Continual, flags)
+		if err != nil {
+			return []data.Crop{}, err
+		} else if specified && !ok {
+			continue
+		}
 
 		out = append(out, c[i])
 	}
@@ -139,6 +144,26 @@ func byTrellis(t bool, f map[string]string) (bool, bool, error) {
 	}
 
 	if t == parsedV {
+		return true, true, nil
+	}
+
+	return true, false, nil
+}
+
+func byContinuous(c bool, f map[string]string) (bool, bool, error) {
+	v, ok := f["continuous"]
+	if !ok {
+		return false, false, nil
+	} else if ok && v == "" {
+		return false, false, fmt.Errorf(valueRequired("continuous"))
+	}
+
+	parsedV, err := strconv.ParseBool(v)
+	if err != nil {
+		return true, false, err
+	}
+
+	if c == parsedV {
 		return true, true, nil
 	}
 

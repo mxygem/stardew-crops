@@ -21,6 +21,18 @@ func (sc *ScenarioContext) GrowthSearch(timeType string, value int64) error {
 	return sc.Search(flag[timeType], strconv.Itoa(int(value)))
 }
 
+func (sc *ScenarioContext) TrellisSearch(t string) error {
+	flag := map[string]string{"grow": "true", "do not grow": "false"}
+
+	return sc.Search("trellis", flag[t])
+}
+
+func (sc *ScenarioContext) ContinuousSearch(t string) error {
+	flag := map[string]string{"continuously harvestable": "true", "single harvest": "false"}
+
+	return sc.Search("continuous", flag[t])
+}
+
 func (sc *ScenarioContext) MatchBundleCrops(bundle string) error {
 	expected := utils.Open(".././test_data/search/bundle/summerCrops.json")
 	actual := strings.TrimSpace(sc.STDOut)
@@ -53,6 +65,14 @@ func (sc *ScenarioContext) MatchSeasonResults(season string) error {
 func (sc *ScenarioContext) MatchTrellisResults(presence string) error {
 	fileName := map[string]string{"do not grow": "off_trellis", "grow": "on_trellis"}
 	expected := utils.Open(fmt.Sprintf(`.././test_data/search/trellis/%s.json`, fileName[presence]))
+	actual := strings.TrimSpace(sc.STDOut)
+
+	return utils.AssertMatch(expected, actual)
+}
+
+func (sc *ScenarioContext) MatchContinuousResults(continuous string) error {
+	fileName := map[string]string{"are": "continuous", "are not": "single"}
+	expected := utils.Open(fmt.Sprintf(`.././test_data/search/continuous/%s.json`, fileName[continuous]))
 	actual := strings.TrimSpace(sc.STDOut)
 
 	return utils.AssertMatch(expected, actual)

@@ -99,6 +99,18 @@ func TestSearch(t *testing.T) {
 			expected: []string{"coffee bean", "garlic", "potato", "rhubarb", "blueberry", "corn", "radish", "hot pepper", "starfruit", "cranberries", "yam"},
 			err:      nil,
 		},
+		{
+			name:     "continual search for multi harvest crops",
+			flags:    map[string]string{"continuous": "true"},
+			expected: []string{"coffee bean", "blueberry", "corn", "hot pepper", "cranberries", "grape"},
+			err:      nil,
+		},
+		{
+			name:     "continual search for single harvest crops",
+			flags:    map[string]string{"continuous": "false"},
+			expected: []string{"garlic", "potato", "rhubarb", "radish", "starfruit", "yam"},
+			err:      nil,
+		},
 	}
 
 	for _, tc := range testCases {
@@ -107,6 +119,8 @@ func TestSearch(t *testing.T) {
 
 			assert.Equal(t, tc.err, err)
 			for i, c := range actual {
+				fmt.Println(c)
+				fmt.Println(tc.expected[i])
 				assert.Equal(t, tc.expected[i], c.Name)
 			}
 		})
