@@ -15,6 +15,25 @@ func (sc *ScenarioContext) Search(flag, value string) error {
 	return nil
 }
 
+func (sc *ScenarioContext) DoubleSearch(flag1, value1, flag2, value2 string) error {
+	args := []string{"search", fmt.Sprintf(`--%s=%s`, flag1, value1), fmt.Sprintf(`--%s=%s`, flag2, value2)}
+	sc.STDOut = StardewCropsCommand(args)
+
+	return nil
+}
+
+func (sc *ScenarioContext) TripleSearch(flag1, value1, flag2, value2, flag3, value3 string) error {
+	args := []string{
+		"search",
+		fmt.Sprintf(`--%s=%s`, flag1, value1),
+		fmt.Sprintf(`--%s=%s`, flag2, value2),
+		fmt.Sprintf(`--%s=%s`, flag3, value3),
+	}
+	sc.STDOut = StardewCropsCommand(args)
+
+	return nil
+}
+
 func (sc *ScenarioContext) GrowthSearch(timeType string, value int64) error {
 	flag := map[string]string{"greater": "growthgt", "less": "growthlt"}
 
@@ -80,6 +99,13 @@ func (sc *ScenarioContext) MatchTrellisResults(presence string) error {
 func (sc *ScenarioContext) MatchContinuousResults(continuous string) error {
 	fileName := map[string]string{"are": "continuous", "are not": "single"}
 	expected := utils.Open(fmt.Sprintf(`.././test_data/search/continuous/%s.json`, fileName[continuous]))
+	actual := strings.TrimSpace(sc.STDOut)
+
+	return utils.AssertMatch(expected, actual)
+}
+
+func (sc *ScenarioContext) MatchSingleCrop(c string) error {
+	expected := utils.Open(fmt.Sprintf(`.././test_data/search/crops/%v.json`, c))
 	actual := strings.TrimSpace(sc.STDOut)
 
 	return utils.AssertMatch(expected, actual)

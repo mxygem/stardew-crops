@@ -9,7 +9,7 @@ import (
 // StardewCropsCommand wraps the call to the root
 // command and returns the captured output
 func StardewCropsCommand(args []string) string {
-	cmd := exec.Command("stardew-crops", args[0], args[1])
+	cmd := exec.Command("stardew-crops", args...)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		fmt.Printf("cmd.Run() failed with %s\n", err)
