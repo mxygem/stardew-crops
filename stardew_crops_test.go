@@ -28,9 +28,9 @@ func FeatureContext(s *godog.Suite) {
 	s.Step(`^a search for (continuously harvestable|single harvest) crops is performed$`, sc.ContinuousSearch)
 
 	s.Step(`^a list of the crops available in the ([^"]*) bundle must be returned$`, sc.MatchBundleCrops)
-	s.Step(`^an error indicating that no match was found must be returned$`, sc.MatchNotFound)
 	s.Step(`^a list of crops that grow in 5 days or (\w+) must be returned$`, sc.MatchGrowthResults)
 	s.Step(`^a list of crops that grow in (\w+) must be returned$`, sc.MatchSeasonResults)
 	s.Step(`^a list of crops that (do not grow|grow) on a trellis are returned$`, sc.MatchTrellisResults)
 	s.Step(`^a list of crops that (are|are not) continuously harvestable are returned$`, sc.MatchContinuousResults)
+	s.Step(`^an error indicating that no match was found must be returned$`, sc.MatchNotFound)
 }
