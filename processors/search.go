@@ -27,7 +27,14 @@ func Search(flags map[string]string) ([]data.Crop, error) {
 			continue
 		}
 
-		specified, ok, err = byGrowth("l", c[i].Info.GrowthTime, flags)
+		specified, ok, err = byGrowth("gt", c[i].Info.GrowthTime, flags)
+		if err != nil {
+			return []data.Crop{}, err
+		} else if specified && !ok {
+			continue
+		}
+
+		specified, ok, err = byGrowth("lt", c[i].Info.GrowthTime, flags)
 		if err != nil {
 			return []data.Crop{}, err
 		} else if specified && !ok {
@@ -83,6 +90,20 @@ func byBundle(c data.Crop, f map[string]string) (bool, bool, error) {
 
 func byGrowth(o string, t int64, f map[string]string) (bool, bool, error) {
 	if o == "g" {
+		v, ok := f["growth"]
+		if !ok {
+			return false, false, nil
+		} else if ok && v == "" {
+			return false, false, fmt.Errorf(valueRequired("growth"))
+		}
+
+		vi, _ := strconv.Atoi(v)
+		if t == int64(vi) {
+			return false, true, nil
+		}
+	}
+
+	if o == "gt" {
 		v, ok := f["growthgt"]
 		if !ok {
 			return false, false, nil
@@ -96,7 +117,7 @@ func byGrowth(o string, t int64, f map[string]string) (bool, bool, error) {
 		}
 	}
 
-	if o == "l" {
+	if o == "lt" {
 		v, ok := f["growthlt"]
 		if !ok {
 			return false, false, nil

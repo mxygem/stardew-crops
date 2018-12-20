@@ -47,7 +47,14 @@ func (sc *ScenarioContext) MatchNotFound() error {
 	return utils.AssertMatch(expected, actual)
 }
 
-func (sc *ScenarioContext) MatchGrowthResults(timeType string) error {
+func (sc *ScenarioContext) MatchGrowthResults(g int64) error {
+	expected := utils.Open(fmt.Sprintf(`.././test_data/search/growth/%v_days.json`, g))
+	actual := strings.TrimSpace(sc.STDOut)
+
+	return utils.AssertMatch(expected, actual)
+}
+
+func (sc *ScenarioContext) MatchGrowthGTLTResults(timeType string) error {
 	fileName := map[string]string{"less": "lessThanFive", "more": "greaterThanFive"}
 	expected := utils.Open(fmt.Sprintf(`.././test_data/search/growth/%s.json`, fileName[timeType]))
 	actual := strings.TrimSpace(sc.STDOut)

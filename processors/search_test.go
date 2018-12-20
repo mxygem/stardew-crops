@@ -40,6 +40,18 @@ func TestSearch(t *testing.T) {
 			err:      fmt.Errorf("A value must be provided for the bundle flag"),
 		},
 		{
+			name:     "growth search for 6 days",
+			flags:    map[string]string{"growth": "6"},
+			expected: []string{"potato", "radish"},
+			err:      nil,
+		},
+		{
+			name:     "growth search for 100 days",
+			flags:    map[string]string{"growth": "100"},
+			expected: []string{},
+			err:      fmt.Errorf("No matching crops found"),
+		},
+		{
 			name:     "growthgt search for 5 days",
 			flags:    map[string]string{"growthgt": "5"},
 			expected: []string{"coffee bean", "potato", "rhubarb", "blueberry", "corn", "radish", "hot pepper", "starfruit", "cranberries", "grape", "yam"},

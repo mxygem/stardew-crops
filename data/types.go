@@ -29,7 +29,7 @@ type Prices struct {
 	GeneralStore  int64                `json:"general_store,omitempty"`
 	JojaMart      int64                `json:"jojamart,omitempty"`
 	TravelingCart *TravelingCartPrices `json:"traveling_cart,omitempty"`
-	Oasis         int64                `json:"Oasis,omitempty"`
+	Oasis         int64                `json:"oasis,omitempty"`
 }
 
 type TravelingCartPrices struct {
