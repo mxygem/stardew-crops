@@ -88,6 +88,12 @@ func TestSearch(t *testing.T) {
 			err:      fmt.Errorf("No matching crops found"),
 		},
 		{
+			name:     "season search with no value",
+			flags:    map[string]string{"season": ""},
+			expected: []string{},
+			err:      fmt.Errorf("A value must be provided for the season flag"),
+		},
+		{
 			name:     "trellis search for crops with trellis",
 			flags:    map[string]string{"trellis": "true"},
 			expected: []string{"grape"},
@@ -100,6 +106,18 @@ func TestSearch(t *testing.T) {
 			err:      nil,
 		},
 		{
+			name:     "trellis search with no value",
+			flags:    map[string]string{"trellis": ""},
+			expected: []string{},
+			err:      fmt.Errorf("A value must be provided for the trellis flag"),
+		},
+		{
+			name:     "trellis search with non-bool value",
+			flags:    map[string]string{"trellis": "abc"},
+			expected: []string{},
+			err:      fmt.Errorf("Please pass in true or false for the trellis flag"),
+		},
+		{
 			name:     "continual search for multi harvest crops",
 			flags:    map[string]string{"continuous": "true"},
 			expected: []string{"coffee bean", "blueberry", "corn", "hot pepper", "cranberries", "grape"},
@@ -110,6 +128,18 @@ func TestSearch(t *testing.T) {
 			flags:    map[string]string{"continuous": "false"},
 			expected: []string{"garlic", "potato", "rhubarb", "radish", "starfruit", "yam"},
 			err:      nil,
+		},
+		{
+			name:     "continuous search with no value",
+			flags:    map[string]string{"continuous": ""},
+			expected: []string{},
+			err:      fmt.Errorf("A value must be provided for the continuous flag"),
+		},
+		{
+			name:     "continuous search with non-bool value",
+			flags:    map[string]string{"continuous": "abc"},
+			expected: []string{},
+			err:      fmt.Errorf("Please pass in true or false for the continuous flag"),
 		},
 	}
 

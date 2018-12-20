@@ -140,7 +140,7 @@ func byTrellis(t bool, f map[string]string) (bool, bool, error) {
 
 	parsedV, err := strconv.ParseBool(v)
 	if err != nil {
-		return true, false, err
+		return true, false, fmt.Errorf("Please pass in true or false for the trellis flag")
 	}
 
 	if t == parsedV {
@@ -160,7 +160,7 @@ func byContinuous(c bool, f map[string]string) (bool, bool, error) {
 
 	parsedV, err := strconv.ParseBool(v)
 	if err != nil {
-		return true, false, err
+		return true, false, fmt.Errorf("Please pass in true or false for the continuous flag")
 	}
 
 	if c == parsedV {
