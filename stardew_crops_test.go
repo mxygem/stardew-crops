@@ -37,4 +37,9 @@ func FeatureContext(s *godog.Suite) {
 	s.Step(`^a list of crops that (are|are not) continuously harvestable are returned$`, sc.MatchContinuousResults)
 	s.Step(`^an error indicating that no match was found must be returned$`, sc.MatchNotFound)
 	s.Step(`^the output must only include (\w+)$`, sc.MatchSingleCrop)
+
+	// Format steps
+	s.Step(`^(\w+) for (\w+) is requested in (\w+) format$`, sc.FormatRequester)
+	s.Step(`^a search is run with the (\w+) formatter$`, sc.SearchFormat)
+	s.Step(`^the output must match$`, sc.MatchOutput)
 }

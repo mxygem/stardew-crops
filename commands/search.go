@@ -28,11 +28,11 @@ func Search(cmd *cobra.Command, args []string) {
 
 	out, err := processors.Search(userFlags)
 	if err != nil {
-		output.Print(err.Error())
+		output.Print(err.Error(), "error")
 		return
 	}
 
-	output.Print(out)
+	output.Print(out, userFlags["format"])
 }
 
 // userSetFlags checks for flags that were

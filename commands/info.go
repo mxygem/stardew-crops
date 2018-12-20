@@ -17,11 +17,12 @@ var infoCmd = &cobra.Command{
 func Info(cmd *cobra.Command, args []string) {
 	out, err := processors.Info(args...)
 	if err != nil {
-		output.Print(err.Error())
+		output.Print(err.Error(), "error")
 		return
 	}
 
-	output.Print(out)
+	// TODO: refactor to remove foo
+	output.Print(out, "foo")
 }
 
 func init() {
