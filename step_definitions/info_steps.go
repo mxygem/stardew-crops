@@ -7,13 +7,15 @@ import (
 )
 
 func (sc *ScenarioContext) InfoCrop(crop string) error {
-	sc.STDOut = InfoCommand(crop)
+	args := []string{"info", crop}
+	sc.STDOut = StardewCropsCommand(args)
 
 	return nil
 }
 
 func (sc *ScenarioContext) InfoNoArgs() error {
-	sc.STDOut = InfoCommand("")
+	args := []string{"info"}
+	sc.STDOut = StardewCropsCommand(args)
 
 	return nil
 }

@@ -42,13 +42,11 @@ func (sc *ScenarioContext) GrowthSearch(timeType string, value int64) error {
 
 func (sc *ScenarioContext) TrellisSearch(t string) error {
 	flag := map[string]string{"grow": "true", "do not grow": "false"}
-
 	return sc.Search("trellis", flag[t])
 }
 
 func (sc *ScenarioContext) ContinuousSearch(t string) error {
 	flag := map[string]string{"continuously harvestable": "true", "single harvest": "false"}
-
 	return sc.Search("continuous", flag[t])
 }
 
