@@ -12,5 +12,5 @@ var StardewCrops = &cobra.Command{
 }
 
 func init() {
-	StardewCrops.PersistentFlags().StringVarP(&format, "format", "f", "pretty", "set desired output type. choices: pretty, json")
+	StardewCrops.PersistentFlags().StringVarP(&format, "format", "f", "pretty", "set desired output type. choices: pretty, json, raw")
 }
