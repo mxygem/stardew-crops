@@ -24,7 +24,6 @@ func Info(cmd *cobra.Command, args []string) {
 		return
 	}
 
-	// TODO: refactor to remove foo
 	output.Print(out, userFlags["format"])
 }
 
