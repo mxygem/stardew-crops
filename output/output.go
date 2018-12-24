@@ -9,16 +9,12 @@ import (
 	"github.com/tidwall/pretty"
 )
 
-// Print provides a single source of completion for the CLI
-func Print(data interface{}, f string) {
+func Format(data interface{}, f string) *bytes.Buffer {
 	var b []byte
-	var err error
-	var out bytes.Buffer
 
-	b, err = json.Marshal(data)
+	b, err := json.Marshal(data)
 	if err != nil {
-		// Add error to buffer and write
-		fmt.Errorf("unable to marshal output: %s", err.Error())
+		b = []byte(fmt.Sprintf("unable to marshal output: %s", err.Error()))
 	}
 
 	switch f {
@@ -26,20 +22,15 @@ func Print(data interface{}, f string) {
 		fmt.Println("pretty format requested")
 		fmt.Println("TODO: add pretty formatter")
 	case "json":
-		out = *bytes.NewBuffer(pretty.Pretty(b))
+		b = pretty.Pretty(b)
 	case "raw", "":
-		out = *bytes.NewBuffer(pretty.Ugly(b))
-	case "error":
-		out = *bytes.NewBuffer(b)
-		out.WriteTo(os.Stdout)
+		b = pretty.Ugly(b)
 	}
 
-	if err != nil {
-		// Add error to buffer and write
-		fmt.Errorf("unable to process output: %s", err.Error())
-		os.Exit(1)
-	}
+	return bytes.NewBuffer(b)
+}
 
-	out.WriteTo(os.Stdout)
-	os.Exit(0)
+// Print provides a single source of completion for the CLI
+func Print(o *bytes.Buffer) {
+	o.WriteTo(os.Stdout)
 }
