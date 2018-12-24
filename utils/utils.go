@@ -9,7 +9,23 @@ import (
 	"strings"
 
 	"github.com/sergi/go-diff/diffmatchpatch"
+	"github.com/spf13/cobra"
+	"github.com/spf13/pflag"
 )
+
+// UserSetFlags checks for flags that were
+// explicitly set by the user
+func UserSetFlags(cmd *cobra.Command) map[string]string {
+	userFlags := make(map[string]string, 0)
+
+	cmd.Flags().Visit(func(f *pflag.Flag) {
+		if f.Changed {
+			userFlags[f.Name] = f.Value.String()
+		}
+	})
+
+	return userFlags
+}
 
 // Open opens a file based on the provided path
 // and returns it as a trimmed string

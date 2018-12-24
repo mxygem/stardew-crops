@@ -3,8 +3,8 @@ package commands
 import (
 	"github.com/jaysonesmith/stardew-crops/output"
 	"github.com/jaysonesmith/stardew-crops/processors"
+	"github.com/jaysonesmith/stardew-crops/utils"
 	"github.com/spf13/cobra"
-	"github.com/spf13/pflag"
 )
 
 // SearchCmd returns data based on the input crop
@@ -18,7 +18,7 @@ var SearchCmd = &cobra.Command{
 // Search is the main orchestrator for the cli's
 // search functionality
 func Search(cmd *cobra.Command, args []string) {
-	userFlags := userSetFlags(cmd)
+	userFlags := utils.UserSetFlags(cmd)
 
 	// return help information if no flags are provided
 	if len(userFlags) == 0 {
@@ -33,20 +33,6 @@ func Search(cmd *cobra.Command, args []string) {
 	}
 
 	output.Print(out, userFlags["format"])
-}
-
-// userSetFlags checks for flags that were
-// explicitly set by the user
-func userSetFlags(cmd *cobra.Command) map[string]string {
-	userFlags := make(map[string]string, 0)
-
-	cmd.Flags().Visit(func(f *pflag.Flag) {
-		if f.Changed {
-			userFlags[f.Name] = f.Value.String()
-		}
-	})
-
-	return userFlags
 }
 
 func init() {

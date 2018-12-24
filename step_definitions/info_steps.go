@@ -21,7 +21,7 @@ func (sc *ScenarioContext) InfoNoArgs() error {
 }
 
 func (sc *ScenarioContext) MatchCropInfo(crop string) error {
-	expected := utils.Open(".././test_data/format/garlic_raw.json")
+	expected := strings.TrimSpace(utils.Open(".././test_data/format/garlic_raw.json"))
 	actual := strings.TrimSpace(sc.STDOut)
 
 	return utils.AssertMatch(expected, actual)

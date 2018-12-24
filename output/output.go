@@ -29,6 +29,9 @@ func Print(data interface{}, f string) {
 		out = *bytes.NewBuffer(pretty.Pretty(b))
 	case "raw", "":
 		out = *bytes.NewBuffer(pretty.Ugly(b))
+	case "error":
+		out = *bytes.NewBuffer(b)
+		out.WriteTo(os.Stdout)
 	}
 
 	if err != nil {

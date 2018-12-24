@@ -3,6 +3,7 @@ package commands
 import (
 	"github.com/jaysonesmith/stardew-crops/output"
 	"github.com/jaysonesmith/stardew-crops/processors"
+	"github.com/jaysonesmith/stardew-crops/utils"
 	"github.com/spf13/cobra"
 )
 
@@ -15,6 +16,8 @@ var infoCmd = &cobra.Command{
 }
 
 func Info(cmd *cobra.Command, args []string) {
+	userFlags := utils.UserSetFlags(cmd)
+
 	out, err := processors.Info(args...)
 	if err != nil {
 		output.Print(err.Error(), "error")
@@ -22,7 +25,7 @@ func Info(cmd *cobra.Command, args []string) {
 	}
 
 	// TODO: refactor to remove foo
-	output.Print(out, "foo")
+	output.Print(out, userFlags["format"])
 }
 
 func init() {
