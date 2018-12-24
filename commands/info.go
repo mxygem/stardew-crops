@@ -1,6 +1,8 @@
 package commands
 
 import (
+	"bytes"
+
 	"github.com/jaysonesmith/stardew-crops/output"
 	"github.com/jaysonesmith/stardew-crops/processors"
 	"github.com/jaysonesmith/stardew-crops/utils"
@@ -18,13 +20,15 @@ var infoCmd = &cobra.Command{
 func Info(cmd *cobra.Command, args []string) {
 	userFlags := utils.UserSetFlags(cmd)
 
+	b := bytes.NewBuffer([]byte{})
 	out, err := processors.Info(args...)
 	if err != nil {
-		output.Print(err.Error(), "error")
-		return
+		b = output.Format(err.Error(), "error")
+	} else {
+		b = output.Format(out, userFlags["format"])
 	}
 
-	output.Print(out, userFlags["format"])
+	output.Print(b)
 }
 
 func init() {

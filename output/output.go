@@ -7,21 +7,22 @@ import (
 	"html/template"
 	"os"
 
+	"github.com/jaysonesmith/stardew-crops/data"
 	"github.com/jaysonesmith/stardew-crops/utils"
 	"github.com/tidwall/pretty"
 )
 
-func Format(data interface{}, f string) *bytes.Buffer {
+func Format(d interface{}, f string) *bytes.Buffer {
 	var b []byte
 
-	b, err := json.Marshal(data)
+	b, err := json.Marshal(d)
 	if err != nil {
 		b = []byte(fmt.Sprintf("unable to marshal output: %s", err.Error()))
 	}
 
 	switch f {
 	case "pretty":
-		b = prettyFormat(b)
+		b = prettyFormat(d.(data.CropData))
 	case "json":
 		b = pretty.Pretty(b)
 	case "raw", "":
@@ -36,7 +37,7 @@ func Print(o *bytes.Buffer) {
 	o.WriteTo(os.Stdout)
 }
 
-func prettyFormat(b []byte) []byte {
+func prettyFormat(d data.CropData) []byte {
 	funcs := template.FuncMap{
 		// "safe": safe,
 	}
@@ -45,7 +46,7 @@ func prettyFormat(b []byte) []byte {
 	template.Must(t.Parse(utils.Open("../template/pretty.tmpl")))
 
 	out := new(bytes.Buffer)
-	err := t.Execute(out, b)
+	err := t.Execute(out, d)
 	if err != nil {
 		panic(err)
 	}

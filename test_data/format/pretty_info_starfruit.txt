@@ -1,4 +1,7 @@
 ╔════════════════════════════════════════════════╗
+║ Results:                                       ║
+║ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═║
+║ 1.                                             ║
 ║ Name: Starfruit                                ║
 ║ Seeds: Starfruit Seeds                         ║
 ║ Growth Time: 13 days                           ║
