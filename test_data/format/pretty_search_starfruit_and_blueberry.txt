@@ -1,0 +1,37 @@
+╔════════════════════════════════════════════════╗
+║ Results:                                       ║
+║ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═║
+║ 1.                                             ║
+║ Name: Starfruit                                ║
+║ Seeds: Starfruit Seeds                         ║
+║ Growth Time: 13 days                           ║
+║ Season: Summer                                 ║
+║ Seed Price:                                    ║
+║   * Oasis: 400g                                ║
+║ Quests:                                        ║
+║   * A Soldier's Star                           ║
+║ Notes:                                         ║
+║   * Starfruit produces Artisan Goods that have ║
+║     some of the highest sell values in the     ║
+║     game.                                      ║
+║   * Starfruit is required to build a Junimo    ║
+║     Hut, purchased from the Wizard's Tower.    ║
+║                                                ║
+║ 2.                                             ║
+║ Name: Blueberry                                ║
+║ Seeds: Blueberry Seeds                         ║
+║ Growth Time: 13 days                           ║
+║ Season: Summer                                 ║
+║ Continual: Yes                                 ║
+║ Regrowth: 4 days                               ║
+║ Seed Price:                                    ║
+║   * General Store: 400g                        ║
+║ Bundles:                                       ║
+║   * Summer Crops                               ║
+║ Recipes:                                       ║
+║   * Blueberry Tart                             ║
+║   * Fruit Salad                                ║
+║ Notes:                                         ║
+║   * Has a small chance for multiple fruit from ║
+║     each harvest                               ║
+╚════════════════════════════════════════════════╝

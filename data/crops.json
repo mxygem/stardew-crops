@@ -6,9 +6,7 @@
         "description": "The flower grows in a sphere to invite as many butterflies as possible.",
         "seed": "Jazz Seeds",
         "growth_time": 7,
-        "season": ["spring"],
-        "continual": false,
-        "trellis": false
+        "season": ["spring"]
       },
       "seed_prices": {
         "general_store": 30,
@@ -27,9 +25,7 @@
         "description": "Valuable, but slow-growing. Despite its pale color, the florets are packed with nutrients.",
         "seed": "cauliflower seeds",
         "growth_time": 12,
-        "season": ["spring"],
-        "continual": false,
-        "trellis": false
+        "season": ["spring"]
       },
       "seed_prices": {
         "general_store": 80,
@@ -48,8 +44,7 @@
         "growth_time": 10,
         "season": ["spring", "summer"],
         "continual": true,
-        "regrowth": 2,
-        "trellis": false
+        "regrowth": 2
       },
       "seed_prices": {
         "traveling_cart": {
@@ -66,13 +61,10 @@
         "description": "Adds a wonderful zestiness to dishes. High quality garlic can be pretty spicy.",
         "seed": "garlic seeds",
         "growth_time": 4,
-        "season": ["spring"],
-        "continual": false,
-        "trellis": false
+        "season": ["spring"]
       },
       "seed_prices": {
-        "general_store": 40,
-        "jojamart": 0
+        "general_store": 40
       },
       "recipes": ["Escargot", "Fiddlehead Risotto", "Oil of Garlic"],
       "notes": ["Only available starting in year 2"]
@@ -102,8 +94,7 @@
         "description": "The waxy leaves are great in soups and stir fries.",
         "seed": "kale seeds",
         "growth_time": 6,
-        "season": [""],
-        "continual": false
+        "season": ["spring"]
       },
       "seed_prices": {
         "general_store": 70,
@@ -119,8 +110,7 @@
         "description": "A spring tuber closely related to the carrot. It has an earthy taste and is full of nutrients.",
         "seed": "parsnip seeds",
         "growth_time": 4,
-        "season": ["spring"],
-        "continual": false
+        "season": ["spring"]
       },
       "seed_prices": {
         "general_store": 20,
@@ -136,8 +126,7 @@
         "description": "A widely cultivated tuber.",
         "seed": "potato seeds",
         "growth_time": 6,
-        "season": ["spring"],
-        "continual": false
+        "season": ["spring"]
       },
       "seed_prices": {
         "general_store": 50,
@@ -154,8 +143,7 @@
         "description": "The stalks are extremely tart, but make a great dessert when sweetened.",
         "seed": "rhubarb seeds",
         "growth_time": 13,
-        "season": ["spring"],
-        "continual": false
+        "season": ["spring"]
       },
       "seed_prices": {
         "oasis": 100
@@ -184,8 +172,7 @@
         "description": "A sweet, juicy favorite with an appealing red color.",
         "seed": "tulip bulb",
         "growth_time": 6,
-        "season": ["spring"],
-        "continual": false
+        "season": ["spring"]
       },
       "seed_prices": {
         "general_store": 20,
@@ -271,8 +258,7 @@
         "description": "A cool, sweet summer treat.",
         "seed": "melon seeds",
         "growth_time": 12,
-        "season": ["summer"],
-        "continual": false
+        "season": ["summer"]
       },
       "seed_prices": {
         "general_store": 80,
@@ -289,8 +275,7 @@
         "description": "In addition to its colorful flower, the Poppy has culinary and medicinal uses.",
         "seed": "poppy seeds",
         "growth_time": 7,
-        "season": ["summer"],
-        "continual": false
+        "season": ["summer"]
       },
       "seed_prices": {
         "general_store": 100,
@@ -305,8 +290,7 @@
         "description": "A crisp and refreshing root vegetable with hints of pepper when eaten raw.",
         "seed": "radish seeds",
         "growth_time": 6,
-        "season": ["summer"],
-        "continual": false
+        "season": ["summer"]
       },
       "seed_prices": {
         "general_store": 40,
@@ -321,8 +305,7 @@
         "description": "Often used in salads and coleslaws. The color can range from purple to blue to green-yellow depending on soil conditions.",
         "seed": "red cabbage seeds",
         "growth_time": 9,
-        "season": ["summer"],
-        "continual": false
+        "season": ["summer"]
       },
       "seed_prices": {
         "general_store": 100
@@ -338,8 +321,7 @@
         "description": "An extremely juicy fruit that grows in hot, humid weather. Slightly sweet with a sour undertone.",
         "seed": "starfruit seeds",
         "growth_time": 13,
-        "season": ["summer"],
-        "continual": false
+        "season": ["summer"]
       },
       "seed_prices": {
         "oasis": 400
@@ -356,8 +338,7 @@
         "description": "A tropical bloom that thrives in the humid summer air. Has a sweet, tangy aroma.",
         "seed": "spangle seeds",
         "growth_time": 8,
-        "season": ["summer"],
-        "continual": false
+        "season": ["summer"]
       },
       "seed_prices": {
         "general_store": 50,
@@ -369,10 +350,8 @@
       "info": {
         "description": "A common misconception is that the flower turns so it's always facing the sun.",
         "seed": "sunflower seeds",
-        "growth_time": 0,
-        "season": ["summer", "fall"],
-        "continual": false,
-        "regrowth": 0
+        "growth_time": 8,
+        "season": ["summer", "fall"]
       },
       "seed_prices": {
         "general_store": 200,
@@ -413,8 +392,7 @@
         "description": "One of the most widely cultivated grains. Makes a great flour for breads and cakes.",
         "seed": "wheat seeds",
         "growth_time": 4,
-        "season": ["summer", "fall"],
-        "continual": false
+        "season": ["summer", "fall"]
       },
       "seed_prices": {
         "general_store": 10,
@@ -431,8 +409,7 @@
         "description": "A purple grain cultivated by an ancient civilization.",
         "seed": "amaranth seeds",
         "growth_time": 7,
-        "season": ["fall"],
-        "continual": false
+        "season": ["fall"]
       },
       "seed_prices": {
         "general_store": 70,
@@ -448,8 +425,7 @@
         "description": "The bud of a thistle plant. The spiny outer leaves conceal a fleshy, filling interior.",
         "seed": "artichoke seeds",
         "growth_time": 8,
-        "season": ["fall"],
-        "continual": false
+        "season": ["fall"]
       },
       "seed_prices": {
         "general_store": 30
@@ -464,8 +440,7 @@
         "description": "A sweet and earthy root vegetable. As a bonus, the leaves make a great salad.",
         "seed": "beet seeds",
         "growth_time": 6,
-        "season": ["fall"],
-        "continual": false
+        "season": ["fall"]
       },
       "seed_prices": {
         "oasis": 20
@@ -479,8 +454,7 @@
         "description": "The leafy greens and fibrous stalks are healthy and delicious.",
         "seed": "bok choy seeds",
         "growth_time": 4,
-        "season": ["fall"],
-        "continual": false
+        "season": ["fall"]
       },
       "seed_prices": {
         "general_store": 50,
@@ -538,8 +512,7 @@
         "description": "An old folk legend suggests that the sweet smell of this flower attracts fairies.",
         "seed": "fairy seeds",
         "growth_time": 12,
-        "season": ["fall"],
-        "continual": false
+        "season": ["fall"]
       },
       "seed_prices": {
         "general_store": 200,
@@ -574,8 +547,7 @@
         "description": "A fall favorite, grown for its crunchy seeds and delicately flavored flesh. As a bonus, the hollow shell can be carved into a festive decoration.",
         "seed": "pumpkin seeds",
         "growth_time": 13,
-        "season": ["fall"],
-        "continual": false
+        "season": ["fall"]
       },
       "seed_prices": {
         "general_store": 100,
@@ -595,8 +567,7 @@
         "description": "A starchy tuber with a lot of culinary versatility.",
         "seed": "yam seeds",
         "growth_time": 10,
-        "season": ["fall"],
-        "continual": false
+        "season": ["fall"]
       },
       "seed_prices": {
         "general_store": 60,

@@ -4,8 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"html/template"
 	"os"
 
+	"github.com/jaysonesmith/stardew-crops/utils"
 	"github.com/tidwall/pretty"
 )
 
@@ -19,8 +21,7 @@ func Format(data interface{}, f string) *bytes.Buffer {
 
 	switch f {
 	case "pretty":
-		fmt.Println("pretty format requested")
-		fmt.Println("TODO: add pretty formatter")
+		b = prettyFormat(b)
 	case "json":
 		b = pretty.Pretty(b)
 	case "raw", "":
@@ -33,4 +34,21 @@ func Format(data interface{}, f string) *bytes.Buffer {
 // Print provides a single source of completion for the CLI
 func Print(o *bytes.Buffer) {
 	o.WriteTo(os.Stdout)
+}
+
+func prettyFormat(b []byte) []byte {
+	funcs := template.FuncMap{
+		// "safe": safe,
+	}
+
+	t := template.New("pretty").Funcs(funcs)
+	template.Must(t.Parse(utils.Open("../template/pretty.tmpl")))
+
+	out := new(bytes.Buffer)
+	err := t.Execute(out, b)
+	if err != nil {
+		panic(err)
+	}
+
+	return out.Bytes()
 }

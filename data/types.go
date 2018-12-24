@@ -20,7 +20,7 @@ type Info struct {
 	Seed        string   `json:"seed"`
 	GrowthTime  int64    `json:"growth_time"`
 	Season      []string `json:"season"`
-	Continual   bool     `json:"continual"`
+	Continual   bool     `json:"continual,omitempty"`
 	Regrowth    int64    `json:"regrowth,omitempty"`
 	Trellis     bool     `json:"trellis,omitempty"`
 }
@@ -30,6 +30,7 @@ type Prices struct {
 	JojaMart      int64                `json:"jojamart,omitempty"`
 	TravelingCart *TravelingCartPrices `json:"traveling_cart,omitempty"`
 	Oasis         int64                `json:"oasis,omitempty"`
+	EggFestival   int64                `json:"egg_festival,omitempty"`
 }
 
 type TravelingCartPrices struct {

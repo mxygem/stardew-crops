@@ -1,0 +1,16 @@
+╔════════════════════════════════════════════════╗
+║ Name: Starfruit                                ║
+║ Seeds: Starfruit Seeds                         ║
+║ Growth Time: 13 days                           ║
+║ Season: Summer                                 ║
+║ Seed Price:                                    ║
+║   * Oasis: 400g                                ║
+║ Quests:                                        ║
+║   * A Soldier's Star                           ║
+║ Notes:                                         ║
+║   * Starfruit produces Artisan Goods that have ║
+║     some of the highest sell values in the     ║
+║     game.                                      ║
+║   * Starfruit is required to build a Junimo    ║
+║     Hut, purchased from the Wizard's Tower.    ║
+╚════════════════════════════════════════════════╝
