@@ -65,7 +65,7 @@ func AssertMatch(expected, actual string) error {
 		return nil
 	}
 
-	return fmt.Errorf("expected content and found content do not match!\nexpected: %s\nfound: %s\ndiff: %s", expected, actual, Diff(expected, actual))
+	return fmt.Errorf("expected content and found content do not match!\nexpected:\n%s\nfound:\n%s\ndiff: %s", expected, actual, Diff(expected, actual))
 }
 
 func getPath(op string) string {

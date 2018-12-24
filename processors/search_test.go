@@ -164,7 +164,6 @@ func TestSearch(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			actual, err := processors.Search(tc.flags)
-			fmt.Printf("actual: %+v", actual)
 
 			assert.Equal(t, tc.err, err)
 			for i, c := range actual {

@@ -41,5 +41,6 @@ func FeatureContext(s *godog.Suite) {
 	// Format steps
 	s.Step(`^(\w+) for (\w+) is requested in (\w+) format$`, sc.FormatRequester)
 	s.Step(`^a search is run with the (\w+) formatter$`, sc.SearchFormat)
-	s.Step(`^the output must match$`, sc.MatchOutput)
+	s.Step(`^the output must be formatted json$`, sc.CheckPretty)
+	s.Step(`^the output must be raw json$`, sc.CheckRaw)
 }

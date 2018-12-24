@@ -2,10 +2,8 @@ package stepdefinitions
 
 import (
 	"fmt"
-	"strings"
 
-	"github.com/DATA-DOG/godog/gherkin"
-	"github.com/jaysonesmith/stardew-crops/utils"
+	"github.com/tidwall/pretty"
 )
 
 func (sc *ScenarioContext) FormatRequester(key, value, formatter string) error {
@@ -22,9 +20,23 @@ func (sc *ScenarioContext) SearchFormat(format string) error {
 	return nil
 }
 
-func (sc *ScenarioContext) MatchOutput(e *gherkin.DocString) error {
-	expected := strings.TrimSpace(e.Content)
-	actual := strings.TrimSpace(sc.STDOut)
+func (sc *ScenarioContext) CheckPretty() error {
+	b := []byte(sc.STDOut)
+	u := pretty.Ugly(b)
 
-	return utils.AssertMatch(expected, actual)
+	if string(b) == string(u) {
+		return fmt.Errorf("output doesn't appear to be pretty json: %s", sc.STDOut)
+	}
+
+	return nil
+}
+
+func (sc *ScenarioContext) CheckRaw() error {
+	u := pretty.Ugly([]byte(sc.STDOut))
+
+	if sc.STDOut != string(u) {
+		return fmt.Errorf("output doesn't appear to be raw json: %s", sc.STDOut)
+	}
+
+	return nil
 }
