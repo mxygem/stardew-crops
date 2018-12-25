@@ -75,26 +75,26 @@ func safe(s string) template.HTML {
 	return template.HTML(s)
 }
 
-func LineSplit(s string) string {
+func LineSplit(s string, l int) string {
 	sb := []byte(s)
-	l := len(sb)
+	sl := len(sb)
 	var o strings.Builder
-	fmt.Println("length:", l)
-	if l == 42 {
+
+	if sl == l {
 		fmt.Fprintf(&o, "║   * %s ║", s)
-	} else if l < 42 {
-		out := pad(42, s)
+	} else if sl < l {
+		out := pad(l, s)
 		fmt.Fprintf(&o, "║   * %s ║", out)
-	} else if l > 42 {
+	} else if sl > l {
 		// TODO: perform line breaks at the first space
 		// before the limit so that words aren't cut
 		// TODO: make this section flexible for any string
 		// over 42 char
-		fmt.Fprintf(&o, "║   * %s ║", sb[0:42])
+		fmt.Fprintf(&o, "║   * %s ║", sb[0:l])
 		fmt.Fprint(&o, "\n")
-		fmt.Fprintf(&o, "║     %s ║", pad(42, string(sb[43:81])))
+		fmt.Fprintf(&o, "║     %s ║", pad(l, string(sb[43:81])))
 		fmt.Fprint(&o, "\n")
-		fmt.Fprintf(&o, "║     %s ║", pad(42, string(sb[82:87])))
+		fmt.Fprintf(&o, "║     %s ║", pad(l, string(sb[82:87])))
 	}
 
 	return o.String()

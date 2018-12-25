@@ -30,7 +30,7 @@
 {{ if ge (len $c.Quests) 1 -}}
 ║ Notes:                                         ║
 {{ range $q := $c.Notes -}}
-{{ lineSplit $q | printf "%s" | safe}}
+{{ lineSplit $q 42 | printf "%s" | safe}}
 {{ end -}}
 {{ end -}}
 {{ end -}}

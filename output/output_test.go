@@ -90,23 +90,27 @@ func TestFormat(t *testing.T) {
 
 func TestLineSplit(t *testing.T) {
 	testCases := []struct {
-		name     string
-		input    string
-		expected string
+		name       string
+		input      string
+		expected   string
+		lineLength int
 	}{
 		{
-			name:     "Note exactly 42 characters",
-			input:    "Starfruit produces Artisan Goods that have",
-			expected: `║   * Starfruit produces Artisan Goods that have ║`,
+			name:       "Note exactly 42 characters",
+			input:      "Starfruit produces Artisan Goods that have",
+			lineLength: 42,
+			expected:   `║   * Starfruit produces Artisan Goods that have ║`,
 		},
 		{
-			name:     "Note under 42 characters to force padding",
-			input:    "Starfruit produces Artisan",
-			expected: `║   * Starfruit produces Artisan                 ║`,
+			name:       "Note under 42 characters to force padding",
+			input:      "Starfruit produces Artisan",
+			lineLength: 42,
+			expected:   `║   * Starfruit produces Artisan                 ║`,
 		},
 		{
-			name:  "Multiline and padding of note with 87 characters",
-			input: "Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
+			name:       "Multiline and padding of note with 87 characters",
+			input:      "Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
+			lineLength: 42,
 			expected: `║   * Starfruit produces Artisan Goods that have ║
 ║     some of the highest sell values in the     ║
 ║     game.                                      ║`,
@@ -115,7 +119,7 @@ func TestLineSplit(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			actual := output.LineSplit(tc.input)
+			actual := output.LineSplit(tc.input, tc.lineLength)
 
 			assert.Equal(t, tc.expected, actual)
 		})
