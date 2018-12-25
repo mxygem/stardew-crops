@@ -87,15 +87,19 @@ func LineSplit(s string, l int) string {
 		out := pad(l, s)
 		fmt.Fprintf(&o, "║   * %s ║", out)
 	} else if sl > l {
-		// TODO: perform line breaks at the first space
-		// before the limit so that words aren't cut
-		// TODO: make this section flexible for any string
-		// over 42 char
-		fmt.Fprintf(&o, "║   * %s ║", sb[0:l])
-		fmt.Fprint(&o, "\n")
-		fmt.Fprintf(&o, "║     %s ║", pad(l, string(sb[43:81])))
-		fmt.Fprint(&o, "\n")
-		fmt.Fprintf(&o, "║     %s ║", pad(l, string(sb[82:87])))
+		lines := LineBreaks(s, l)
+		for i, line := range lines {
+			if i == 0 {
+				fmt.Fprintf(&o, "║   * %s ║", pad(l, line))
+			} else {
+				fmt.Fprintf(&o, "║     %s ║", pad(l, line))
+			}
+
+			if i < len(lines)-1 {
+				fmt.Fprint(&o, "\n")
+			}
+		}
+
 	}
 
 	return o.String()
@@ -127,13 +131,8 @@ func LineBreaks(s string, l int) []string {
 		// of a word and instead find the last space
 		// before the desired cut
 		if end < sl {
-			if sb[end-1] != 32 && sb[end] != 32 && sb[end+1] != 32 {
-				for i := end; i > 0; i-- {
-					if sb[i] == 32 {
-						end = i
-						break
-					}
-				}
+			if sb[end] != 32 && sb[end-1] != 32 {
+				end = lastSpace(sb, end)
 			}
 		}
 
@@ -163,4 +162,13 @@ func LineBreaks(s string, l int) []string {
 	}
 
 	return out
+}
+
+func lastSpace(sb []byte, end int) int {
+	for i := end; i > 0; i-- {
+		if sb[i] == 32 {
+			return i
+		}
+	}
+	return 0
 }

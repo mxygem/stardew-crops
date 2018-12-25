@@ -98,45 +98,45 @@ func TestLineSplit(t *testing.T) {
 		expected   string
 		lineLength int
 	}{
-		// 		{
-		// 			name:       "Note exactly 42 characters",
-		// 			input:      "Starfruit produces Artisan Goods that have",
-		// 			lineLength: 42,
-		// 			expected:   `║   * Starfruit produces Artisan Goods that have ║`,
-		// 		},
-		// 		{
-		// 			name:       "Note under 42 characters to force padding",
-		// 			input:      "Starfruit produces Artisan",
-		// 			lineLength: 42,
-		// 			expected:   `║   * Starfruit produces Artisan                 ║`,
-		// 		},
-		// 		{
-		// 			name:       "Multiline and padding of note with 87 characters",
-		// 			input:      "Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
-		// 			lineLength: 42,
-		// 			expected: `║   * Starfruit produces Artisan Goods that have ║
-		// ║     some of the highest sell values in the     ║
-		// ║     game.                                      ║`,
-		// 		},
+		{
+			name:       "Note exactly 42 characters",
+			input:      "Starfruit produces Artisan Goods that have",
+			lineLength: 42,
+			expected:   `║   * Starfruit produces Artisan Goods that have ║`,
+		},
+		{
+			name:       "Note under 42 characters to force padding",
+			input:      "Starfruit produces Artisan",
+			lineLength: 42,
+			expected:   `║   * Starfruit produces Artisan                 ║`,
+		},
+		{
+			name:       "Multiline and padding of note with 87 characters",
+			input:      "Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
+			lineLength: 42,
+			expected: `║   * Starfruit produces Artisan Goods that have ║
+║     some of the highest sell values in the     ║
+║     game.                                      ║`,
+		},
 		{
 			name:       "Multiline and padding of note with 60 characters",
 			input:      "Starfruit produces Artisan Goods that have some of the highe",
 			lineLength: 42,
 			expected: `║   * Starfruit produces Artisan Goods that have ║
-		║     some of the highe                          ║`,
+║     some of the highe                          ║`,
 		},
-		// 		{
-		// 			name:       "Multiline and padding of note with 263 characters",
-		// 			input:      "Starfruit produces Artisan Goods that have some of the highest sell values in the game. Starfruit produces Artisan Goods that have some of the highest sell values in the game. Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
-		// 			lineLength: 42,
-		// 			expected: `║   * Starfruit produces Artisan Goods that have ║
-		// ║     some of the highest sell values in the     ║
-		// ║     game. Starfruit produces Artisan Goods     ║
-		// ║     that have some of the highest sell values  ║
-		// ║     in the game. Starfruit produces Artisan    ║
-		// ║     Goods that have some of the highest sell   ║
-		// ║     values in the game.                        ║`,
-		// 		},
+		{
+			name:       "Multiline and padding of note with 263 characters",
+			input:      "Starfruit produces Artisan Goods that have some of the highest sell values in the game. Starfruit produces Artisan Goods that have some of the highest sell values in the game. Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
+			lineLength: 42,
+			expected: `║   * Starfruit produces Artisan Goods that have ║
+║     some of the highest sell values in the     ║
+║     game. Starfruit produces Artisan Goods     ║
+║     that have some of the highest sell values  ║
+║     in the game. Starfruit produces Artisan    ║
+║     Goods that have some of the highest sell   ║
+║     values in the game.                        ║`,
+		},
 	}
 
 	for _, tc := range testCases {
@@ -178,6 +178,12 @@ func TestLineBreaks(t *testing.T) {
 			input:      "abcdef ghijkl",
 			lineLength: 10,
 			expected:   []string{"abcdef", "ghijkl"},
+		},
+		{
+			name:       "Break in the middle of a short word",
+			input:      "game. Starfruit produces Artisan Goods that have some of the highest sell values in",
+			lineLength: 42,
+			expected:   []string{"game. Starfruit produces Artisan Goods", "that have some of the highest sell values", "in"},
 		},
 	}
 
