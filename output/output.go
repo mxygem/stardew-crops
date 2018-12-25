@@ -45,6 +45,7 @@ func prettyFormat(d data.CropData) []byte {
 		"add":       add,
 		"safe":      safe,
 		"lineSplit": LineSplit,
+		"pad":       pad,
 	}
 
 	t := template.New("pretty").Funcs(funcs)
@@ -98,6 +99,10 @@ func LineSplit(s string, l int) string {
 	}
 
 	return o.String()
+}
+
+func LineBreaks(s string, l int) []string {
+	return []string{"xxxxxx", "xxxxxx"}
 }
 
 func pad(l int, s string) string {

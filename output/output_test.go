@@ -3,9 +3,12 @@ package output_test
 import (
 	"bytes"
 	"fmt"
+	"strings"
 	"testing"
 
+	"github.com/jaysonesmith/stardew-crops/data"
 	"github.com/jaysonesmith/stardew-crops/output"
+	"github.com/jaysonesmith/stardew-crops/utils"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -56,25 +59,25 @@ func TestFormat(t *testing.T) {
 		// 	f:        "json",
 		// 	expected: bytes.NewBuffer(pretty.Pretty([]byte(`{"name":"garlic","info":{"description":"Adds a wonderful zestiness to dishes. High quality garlic can be pretty spicy.","seed":"garlic seeds","growth_time":4,"season":["spring"]},"seed_prices":{"general_store":40},"recipes":["Escargot","Fiddlehead Risotto","Oil of Garlic"],"notes":["Only available starting in year 2"]}`))),
 		// },
-		// {
-		// 	name: "Pretty - Info response Starfruit",
-		// 	data: data.CropData{
-		// 		Crops: []data.Crop{data.Crop{
-		// 			Name: "starfruit",
-		// 			Info: data.Info{
-		// 				Description: "An extremely juicy fruit that grows in hot, humid weather. Slightly sweet with a sour undertone.",
-		// 				Seed:        "starfruit seeds",
-		// 				GrowthTime:  13,
-		// 				Season:      []string{"summer"},
-		// 				Continual:   false,
-		// 			},
-		// 			SeedPrices: data.Prices{Oasis: 400},
-		// 			Quests:     []string{"A Soldier's Star"},
-		// 			Notes:      []string{"Starfruit produces Artisan Goods that have some of the highest sell values in the game.", "Starfruit is required to build a Junimo Hut, purchased from the Wizard's Tower."},
-		// 		}}},
-		// 	f:        "pretty",
-		// 	expected: bytes.NewBuffer([]byte(strings.TrimSpace(utils.Open(".././test_data/format/pretty_info_starfruit.txt")))),
-		// },
+		{
+			name: "Pretty - Info response Starfruit",
+			data: data.CropData{
+				Crops: []data.Crop{data.Crop{
+					Name: "starfruit",
+					Info: data.Info{
+						Description: "An extremely juicy fruit that grows in hot, humid weather. Slightly sweet with a sour undertone.",
+						Seed:        "starfruit seeds",
+						GrowthTime:  13,
+						Season:      []string{"summer"},
+						Continual:   false,
+					},
+					SeedPrices: data.Prices{Oasis: 400},
+					Quests:     []string{"A Soldier's Star"},
+					Notes:      []string{"Starfruit produces Artisan Goods that have some of the highest sell values in the game.", "Starfruit is required to build a Junimo Hut, purchased from the Wizard's Tower."},
+				}}},
+			f:        "pretty",
+			expected: bytes.NewBuffer([]byte(strings.TrimSpace(utils.Open(".././test_data/format/pretty_info_starfruit.txt")))),
+		},
 	}
 
 	for _, tc := range testCases {
@@ -95,31 +98,74 @@ func TestLineSplit(t *testing.T) {
 		expected   string
 		lineLength int
 	}{
+		// 		{
+		// 			name:       "Note exactly 42 characters",
+		// 			input:      "Starfruit produces Artisan Goods that have",
+		// 			lineLength: 42,
+		// 			expected:   `║   * Starfruit produces Artisan Goods that have ║`,
+		// 		},
+		// 		{
+		// 			name:       "Note under 42 characters to force padding",
+		// 			input:      "Starfruit produces Artisan",
+		// 			lineLength: 42,
+		// 			expected:   `║   * Starfruit produces Artisan                 ║`,
+		// 		},
+		// 		{
+		// 			name:       "Multiline and padding of note with 87 characters",
+		// 			input:      "Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
+		// 			lineLength: 42,
+		// 			expected: `║   * Starfruit produces Artisan Goods that have ║
+		// ║     some of the highest sell values in the     ║
+		// ║     game.                                      ║`,
+		// 		},
 		{
-			name:       "Note exactly 42 characters",
-			input:      "Starfruit produces Artisan Goods that have",
-			lineLength: 42,
-			expected:   `║   * Starfruit produces Artisan Goods that have ║`,
-		},
-		{
-			name:       "Note under 42 characters to force padding",
-			input:      "Starfruit produces Artisan",
-			lineLength: 42,
-			expected:   `║   * Starfruit produces Artisan                 ║`,
-		},
-		{
-			name:       "Multiline and padding of note with 87 characters",
-			input:      "Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
+			name:       "Multiline and padding of note with 60 characters",
+			input:      "Starfruit produces Artisan Goods that have some of the highe",
 			lineLength: 42,
 			expected: `║   * Starfruit produces Artisan Goods that have ║
-║     some of the highest sell values in the     ║
-║     game.                                      ║`,
+		║     some of the highe                          ║`,
 		},
+		// 		{
+		// 			name:       "Multiline and padding of note with 263 characters",
+		// 			input:      "Starfruit produces Artisan Goods that have some of the highest sell values in the game. Starfruit produces Artisan Goods that have some of the highest sell values in the game. Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
+		// 			lineLength: 42,
+		// 			expected: `║   * Starfruit produces Artisan Goods that have ║
+		// ║     some of the highest sell values in the     ║
+		// ║     game. Starfruit produces Artisan Goods     ║
+		// ║     that have some of the highest sell values  ║
+		// ║     in the game. Starfruit produces Artisan    ║
+		// ║     Goods that have some of the highest sell   ║
+		// ║     values in the game.                        ║`,
+		// 		},
 	}
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			actual := output.LineSplit(tc.input, tc.lineLength)
+
+			assert.Equal(t, tc.expected, actual)
+		})
+	}
+}
+
+func TestLineBreak(t *testing.T) {
+	testCases := []struct {
+		name       string
+		input      string
+		lineLength int
+		expected   []string
+	}{
+		{
+			name:       "Break in the middle of a two word input",
+			input:      "xxxxxx xxxxxx",
+			lineLength: 42,
+			expected:   []string{"xxxxxx", "xxxxxx"},
+		},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			actual := output.LineBreaks(tc.input, tc.lineLength)
 
 			assert.Equal(t, tc.expected, actual)
 		})
