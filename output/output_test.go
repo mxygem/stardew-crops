@@ -104,13 +104,13 @@ func TestNoteSplit(t *testing.T) {
 			input:    "Starfruit produces Artisan",
 			expected: `║   * Starfruit produces Artisan                 ║`,
 		},
-		// 		{
-		// 			name:  "Multiline and padding of note with 87 characters",
-		// 			input: "Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
-		// 			expected: `║   * Starfruit produces Artisan Goods that have ║
-		// ║     some of the highest sell values in the     ║
-		// ║     game.                                      ║`,
-		// 		},
+		{
+			name:  "Multiline and padding of note with 87 characters",
+			input: "Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
+			expected: `║   * Starfruit produces Artisan Goods that have ║
+║     some of the highest sell values in the     ║
+║     game.                                      ║`,
+		},
 	}
 
 	for _, tc := range testCases {
