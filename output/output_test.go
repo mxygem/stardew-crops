@@ -155,12 +155,24 @@ func TestLineBreak(t *testing.T) {
 		lineLength int
 		expected   []string
 	}{
+		// {
+		// 	name:       "Line length is over input length",
+		// 	input:      "xxxxxx xxxxxx",
+		// 	lineLength: 14,
+		// 	expected:   []string{"xxxxxx xxxxxx"},
+		// },
 		{
-			name:       "No break needed",
-			input:      "xxxxxx",
+			name:       "Line break at natural break following word",
+			input:      "xxxxxx xxxxxx",
 			lineLength: 6,
-			expected:   []string{"xxxxxx"},
+			expected:   []string{"xxxxxx", "xxxxxx"},
 		},
+		// {
+		// 	name:       "Line break at natural break following space",
+		// 	input:      "xxxxxx xxxxxx",
+		// 	lineLength: 7,
+		// 	expected:   []string{"xxxxxx", "xxxxxx"},
+		// },
 		// {
 		// 	name:       "Break in the middle of a two word input",
 		// 	input:      "xxxxxx xxxxxx",

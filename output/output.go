@@ -101,10 +101,18 @@ func LineSplit(s string, l int) string {
 	return o.String()
 }
 
-func LineBreaks(s string, l int) []string {
-	return []string{"xxxxxx"}
-}
-
 func pad(l int, s string) string {
 	return fmt.Sprintf("%s%s", s, bytes.Repeat([]byte(" "), (l-len([]byte(s)))))
+}
+
+func LineBreaks(s string, l int) []string {
+	sb := []byte(s)
+	sl := len(sb)
+	// if the line length is greater than the
+	// input, nothing needs to happen
+	if l >= sl {
+		return []string{s}
+	}
+
+	return []string{}
 }
