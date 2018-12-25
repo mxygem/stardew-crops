@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"html/template"
 	"os"
+	"strings"
 
 	"github.com/jaysonesmith/stardew-crops/data"
 	"github.com/jaysonesmith/stardew-crops/utils"
@@ -39,7 +40,11 @@ func Print(o *bytes.Buffer) {
 
 func prettyFormat(d data.CropData) []byte {
 	funcs := template.FuncMap{
-		// "safe": safe,
+		"title":     title,
+		"season":    season,
+		"add":       add,
+		"safe":      safe,
+		"noteSplit": NoteSplit,
 	}
 
 	t := template.New("pretty").Funcs(funcs)
@@ -52,4 +57,30 @@ func prettyFormat(d data.CropData) []byte {
 	}
 
 	return out.Bytes()
+}
+
+func title(s string) string {
+	return strings.Title(s)
+}
+
+func season(s []string) string {
+	return title(strings.Join(s, ", "))
+}
+
+func add(n1, n2 int) int {
+	return n1 + n2
+}
+
+func safe(s string) template.HTML {
+	return template.HTML(s)
+}
+
+func NoteSplit(s string) string {
+	rs := []rune(s)
+	var o strings.Builder
+	fmt.Println("length:", len(rs))
+	if len(rs) == 42 {
+		fmt.Fprintf(&o, "║   * %s ║", s)
+	}
+	return o.String()
 }

@@ -1,19 +1,37 @@
 ╔════════════════════════════════════════════════╗
 ║ Results:                                       ║
 ║ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═║
-║ 1.                                             ║
-║ Name: Starfruit                                ║
-║ Seeds: Starfruit Seeds                         ║
-║ Growth Time: 13 days                           ║
-║ Season: Summer                                 ║
+{{ range $i, $c := .Crops -}}
+║ {{add $i 1}}.                                             ║
+║ Name: {{title $c.Name}}                                ║
+║ Seeds: {{title $c.Info.Seed}}                         ║
+║ Growth Time: {{$c.Info.GrowthTime}} days                           ║
+║ Season: {{season $c.Info.Season}}                                 ║
 ║ Seed Price:                                    ║
 ║   * Oasis: 400g                                ║
+{{ if ge (len $c.Bundles) 1 -}}
+║ Bundles:                                        ║
+{{ range $q := $c.Bundles -}}
+║   * {{print $q | safe}}                           ║
+{{ end -}}
+{{ end -}}
+{{ if ge (len $c.Recipes) 1 -}}
+║ Recipes:                                        ║
+{{ range $q := $c.Recipes -}}
+║   * {{print $q | safe}}                           ║
+{{ end -}}
+{{ end -}}
+{{ if ge (len $c.Quests) 1 -}}
 ║ Quests:                                        ║
-║   * A Soldier's Star                           ║
+{{ range $q := $c.Quests -}}
+║   * {{print $q | safe}}                           ║
+{{ end -}}
+{{ end -}}
+{{ if ge (len $c.Quests) 1 -}}
 ║ Notes:                                         ║
-║   * Starfruit produces Artisan Goods that have ║
-║     some of the highest sell values in the     ║
-║     game.                                      ║
-║   * Starfruit is required to build a Junimo    ║
-║     Hut, purchased from the Wizard's Tower.    ║
+{{ range $q := $c.Notes -}}
+{{ noteSplit $q | printf "%s" | safe}}
+{{ end -}}
+{{ end -}}
+{{ end -}}
 ╚════════════════════════════════════════════════╝
