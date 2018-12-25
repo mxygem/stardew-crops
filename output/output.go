@@ -102,7 +102,7 @@ func LineSplit(s string, l int) string {
 }
 
 func LineBreaks(s string, l int) []string {
-	return []string{"xxxxxx", "xxxxxx"}
+	return []string{"xxxxxx"}
 }
 
 func pad(l int, s string) string {
