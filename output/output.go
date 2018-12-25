@@ -117,11 +117,9 @@ func LineBreaks(s string, l int) []string {
 	out := []string{}
 	start := 0
 	end := l
-	fmt.Printf("overall settings start: %d, end: %d, sl: %d\n", start, end, sl)
 	for end <= sl {
 		// pad ending if starting with a space
 		if sb[start] == 32 {
-			fmt.Println("found space at start, padding end")
 			end++
 		}
 
@@ -130,12 +128,8 @@ func LineBreaks(s string, l int) []string {
 		// before the desired cut
 		if end < sl {
 			if sb[end-1] != 32 && sb[end] != 32 && sb[end+1] != 32 {
-				fmt.Println("in middle of word")
-				fmt.Printf("before: %s, at: %s, after: %s", string(sb[end-1]), string(sb[end]), string(sb[end+1]))
 				for i := end; i > 0; i-- {
-					fmt.Printf("%s = space? %v\n", string(sb[i]), sb[i] == 32)
 					if sb[i] == 32 {
-						fmt.Printf("end: %d, i: %d\n", end, i)
 						end = i
 						break
 					}
@@ -144,13 +138,11 @@ func LineBreaks(s string, l int) []string {
 		}
 
 		// grab the content
-		fmt.Printf("start: %d, end: %d, sl: %d\n", start, end, sl)
 		var sub []byte
 		if end <= sl {
 			sub = sb[start:end]
 		}
 
-		fmt.Println("sub to append:", strings.TrimSpace(string(sub)))
 		if string(sub) != "" {
 			out = append(out, strings.TrimSpace(string(sub)))
 		}
