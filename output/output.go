@@ -44,7 +44,7 @@ func prettyFormat(d data.CropData) []byte {
 		"season":    season,
 		"add":       add,
 		"safe":      safe,
-		"noteSplit": NoteSplit,
+		"lineSplit": LineSplit,
 	}
 
 	t := template.New("pretty").Funcs(funcs)
@@ -75,7 +75,7 @@ func safe(s string) template.HTML {
 	return template.HTML(s)
 }
 
-func NoteSplit(s string) string {
+func LineSplit(s string) string {
 	sb := []byte(s)
 	l := len(sb)
 	var o strings.Builder
@@ -86,6 +86,10 @@ func NoteSplit(s string) string {
 		out := pad(42, s)
 		fmt.Fprintf(&o, "║   * %s ║", out)
 	} else if l > 42 {
+		// TODO: perform line breaks at the first space
+		// before the limit so that words aren't cut
+		// TODO: make this section flexible for any string
+		// over 42 char
 		fmt.Fprintf(&o, "║   * %s ║", sb[0:42])
 		fmt.Fprint(&o, "\n")
 		fmt.Fprintf(&o, "║     %s ║", pad(42, string(sb[43:81])))

@@ -88,7 +88,7 @@ func TestFormat(t *testing.T) {
 	}
 }
 
-func TestNoteSplit(t *testing.T) {
+func TestLineSplit(t *testing.T) {
 	testCases := []struct {
 		name     string
 		input    string
@@ -115,7 +115,7 @@ func TestNoteSplit(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			actual := output.NoteSplit(tc.input)
+			actual := output.LineSplit(tc.input)
 
 			assert.Equal(t, tc.expected, actual)
 		})
