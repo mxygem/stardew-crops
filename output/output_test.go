@@ -148,7 +148,7 @@ func TestLineSplit(t *testing.T) {
 	}
 }
 
-func TestLineBreak(t *testing.T) {
+func TestLineBreaks(t *testing.T) {
 	testCases := []struct {
 		name       string
 		input      string
@@ -173,12 +173,12 @@ func TestLineBreak(t *testing.T) {
 			lineLength: 7,
 			expected:   []string{"xxxxxx", "xxxxxx"},
 		},
-		// {
-		// 	name:       "Break in the middle of a two word input",
-		// 	input:      "xxxxxx xxxxxx",
-		// 	lineLength: 42,
-		// 	expected:   []string{"xxxxxx", "xxxxxx"},
-		// },
+		{
+			name:       "Break in the middle of a two word input",
+			input:      "abcdef ghijkl",
+			lineLength: 10,
+			expected:   []string{"abcdef", "ghijkl"},
+		},
 	}
 
 	for _, tc := range testCases {
