@@ -2,29 +2,29 @@
 ║ Results:                                       ║
 ║ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═║
 {{ range $i, $c := .Crops -}}
-║ {{add $i 1}}.                                             ║
-║ Name: {{title $c.Name}}                                ║
-║ Seeds: {{title $c.Info.Seed}}                         ║
-║ Growth Time: {{$c.Info.GrowthTime}} days                           ║
-║ Season: {{season $c.Info.Season}}                                 ║
+║ {{add $i 1}}.                                  ║
+║ Name: {{pad 40 $c.Name | title}} ║
+║ Seeds: {{pad 39 $c.Info.Seed | title}} ║
+║ Growth Time: {{printf "%d days" $c.Info.GrowthTime | pad 33}} ║
+║ Season: {{season $c.Info.Season}}              ║
 ║ Seed Price:                                    ║
 ║   * Oasis: 400g                                ║
 {{ if ge (len $c.Bundles) 1 -}}
-║ Bundles:                                        ║
+║ Bundles:                                       ║
 {{ range $q := $c.Bundles -}}
-║   * {{print $q | safe}}                           ║
+{{ lineSplit $q 42 | printf "%s" | safe}}
 {{ end -}}
 {{ end -}}
 {{ if ge (len $c.Recipes) 1 -}}
-║ Recipes:                                        ║
+║ Recipes:                                       ║
 {{ range $q := $c.Recipes -}}
-║   * {{print $q | safe}}                           ║
+{{ lineSplit $q 42 | printf "%s" | safe}}
 {{ end -}}
 {{ end -}}
 {{ if ge (len $c.Quests) 1 -}}
 ║ Quests:                                        ║
 {{ range $q := $c.Quests -}}
-║   * {{print $q | safe}}                           ║
+{{ lineSplit $q 42 | printf "%s" | safe}}
 {{ end -}}
 {{ end -}}
 {{ if ge (len $c.Quests) 1 -}}
