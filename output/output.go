@@ -114,5 +114,34 @@ func LineBreaks(s string, l int) []string {
 		return []string{s}
 	}
 
-	return []string{}
+	out := []string{}
+	start := 0
+	end := l
+	for end <= sl {
+		// pad ending if starting with a space
+		if sb[start] == 32 {
+			end++
+		}
+
+		// grab the content
+		sub := sb[start:end]
+		out = append(out, strings.TrimSpace(string(sub)))
+
+		// update for the next line
+		start = end
+		end += l
+		if sub[(len(sub)-1)] == 32 {
+			end++
+		}
+
+		// grab the rest of the string
+		if end > sl {
+			final := strings.TrimSpace(string(sb[start:]))
+			if final != "" {
+				out = append(out, final)
+			}
+		}
+	}
+
+	return out
 }
