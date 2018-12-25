@@ -99,11 +99,11 @@ func TestNoteSplit(t *testing.T) {
 			input:    "Starfruit produces Artisan Goods that have",
 			expected: `║   * Starfruit produces Artisan Goods that have ║`,
 		},
-		// 		{
-		// 			name:     "Note under 42 characters to force padding",
-		// 			input:    "",
-		// 			expected: `║   * Starfruit produces Artisan                 ║`,
-		// 		},
+		{
+			name:     "Note under 42 characters to force padding",
+			input:    "Starfruit produces Artisan",
+			expected: `║   * Starfruit produces Artisan                 ║`,
+		},
 		// 		{
 		// 			name:  "Multiline and padding of note with 87 characters",
 		// 			input: "Starfruit produces Artisan Goods that have some of the highest sell values in the game.",

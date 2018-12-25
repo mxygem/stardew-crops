@@ -76,11 +76,19 @@ func safe(s string) template.HTML {
 }
 
 func NoteSplit(s string) string {
-	rs := []rune(s)
+	l := len([]byte(s))
 	var o strings.Builder
-	fmt.Println("length:", len(rs))
-	if len(rs) == 42 {
+	fmt.Println("length:", l)
+	if l == 42 {
 		fmt.Fprintf(&o, "║   * %s ║", s)
+	} else if l < 42 {
+		out := pad(42, s)
+		fmt.Fprintf(&o, "║   * %s ║", out)
 	}
+
 	return o.String()
+}
+
+func pad(l int, s string) string {
+	return fmt.Sprintf("%s%s", s, bytes.Repeat([]byte(" "), (l-len([]byte(s)))))
 }
