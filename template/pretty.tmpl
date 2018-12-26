@@ -21,7 +21,7 @@
 {{ if gt $c.SeedPrices.JojaMart 0 -}}
 ║   * JojaMart: {{printf "%dg" $c.SeedPrices.JojaMart | pad 32}} ║
 {{end -}}
-{{ $tc := $c.SeedPrices.TravelingCart -}}
+{{ $tc := derefTCP $c.SeedPrices.TravelingCart -}}
 {{ if gt $tc.Min 0 -}}
 ║   * Traveling Cart:                            ║
 ║      * Min: {{printf "%dg" $tc.Min | pad 34}} ║

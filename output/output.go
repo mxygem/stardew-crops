@@ -46,6 +46,7 @@ func prettyFormat(d data.CropData) []byte {
 		"safe":      safe,
 		"lineSplit": LineSplit,
 		"pad":       pad,
+		"derefTCP":  derefTravelingCartPrices,
 	}
 
 	t := template.New("pretty").Funcs(funcs)
@@ -74,6 +75,10 @@ func add(n1, n2 int) int {
 
 func safe(s string) template.HTML {
 	return template.HTML(s)
+}
+
+func derefTravelingCartPrices(i *data.TravelingCartPrices) data.TravelingCartPrices {
+	return *i
 }
 
 func LineSplit(s string, l int) []string {
