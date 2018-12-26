@@ -2,9 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/jaysonesmith/stardew-crops.svg?style=svg)](https://circleci.com/gh/jaysonesmith/stardew-crops)
 
-A learning project for learning to write cli tools. This one is for returning basic crop data for the game Stardew Valley.
-
-It's built with [cobra](https://github.com/spf13/cobra) and tested with [godog](https://github.com/DATA-DOG/godog) & unit tests
+A project for learning to write cli tools. This one is for returning basic crop data for the game Stardew Valley.
 
 ## Install
 
@@ -12,12 +10,15 @@ It's built with [cobra](https://github.com/spf13/cobra) and tested with [godog](
 
 ## Running
 
-`stardew-crops` has a number of different options for running and more will be added.
+`stardew-crops` has a number of different options for running. For more info, run `stardew-crops`
 
-* `stardew-crops` - returns all data available
 * `stardew-crops info garlic` - returns data specific to the specified crop
-* `stardew-crops season` - returns all crop names sorted by season
-* `stardew-crops season summer` - returns all crop names for the specified season
+* `stardew-crops search --season summer` - returns data around the crops that grow in summer
+
+## Built-with
+
+* [cobra](https://github.com/spf13/cobra)
+* [godog](https://github.com/DATA-DOG/godog)
 
 ## Contributing
 
