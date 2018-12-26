@@ -61,29 +61,6 @@ func prettyFormat(d data.CropData) []byte {
 	return out.Bytes()
 }
 
-func title(s string) string {
-	return strings.Title(s)
-}
-
-func season(s []string) string {
-	return title(strings.Join(s, ", "))
-}
-
-func add(n1, n2 int) int {
-	return n1 + n2
-}
-
-func safe(s string) template.HTML {
-	return template.HTML(s)
-}
-
-func derefTravelingCartPrices(i *data.Prices) data.TravelingCartPrices {
-	if i.TravelingCart != nil {
-		return *i.TravelingCart
-	}
-	return data.TravelingCartPrices{}
-}
-
 func lineSplit(s string, l int) []string {
 	sl := len([]byte(s))
 	var sb []string
@@ -104,10 +81,6 @@ func lineSplit(s string, l int) []string {
 	}
 
 	return sb
-}
-
-func pad(l int, s string) string {
-	return fmt.Sprintf("%s%s", s, bytes.Repeat([]byte(" "), (l-len([]byte(s)))))
 }
 
 func lineBreaks(s string, l int) []string {
@@ -172,4 +145,31 @@ func lastSpace(sb []byte, end int) int {
 		}
 	}
 	return 0
+}
+
+func derefTravelingCartPrices(i *data.Prices) data.TravelingCartPrices {
+	if i.TravelingCart != nil {
+		return *i.TravelingCart
+	}
+	return data.TravelingCartPrices{}
+}
+
+func pad(l int, s string) string {
+	return fmt.Sprintf("%s%s", s, bytes.Repeat([]byte(" "), (l-len([]byte(s)))))
+}
+
+func title(s string) string {
+	return strings.Title(s)
+}
+
+func season(s []string) string {
+	return title(strings.Join(s, ", "))
+}
+
+func add(n1, n2 int) int {
+	return n1 + n2
+}
+
+func safe(s string) template.HTML {
+	return template.HTML(s)
 }
