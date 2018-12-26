@@ -10,6 +10,10 @@
 ║ Seeds: {{pad 39 $c.Info.Seed | title}} ║
 ║ Growth Time: {{printf "%d days" $c.Info.GrowthTime | pad 33}} ║
 ║ Season: {{season $c.Info.Season | pad 38 }} ║
+{{ if $c.Info.Continual -}}
+║ Continual: Yes                                 ║
+║ Regrowth: {{printf "%d days" $c.Info.Regrowth | pad 36}} ║
+{{end -}}
 ║ Seed Price:                                    ║
 {{ if gt $c.SeedPrices.GeneralStore 0 -}}
 ║   * General Store: {{printf "%dg" $c.SeedPrices.GeneralStore | pad 27}} ║
