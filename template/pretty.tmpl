@@ -15,23 +15,24 @@
 ║ Regrowth: {{printf "%d days" $c.Info.Regrowth | pad 36}} ║
 {{end -}}
 ║ Seed Price:                                    ║
-{{ if gt $c.SeedPrices.GeneralStore 0 -}}
-║   * General Store: {{printf "%dg" $c.SeedPrices.GeneralStore | pad 27}} ║
+{{ $sp := $c.SeedPrices -}}
+{{ if gt $sp.GeneralStore 0 -}}
+║   * General Store: {{printf "%dg" $sp.GeneralStore | pad 27}} ║
 {{end -}}
-{{ if gt $c.SeedPrices.JojaMart 0 -}}
-║   * JojaMart: {{printf "%dg" $c.SeedPrices.JojaMart | pad 32}} ║
+{{ if gt $sp.JojaMart 0 -}}
+║   * JojaMart: {{printf "%dg" $sp.JojaMart | pad 32}} ║
 {{end -}}
-{{ $tc := derefTCP $c.SeedPrices.TravelingCart -}}
+{{ $tc := derefTCP $sp -}}
 {{ if gt $tc.Min 0 -}}
 ║   * Traveling Cart:                            ║
 ║      * Min: {{printf "%dg" $tc.Min | pad 34}} ║
 ║      * Max: {{printf "%dg" $tc.Max | pad 34}} ║
 {{end -}}
-{{ if gt $c.SeedPrices.Oasis 0 -}}
-║   * Oasis: {{printf "%dg" $c.SeedPrices.Oasis | pad 35}} ║
+{{ if gt $sp.Oasis 0 -}}
+║   * Oasis: {{printf "%dg" $sp.Oasis | pad 35}} ║
 {{end -}}
-{{ if gt $c.SeedPrices.EggFestival 0 -}}
-║   * Egg Festival: {{printf "%dg" $c.SeedPrices.EggFestival | pad 28}} ║
+{{ if gt $sp.EggFestival 0 -}}
+║   * Egg Festival: {{printf "%dg" $sp.EggFestival | pad 28}} ║
 {{end -}}
 {{ if ge (len $c.Bundles) 1 -}}
 ║ Bundles:                                       ║

@@ -77,8 +77,11 @@ func safe(s string) template.HTML {
 	return template.HTML(s)
 }
 
-func derefTravelingCartPrices(i *data.TravelingCartPrices) data.TravelingCartPrices {
-	return *i
+func derefTravelingCartPrices(i *data.Prices) data.TravelingCartPrices {
+	if i.TravelingCart != nil {
+		return *i.TravelingCart
+	}
+	return data.TravelingCartPrices{}
 }
 
 func LineSplit(s string, l int) []string {
