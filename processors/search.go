@@ -8,65 +8,65 @@ import (
 )
 
 // Search ...
-func Search(flags map[string]string) ([]data.Crop, error) {
-	var out []data.Crop
+func Search(flags map[string]string) (data.CropData, error) {
+	var out data.CropData
 
 	c := cropData.Crops
 	for i := 0; i < len(cropData.Crops); i++ {
 		specified, ok, err := byBundle(c[i], flags)
 		if err != nil {
-			return []data.Crop{}, err
+			return data.CropData{}, err
 		} else if specified && !ok {
 			continue
 		}
 
 		specified, ok, err = byGrowth("g", c[i].Info.GrowthTime, flags)
 		if err != nil {
-			return []data.Crop{}, err
+			return data.CropData{}, err
 		} else if specified && !ok {
 			continue
 		}
 
 		specified, ok, err = byGrowth("gt", c[i].Info.GrowthTime, flags)
 		if err != nil {
-			return []data.Crop{}, err
+			return data.CropData{}, err
 		} else if specified && !ok {
 			continue
 		}
 
 		specified, ok, err = byGrowth("lt", c[i].Info.GrowthTime, flags)
 		if err != nil {
-			return []data.Crop{}, err
+			return data.CropData{}, err
 		} else if specified && !ok {
 			continue
 		}
 
 		specified, ok, err = bySeason(c[i].Info.Season, flags)
 		if err != nil {
-			return []data.Crop{}, err
+			return data.CropData{}, err
 		} else if specified && !ok {
 			continue
 		}
 
 		specified, ok, err = byTrellis(c[i].Info.Trellis, flags)
 		if err != nil {
-			return []data.Crop{}, err
+			return data.CropData{}, err
 		} else if specified && !ok {
 			continue
 		}
 
 		specified, ok, err = byContinuous(c[i].Info.Continual, flags)
 		if err != nil {
-			return []data.Crop{}, err
+			return data.CropData{}, err
 		} else if specified && !ok {
 			continue
 		}
 
-		out = append(out, c[i])
+		out.Crops = append(out.Crops, c[i])
 	}
 
-	if len(out) == 0 {
-		return []data.Crop{}, fmt.Errorf("No matching crops found")
+	if len(out.Crops) == 0 {
+		return data.CropData{}, fmt.Errorf("No matching crops found")
 	}
 
 	return out, nil

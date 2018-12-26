@@ -166,7 +166,7 @@ func TestSearch(t *testing.T) {
 			actual, err := processors.Search(tc.flags)
 
 			assert.Equal(t, tc.err, err)
-			for i, c := range actual {
+			for i, c := range actual.Crops {
 				assert.Equal(t, tc.expected[i], c.Name)
 			}
 		})
