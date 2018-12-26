@@ -26,11 +26,11 @@ type Info struct {
 }
 
 type Prices struct {
-	GeneralStore  int64                `json:"general_store,omitempty"`
-	JojaMart      int64                `json:"jojamart,omitempty"`
-	TravelingCart *TravelingCartPrices `json:"traveling_cart,omitempty"`
-	Oasis         int64                `json:"oasis,omitempty"`
-	EggFestival   int64                `json:"egg_festival,omitempty"`
+	GeneralStore  int64               `json:"general_store,omitempty"`
+	JojaMart      int64               `json:"jojamart,omitempty"`
+	TravelingCart TravelingCartPrices `json:"traveling_cart,omitempty"`
+	Oasis         int64               `json:"oasis,omitempty"`
+	EggFestival   int64               `json:"egg_festival,omitempty"`
 }
 
 type TravelingCartPrices struct {

@@ -8,7 +8,24 @@
 ║ Growth Time: {{printf "%d days" $c.Info.GrowthTime | pad 33}} ║
 ║ Season: {{season $c.Info.Season | pad 38 }} ║
 ║ Seed Price:                                    ║
-║   * Oasis: 400g                                ║
+{{ if gt $c.SeedPrices.GeneralStore 0 -}}
+║   * General Store: {{printf "%dg" $c.SeedPrices.GeneralStore | pad 27}} ║
+{{end -}}
+{{ if gt $c.SeedPrices.JojaMart 0 -}}
+║   * JojaMart: {{printf "%dg" $c.SeedPrices.JojaMart | pad 32}} ║
+{{end -}}
+{{ $tc := $c.SeedPrices.TravelingCart -}}
+{{ if gt $tc.Min 0 -}}
+║   * Traveling Cart:                            ║
+║      * Min: {{printf "%dg" $tc.Min | pad 34}} ║
+║      * Max: {{printf "%dg" $tc.Max | pad 34}} ║
+{{end -}}
+{{ if gt $c.SeedPrices.Oasis 0 -}}
+║   * Oasis: {{printf "%dg" $c.SeedPrices.Oasis | pad 35}} ║
+{{end -}}
+{{ if gt $c.SeedPrices.EggFestival 0 -}}
+║   * Egg Festival: {{printf "%dg" $c.SeedPrices.EggFestival | pad 28}} ║
+{{end -}}
 {{ if ge (len $c.Bundles) 1 -}}
 ║ Bundles:                                       ║
 {{ range $q := $c.Bundles -}}
@@ -33,7 +50,7 @@
 {{ end -}}
 {{ end -}}
 {{ end -}}
-{{ if ge (len $c.Quests) 1 -}}
+{{ if ge (len $c.Notes) 1 -}}
 ║ Notes:                                         ║
 {{ range $q := $c.Notes -}}
 {{ range $l := lineSplit $q 42 -}}

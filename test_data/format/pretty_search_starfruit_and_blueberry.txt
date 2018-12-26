@@ -25,7 +25,7 @@
 ║ Continual: Yes                                 ║
 ║ Regrowth: 4 days                               ║
 ║ Seed Price:                                    ║
-║   * General Store: 400g                        ║
+║   * General Store: 80g                         ║
 ║ Bundles:                                       ║
 ║   * Summer Crops                               ║
 ║ Recipes:                                       ║
