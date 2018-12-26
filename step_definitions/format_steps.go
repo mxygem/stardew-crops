@@ -52,7 +52,7 @@ func (sc *ScenarioContext) InfoFormat(c, f string) error {
 
 func (sc *ScenarioContext) MatchInfoFormat(c, f string) error {
 	expected := strings.TrimSpace(utils.Open(fmt.Sprintf(".././test_data/format/%s_info_%s.txt", f, c)))
-	actual := sc.STDOut
+	actual := strings.TrimSpace(sc.STDOut)
 
 	if expected != actual {
 		return fmt.Errorf("actual output does not match expected.\nexpected:%s\nactual:%s", expected, actual)

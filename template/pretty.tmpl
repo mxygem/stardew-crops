@@ -2,11 +2,11 @@
 ║ Results:                                       ║
 ║ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═║
 {{ range $i, $c := .Crops -}}
-║ {{add $i 1}}.                                  ║
+║ {{add $i 1 | printf "%d." | pad 46 }} ║
 ║ Name: {{pad 40 $c.Name | title}} ║
 ║ Seeds: {{pad 39 $c.Info.Seed | title}} ║
 ║ Growth Time: {{printf "%d days" $c.Info.GrowthTime | pad 33}} ║
-║ Season: {{season $c.Info.Season}}              ║
+║ Season: {{season $c.Info.Season | pad 38 }} ║
 ║ Seed Price:                                    ║
 ║   * Oasis: 400g                                ║
 {{ if ge (len $c.Bundles) 1 -}}
