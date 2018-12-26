@@ -4,7 +4,6 @@ Feature: Formatting options
    * json - output formatted JSON
    * raw - (default for now) outputs non-formatted JSON
  
-  @wip
   Scenario: The pretty formatter returns nicely formatted data
     When info for starfruit is requested with the pretty formatter
     Then the output must be starfruit's pretty info
