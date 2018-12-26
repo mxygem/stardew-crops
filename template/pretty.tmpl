@@ -2,6 +2,9 @@
 ║ Results:                                       ║
 ║ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═║
 {{ range $i, $c := .Crops -}}
+{{ if gt $i 0 -}}
+║ {{ pad 46 ""}} ║
+{{end -}}
 ║ {{add $i 1 | printf "%d." | pad 46 }} ║
 ║ Name: {{pad 40 $c.Name | title}} ║
 ║ Seeds: {{pad 39 $c.Info.Seed | title}} ║
