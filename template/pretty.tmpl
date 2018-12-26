@@ -12,25 +12,33 @@
 {{ if ge (len $c.Bundles) 1 -}}
 ║ Bundles:                                       ║
 {{ range $q := $c.Bundles -}}
-{{ lineSplit $q 42 | printf "%s" | safe}}
+{{ range $l := lineSplit $q 42 -}}
+║ {{- printf "%s" $l | safe -}} ║
+{{ end -}}
 {{ end -}}
 {{ end -}}
 {{ if ge (len $c.Recipes) 1 -}}
 ║ Recipes:                                       ║
 {{ range $q := $c.Recipes -}}
-{{ lineSplit $q 42 | printf "%s" | safe}}
+{{ range $l := lineSplit $q 42 -}}
+║ {{- printf "%s" $l | safe -}} ║
+{{ end -}}
 {{ end -}}
 {{ end -}}
 {{ if ge (len $c.Quests) 1 -}}
 ║ Quests:                                        ║
 {{ range $q := $c.Quests -}}
-{{ lineSplit $q 42 | printf "%s" | safe}}
+{{ range $l := lineSplit $q 42 -}}
+║ {{- printf "%s" $l | safe -}} ║
+{{ end -}}
 {{ end -}}
 {{ end -}}
 {{ if ge (len $c.Quests) 1 -}}
 ║ Notes:                                         ║
 {{ range $q := $c.Notes -}}
-{{ lineSplit $q 42 | printf "%s" | safe}}
+{{ range $l := lineSplit $q 42 -}}
+║ {{- printf "%s" $l | safe -}} ║
+{{ end -}}
 {{ end -}}
 {{ end -}}
 {{ end -}}

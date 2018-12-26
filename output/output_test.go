@@ -2,6 +2,7 @@ package output_test
 
 import (
 	"bytes"
+	"strings"
 	"testing"
 
 	"github.com/jaysonesmith/stardew-crops/data"
@@ -75,7 +76,7 @@ func TestFormat(t *testing.T) {
 					Notes:      []string{"Starfruit produces Artisan Goods that have some of the highest sell values in the game.", "Starfruit is required to build a Junimo Hut, purchased from the Wizard's Tower."},
 				}}},
 			f:        "pretty",
-			expected: bytes.NewBuffer(utils.OpenBytes(".././test_data/format/pretty_info_starfruit.txt")),
+			expected: bytes.NewBuffer([]byte(strings.TrimSpace(utils.Open(".././test_data/format/pretty_info_starfruit.txt")))),
 		},
 	}
 
@@ -92,47 +93,52 @@ func TestLineSplit(t *testing.T) {
 	testCases := []struct {
 		name       string
 		input      string
-		expected   string
+		expected   []string
 		lineLength int
 	}{
 		{
 			name:       "Note exactly 42 characters",
 			input:      "Starfruit produces Artisan Goods that have",
 			lineLength: 42,
-			expected:   `║   * Starfruit produces Artisan Goods that have ║`,
+			expected:   []string{"   * Starfruit produces Artisan Goods that have "},
 		},
 		{
 			name:       "Note under 42 characters to force padding",
 			input:      "Starfruit produces Artisan",
 			lineLength: 42,
-			expected:   `║   * Starfruit produces Artisan                 ║`,
+			expected:   []string{"   * Starfruit produces Artisan                 "},
 		},
 		{
 			name:       "Multiline and padding of note with 87 characters",
 			input:      "Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
 			lineLength: 42,
-			expected: `║   * Starfruit produces Artisan Goods that have ║
-║     some of the highest sell values in the     ║
-║     game.                                      ║`,
+			expected: []string{"   * Starfruit produces Artisan Goods that have ",
+				"     some of the highest sell values in the     ",
+				"     game.                                      ",
+			},
 		},
 		{
 			name:       "Multiline and padding of note with 60 characters",
 			input:      "Starfruit produces Artisan Goods that have some of the highe",
 			lineLength: 42,
-			expected: `║   * Starfruit produces Artisan Goods that have ║
-║     some of the highe                          ║`,
+			expected: []string{
+				"   * Starfruit produces Artisan Goods that have ",
+				"     some of the highe                          ",
+			},
 		},
 		{
 			name:       "Multiline and padding of note with 263 characters",
 			input:      "Starfruit produces Artisan Goods that have some of the highest sell values in the game. Starfruit produces Artisan Goods that have some of the highest sell values in the game. Starfruit produces Artisan Goods that have some of the highest sell values in the game.",
 			lineLength: 42,
-			expected: `║   * Starfruit produces Artisan Goods that have ║
-║     some of the highest sell values in the     ║
-║     game. Starfruit produces Artisan Goods     ║
-║     that have some of the highest sell values  ║
-║     in the game. Starfruit produces Artisan    ║
-║     Goods that have some of the highest sell   ║
-║     values in the game.                        ║`,
+			expected: []string{
+				"   * Starfruit produces Artisan Goods that have ",
+				"     some of the highest sell values in the     ",
+				"     game. Starfruit produces Artisan Goods     ",
+				"     that have some of the highest sell values  ",
+				"     in the game. Starfruit produces Artisan    ",
+				"     Goods that have some of the highest sell   ",
+				"     values in the game.                        ",
+			},
 		},
 	}
 

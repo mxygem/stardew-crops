@@ -76,26 +76,26 @@ func safe(s string) template.HTML {
 	return template.HTML(s)
 }
 
-func LineSplit(s string, l int) string {
+func LineSplit(s string, l int) []string {
 	sl := len([]byte(s))
-	var sb strings.Builder
+	var sb []string
 
 	if sl == l {
-		sb.WriteString(fmt.Sprintf("║   * %s ║\r\n", s))
+		sb = append(sb, fmt.Sprintf("   * %s ", s))
 	} else if sl < l {
-		sb.WriteString(fmt.Sprintf("║   * %s ║\r\n", pad(l, s)))
+		sb = append(sb, fmt.Sprintf("   * %s ", pad(l, s)))
 	} else if sl > l {
 		lines := LineBreaks(s, l)
 		for i, line := range lines {
 			if i == 0 {
-				sb.WriteString(fmt.Sprintf("║   * %s ║\r\n", pad(l, line)))
+				sb = append(sb, fmt.Sprintf("   * %s ", pad(l, line)))
 			} else {
-				sb.WriteString(fmt.Sprintf("║     %s ║\r\n", pad(l, line)))
+				sb = append(sb, fmt.Sprintf("     %s ", pad(l, line)))
 			}
 		}
 	}
 
-	return sb.String()
+	return sb
 }
 
 func pad(l int, s string) string {
