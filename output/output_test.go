@@ -75,7 +75,7 @@ func TestFormat(t *testing.T) {
 					Notes:      []string{"Starfruit produces Artisan Goods that have some of the highest sell values in the game.", "Starfruit is required to build a Junimo Hut, purchased from the Wizard's Tower."},
 				}}},
 			f:        "pretty",
-			expected: bytes.NewBuffer([]byte(utils.Open(".././test_data/format/pretty_info_starfruit.txt"))),
+			expected: bytes.NewBuffer(utils.OpenBytes(".././test_data/format/pretty_info_starfruit.txt")),
 		},
 	}
 
@@ -83,7 +83,7 @@ func TestFormat(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			actual := output.Format(tc.data, tc.f)
 
-			assert.Equal(t, tc.expected, actual)
+			assert.Equal(t, tc.expected.String(), actual.String())
 		})
 	}
 }
