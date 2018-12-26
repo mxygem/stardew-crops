@@ -1,4 +1,4 @@
-package output_test
+package output
 
 import (
 	"bytes"
@@ -6,7 +6,6 @@ import (
 	"testing"
 
 	"github.com/jaysonesmith/stardew-crops/data"
-	"github.com/jaysonesmith/stardew-crops/output"
 	"github.com/jaysonesmith/stardew-crops/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/tidwall/pretty"
@@ -117,7 +116,7 @@ func TestFormat(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			actual := output.Format(tc.data, tc.f)
+			actual := Format(tc.data, tc.f)
 
 			assert.Equal(t, tc.expected.String(), actual.String())
 		})
@@ -179,7 +178,7 @@ func TestLineSplit(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			actual := output.LineSplit(tc.input, tc.lineLength)
+			actual := lineSplit(tc.input, tc.lineLength)
 
 			assert.Equal(t, tc.expected, actual)
 		})
@@ -227,7 +226,7 @@ func TestLineBreaks(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			actual := output.LineBreaks(tc.input, tc.lineLength)
+			actual := lineBreaks(tc.input, tc.lineLength)
 
 			assert.Equal(t, tc.expected, actual)
 		})

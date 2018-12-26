@@ -44,7 +44,7 @@ func prettyFormat(d data.CropData) []byte {
 		"season":    season,
 		"add":       add,
 		"safe":      safe,
-		"lineSplit": LineSplit,
+		"lineSplit": lineSplit,
 		"pad":       pad,
 		"derefTCP":  derefTravelingCartPrices,
 	}
@@ -84,7 +84,7 @@ func derefTravelingCartPrices(i *data.Prices) data.TravelingCartPrices {
 	return data.TravelingCartPrices{}
 }
 
-func LineSplit(s string, l int) []string {
+func lineSplit(s string, l int) []string {
 	sl := len([]byte(s))
 	var sb []string
 
@@ -93,7 +93,7 @@ func LineSplit(s string, l int) []string {
 	} else if sl < l {
 		sb = append(sb, fmt.Sprintf("   * %s ", pad(l, s)))
 	} else if sl > l {
-		lines := LineBreaks(s, l)
+		lines := lineBreaks(s, l)
 		for i, line := range lines {
 			if i == 0 {
 				sb = append(sb, fmt.Sprintf("   * %s ", pad(l, line)))
@@ -110,7 +110,7 @@ func pad(l int, s string) string {
 	return fmt.Sprintf("%s%s", s, bytes.Repeat([]byte(" "), (l-len([]byte(s)))))
 }
 
-func LineBreaks(s string, l int) []string {
+func lineBreaks(s string, l int) []string {
 	sb := []byte(s)
 	sl := len(sb)
 	// if the line length is greater than the
