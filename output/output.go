@@ -47,6 +47,7 @@ func prettyFormat(d data.CropData) []byte {
 		"lineSplit": lineSplit,
 		"pad":       pad,
 		"derefTCP":  derefTravelingCartPrices,
+		"listData":  listData,
 	}
 
 	t := template.New("pretty").Funcs(funcs)
@@ -172,4 +173,16 @@ func add(n1, n2 int) int {
 
 func safe(s string) template.HTML {
 	return template.HTML(s)
+}
+
+type ListData struct {
+	Name  string
+	Items []string
+}
+
+func listData(name string, item []string) ListData {
+	return ListData{
+		Name:  name,
+		Items: item,
+	}
 }

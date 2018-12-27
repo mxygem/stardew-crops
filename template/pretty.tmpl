@@ -35,36 +35,29 @@
 ║   * Egg Festival: {{printf "%dg" $sp.EggFestival | pad 28}} ║
 {{end -}}
 {{ if ge (len $c.Bundles) 1 -}}
-║ Bundles:                                       ║
-{{ range $q := $c.Bundles -}}
-{{ range $l := lineSplit $q 42 -}}
-║ {{- printf "%s" $l | safe -}} ║
-{{ end -}}
-{{ end -}}
+{{- $ld := listData "Bundles" $c.Bundles -}}
+{{- template "list" $ld -}}
 {{ end -}}
 {{ if ge (len $c.Recipes) 1 -}}
-║ Recipes:                                       ║
-{{ range $q := $c.Recipes -}}
-{{ range $l := lineSplit $q 42 -}}
-║ {{- printf "%s" $l | safe -}} ║
-{{ end -}}
-{{ end -}}
+{{- $ld := listData "Recipes" $c.Recipes -}}
+{{- template "list" $ld -}}
 {{ end -}}
 {{ if ge (len $c.Quests) 1 -}}
-║ Quests:                                        ║
-{{ range $q := $c.Quests -}}
-{{ range $l := lineSplit $q 42 -}}
-║ {{- printf "%s" $l | safe -}} ║
-{{ end -}}
-{{ end -}}
+{{- $ld := listData "Quests" $c.Quests -}}
+{{- template "list" $ld -}}
 {{ end -}}
 {{ if ge (len $c.Notes) 1 -}}
-║ Notes:                                         ║
-{{ range $q := $c.Notes -}}
-{{ range $l := lineSplit $q 42 -}}
-║ {{- printf "%s" $l | safe -}} ║
-{{ end -}}
-{{ end -}}
+{{- $ld := listData "Notes" $c.Notes -}}
+{{- template "list" $ld -}}
 {{ end -}}
 {{ end -}}
 ╚════════════════════════════════════════════════╝
+
+{{- define "list" -}}
+║ {{ printf "%s:" .Name | pad 46 }} ║
+{{ range $q := .Items -}}
+{{ range $l := lineSplit $q 42 -}}
+║ {{- printf "%s" $l | safe -}} ║
+{{ end -}}
+{{ end -}}
+{{ end -}}
