@@ -3,6 +3,7 @@ package commands
 import (
 	"bytes"
 
+	"github.com/jaysonesmith/stardew-crops/formatter"
 	"github.com/jaysonesmith/stardew-crops/output"
 	"github.com/jaysonesmith/stardew-crops/processors"
 	"github.com/jaysonesmith/stardew-crops/utils"
@@ -31,9 +32,9 @@ func Search(cmd *cobra.Command, args []string) {
 	b := bytes.NewBuffer([]byte{})
 	out, err := processors.Search(userFlags)
 	if err != nil {
-		b = output.Format(err.Error(), "error")
+		b = formatter.Format(err.Error(), "error")
 	} else {
-		b = output.Format(out, userFlags["format"])
+		b = formatter.Format(out, userFlags["format"])
 	}
 
 	output.Print(b)
