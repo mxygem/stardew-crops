@@ -4,7 +4,6 @@ import (
 	"bytes"
 
 	"github.com/jaysonesmith/stardew-crops/formatter"
-	"github.com/jaysonesmith/stardew-crops/output"
 	"github.com/jaysonesmith/stardew-crops/processors"
 	"github.com/jaysonesmith/stardew-crops/utils"
 	"github.com/spf13/cobra"
@@ -37,7 +36,7 @@ func Search(cmd *cobra.Command, args []string) {
 		b = formatter.Format(out, userFlags["format"])
 	}
 
-	output.Print(b)
+	print(b)
 }
 
 func init() {

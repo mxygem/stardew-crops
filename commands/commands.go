@@ -1,6 +1,7 @@
 package commands
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 )
@@ -17,4 +18,10 @@ func Execute() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+}
+
+// print provides a single source of completion
+// for the CLI
+func print(o *bytes.Buffer) {
+	o.WriteTo(os.Stdout)
 }
