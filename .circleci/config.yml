@@ -1,64 +1,127 @@
-executors:
-  runner:
-    working_directory: /go/src/github.com/jaysonesmith/stardew-crops
-    docker:
-      - image: circleci/golang:1.10
-    environment:
-      - TEST: true
-
-commands:
-  install_deps:
-    description: "Get godog, dep, and dependencies installed"
-    steps:
-      - checkout
-      - run: go get -u github.com/DATA-DOG/godog/cmd/godog
-      - run: go get -u github.com/haya14busa/goverage
-      - run: go get -u github.com/golang/dep/cmd/dep
-      - run: make dep
-      - run: go install .
-      - persist_to_workspace:
-          root: /go
-          paths:
-            - bin/*
-            - src/*
-  run_units:
-    description: "Run the unit make task that runs goverage"
-    steps:
-      - attach_workspace:
-          at: /go
-      - run: make unit
-  run_godog:
-    description: "Run godog"
-    steps:
-      - attach_workspace:
-          at: /go
-      - run: make godog
-
-version: 2.1
+version: 2
 jobs:
   deps:
-    executor: runner
+    working_directory: /go/src/github.com/jaysonesmith/stardew-crops
+    docker:
+    - image: circleci/golang:1.10
     steps:
-      - checkout
-      - install_deps
+    - checkout
+    - checkout
+    - run:
+        command: go get -u github.com/DATA-DOG/godog/cmd/godog
+    - run:
+        command: go get -u github.com/haya14busa/goverage
+    - run:
+        command: go get -u github.com/golang/dep/cmd/dep
+    - run:
+        command: make dep
+    - run:
+        command: go install .
+    - persist_to_workspace:
+        root: /go
+        paths:
+        - bin/*
+        - src/*
+    environment:
+    - TEST: true
   units:
-    executor: runner
+    working_directory: /go/src/github.com/jaysonesmith/stardew-crops
+    docker:
+    - image: circleci/golang:1.10
     steps:
-      - checkout
-      - run_units
+    - checkout
+    - attach_workspace:
+        at: /go
+    - run:
+        command: make unit
+    environment:
+    - TEST: true
   godog:
-    executor: runner
+    working_directory: /go/src/github.com/jaysonesmith/stardew-crops
+    docker:
+    - image: circleci/golang:1.10
     steps:
-      - checkout
-      - run_godog
-
+    - checkout
+    - attach_workspace:
+        at: /go
+    - run:
+        command: make godog
+    environment:
+    - TEST: true
 workflows:
   master:
     jobs:
-      - deps
-      - units:
-          requires:
-            - deps
-      - godog:
-          requires:
-            - deps
+    - deps
+    - units:
+        requires:
+        - deps
+    - godog:
+        requires:
+        - deps
+  version: 2
+
+# Original config.yml file:
+# executors:
+#   runner:
+#     working_directory: /go/src/github.com/jaysonesmith/stardew-crops
+#     docker:
+#       - image: circleci/golang:1.10
+#     environment:
+#       - TEST: true
+# 
+# commands:
+#   install_deps:
+#     description: \"Get godog, dep, and dependencies installed\"
+#     steps:
+#       - checkout
+#       - run: go get -u github.com/DATA-DOG/godog/cmd/godog
+#       - run: go get -u github.com/haya14busa/goverage
+#       - run: go get -u github.com/golang/dep/cmd/dep
+#       - run: make dep
+#       - run: go install .
+#       - persist_to_workspace:
+#           root: /go
+#           paths:
+#             - bin/*
+#             - src/*
+#   run_units:
+#     description: \"Run the unit make task that runs goverage\"
+#     steps:
+#       - attach_workspace:
+#           at: /go
+#       - run: make unit
+#   run_godog:
+#     description: \"Run godog\"
+#     steps:
+#       - attach_workspace:
+#           at: /go
+#       - run: make godog
+# 
+# version: 2.1
+# jobs:
+#   deps:
+#     executor: runner
+#     steps:
+#       - checkout
+#       - install_deps
+#   units:
+#     executor: runner
+#     steps:
+#       - checkout
+#       - run_units
+#   godog:
+#     executor: runner
+#     steps:
+#       - checkout
+#       - run_godog
+# 
+# workflows:
+#   master:
+#     jobs:
+#       - deps
+#       - units:
+#           requires:
+#             - deps
+#       - godog:
+#           requires:
+#             - deps
